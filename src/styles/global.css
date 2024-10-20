@@ -1,0 +1,11 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    background: rgb(9 9 11 / 1);
+    font-family: sans-serif;
+    font-size: 5px;
+}
