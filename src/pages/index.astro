@@ -1,67 +1,25 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import BaseLayout from "../layouts/BaseLayout.astro"
 ---
 
-<Layout title="Huzaifa - Home">
-    <main>
+<BaseLayout title="Huzaifa - Home">
+    <main>  
         <section id="hero">
             <div>
 				<header>
-					<h1 id="title" class="font-semibold not-italic">Hey 👋 I'm Huzaifa ─ an engineer</h1>
-                    <h2 id="description" class="font-semibold not-italic">Coding my way through life one bug at a time.</h2>
+					<h1 id="title" class="font-semibold not-italic text-primary text-9xl p-4">Hey 👋 I'm Huzaifa ─ an engineer</h1>
+                    <h2 id="description" class="font-semibold not-italic text-secondary 
+                    text-7xl py-16">Coding my way through life one bug at a time.</h2>
 				</header>
-            </div>
+            </div>  
         </section>
     </main>
 
-    <section id="footer">
+    <section class="flex fixed pb-20 bottom-0 left-0 w-full h-16 justify-center items-center">
         <div>
             <footer>
-                <p id="copyright">© 2024</p>
+                <p id="copyright" class="not-italic font-medium text-secondary text-5xl leading-5 p-4">© 2024</p>
             </footer>
         </div>
     </section>
-</Layout>
-
-<style>
-    body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        height: 100vh;
-        justify-content: center;
-    }
-
-    h1, h2, p {
-        padding: 5px;
-    }
-
-    #title {
-        font-size: 8rem;
-        color: rgb(255 255 255 / 1);
-    }
-
-    #description {
-        font-size: 5rem;
-        color: rgb(82 82 91 / 1);
-    }
-
-    #footer {
-        display: flex;   
-        background-color: rgb(9, 9, 11); 
-        position: fixed;        
-        bottom: 0;              
-        left: 0;                
-        width: 100%;                  
-        height: 60px; 
-        justify-content: center;
-        align-items: center;
-    }
-
-    #copyright {
-        color: rgb(82 82 91 / 1);
-        font-size: 3rem;
-    }
-
-</style>
+</BaseLayout>
