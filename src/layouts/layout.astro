@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import '@fontsource/geist-mono'
 const { title } = Astro.props;
 ---
 
@@ -13,7 +14,7 @@ const { title } = Astro.props;
     <title>{title}</title>
 </head>
 
-<body class="flex flex-col items-center text-center h-lvh justify-center">
+<body class="flex flex-col items-center text-center h-lvh justify-center font-mono">
     <slot>
     </slot>
 </body>

@@ -1,4 +1,4 @@
-*, 
+*,
 *::before, 
 *::after {
     margin: 0;
@@ -8,6 +8,20 @@
 
 :root {
     background: rgb(9 9 11 / 1);
-    font-family: sans-serif;
-    font-size: 5px;
+}
+
+.btn-glow, .hover\:shadow-glow {
+    transition: box-shadow 0.3s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.btn-glow, .hover\:shadow-glow:hover {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 
+                0 0 10px rgba(255, 255, 255, 0.4), 
+                0 0 15px rgba(255, 255, 255, 0.3), 
+                0 0 20px rgba(255, 255, 255, 0.2);
+    opacity: 1;
+}
+
+.btn-glow, .hover\:shadow-glow:not(:hover) {
+    opacity: 0;
 }

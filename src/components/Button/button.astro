@@ -1,0 +1,9 @@
+---
+import "../../styles/global.css";
+import ButtonComp from './button.tsx'
+const { href, label, target, size, className } = Astro.props;
+---
+
+<ButtonComp href={href} target={target} label={label} size={size} className={className}>
+    <slot/>
+</ButtonComp>
