@@ -26,7 +26,7 @@ import Button from "@components/Button/button.astro"
         
         <section id="homerow-buttons" class="flex flex-col md:flex-row md:justify-center mt-8 space-y-4 md:space-y-0 md:space-x-9">
             <div class="py-2">
-                <Button href="" target="" label="About-Me" size="sm" className="w-full">
+                <Button href="" target="" label="About-Me" size="sm" className="btn w-full">
                     <svg
                     xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true"
@@ -49,7 +49,7 @@ import Button from "@components/Button/button.astro"
             </div>
 
             <div class="py-2">
-                <Button href="" target="" label="Projects" size="sm" className="w-full">
+                <Button href="" target="" label="Projects" size="sm" className="btn w-full">
                     <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     xmlns:xlink="http://www.w3.org/1999/xlink" 
@@ -66,7 +66,7 @@ import Button from "@components/Button/button.astro"
             </div>
 
             <div class="py-2">
-                <Button href="" target="_blank" label="GitHub" size="sm" className="w-full">
+                <Button href="" target="_blank" label="GitHub" size="sm" className="btn w-full">
                     <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     xmlns:xlink="http://www.w3.org/1999/xlink" 
@@ -88,6 +88,11 @@ import Button from "@components/Button/button.astro"
                     </svg>
                 </Button>
             </div>
+
+            <script>
+                import { buttonDelay } from "src/scripts/button-delay";
+                document.addEventListener("DOMContentLoaded", buttonDelay)
+            </script>
         </section>
     </main>
 

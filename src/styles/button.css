@@ -1,8 +1,8 @@
-.btn-glow, .hover\:shadow-glow {
+.hover\:shadow-glow {
     transition: box-shadow 0.3s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-.btn-glow, .hover\:shadow-glow:hover {
+.hover\:shadow-glow:hover {
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 
                 0 0 10px rgba(255, 255, 255, 0.4), 
                 0 0 15px rgba(255, 255, 255, 0.3), 
@@ -10,6 +10,54 @@
     opacity: 1;
 }
 
-.btn-glow, .hover\:shadow-glow:not(:hover) {
+.hover\:shadow-glow:not(:hover) {
     opacity: 0;
+}
+
+.btn {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.btn.animate {
+    animation: rise 0.5s ease forwards;
+}
+
+@keyframes rise {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    10% {
+        opacity: 0.3; 
+        transform: translateY(24px);
+    }
+    20% {
+        opacity: 0.6;
+        transform: translateY(18px);
+    }
+    30% {
+        opacity: 0.8;
+        transform: translateY(12px);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(6px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-4px);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(-2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
