@@ -6,15 +6,14 @@ interface ButtonProps {
     label: string;
     size?: 'sm' | 'md' | 'lg';  
     className?: string;
-    spanClassName? : string;
     children?: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({href, target, label, size = 'md', className = '', spanClassName, children}) => {
+const Button: React.FC<ButtonProps> = ({href, target, label, size = 'md', className = '', children}) => {
     const sizeClasses = {
         sm: 'text-sm px-6 py-3',
         md: 'text-lg px-8 py-4',
-        lg: 'text-xl px-10 py-6',
+        lg: 'text-xl px-10 py-5',
       };
 
     return (

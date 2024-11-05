@@ -2,17 +2,27 @@
 import SpeedInsights from '@vercel/speed-insights/astro';
 import Layout from "../layouts/layout.astro"
 import Button from "../components/Button/button.astro"
+import "../styles/typewriter.css"
 ---
 
 <Layout title="Huzaifa Syed" className="overflow-hidden">
     <main>      
         <section id="hero" class="flex justify-center space-y-12">
             <div>
-				<header>
-					<h1 class="font-semibold text-primary text-5xl p-2">Huzaifa Syed</h1>
-                    <h2 class="font-semibold text-secondary text-2xl py-1">Full Stack <span class="text-blue-600">Developer</span></h2>
-				</header>
-            </div>  
+                <header>
+                    <h1 class="font-semibold text-primary text-5xl p-2">Huzaifa Syed</h1>
+                    <h2 class="font-semibold text-secondary text-2xl py-1">
+                        <span id="typewriter"></span>
+                        <span class="cursor inline-flex rounded-sm w-[4px] h-6 bg-blue-600"></span>
+                        <script>
+                            import { typewriter } from "../scripts/typewriter";
+                            document.addEventListener("DOMContentLoaded", () => {
+                                typewriter("Full Stack Developer ", "Developer", 100);
+                            });
+                        </script>
+                    </h2>
+                </header>
+            </div>      
         </section>
         
         <section id="homerow-buttons" class="flex flex-col md:flex-row md:justify-center mt-8 space-y-4 md:space-y-0 md:space-x-9">
@@ -92,3 +102,4 @@ import Button from "../components/Button/button.astro"
 </Layout>
 
 <SpeedInsights/> <!-- speed insights for vercel -->
+        
