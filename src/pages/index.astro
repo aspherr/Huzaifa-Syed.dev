@@ -1,10 +1,10 @@
 ---
 import SpeedInsights from '@vercel/speed-insights/astro';
-import Layout from "@layouts/layout.astro"
+import Base from "@layouts/base.astro"
 import Button from "@components/Button/button.astro"
 ---
 
-<Layout title="Huzaifa Syed" className="overflow-hidden">
+<Base title="Huzaifa Syed" className="overflow-hidden">
     <main>      
         <section id="hero" class="flex justify-center space-y-12">
             <div>
@@ -98,7 +98,7 @@ import Button from "@components/Button/button.astro"
             </footer>
         </div>
     </section>
-</Layout>
+</Base>
 
 <SpeedInsights/> <!-- speed insights for vercel -->
         
