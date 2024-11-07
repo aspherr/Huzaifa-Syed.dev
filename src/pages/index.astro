@@ -16,7 +16,9 @@ import Button from "@components/Button/button.astro"
                         <script>
                             import { typewriter } from "../scripts/typewriter";
                             document.addEventListener("DOMContentLoaded", () => {
-                                typewriter("Full Stack Developer ", "Developer", 100);
+                                setTimeout(() => {
+                                    typewriter("Full Stack Developer ", "Developer", 100);
+                                }, 1700);
                             });
                         </script>
                     </h2>
