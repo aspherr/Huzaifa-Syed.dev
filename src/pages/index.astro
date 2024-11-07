@@ -1,28 +1,24 @@
 ---
 import SpeedInsights from '@vercel/speed-insights/astro';
 import Base from "@layouts/base.astro"
+import Intro from "@layouts/intro.astro"
 import Button from "@components/Button/button.astro"
 import "../styles/header.css"
 import "../styles/button.css"
 ---
 
 <Base title="Huzaifa Syed" className="overflow-hidden">
+
+    <Intro/>
+    
     <main>      
         <section id="hero" class="flex justify-center space-y-12">
             <div>
                 <header>
-                    <h1 class="font-semibold text-primary text-5xl p-2 popup-animation">Huzaifa Syed</h1>
+                    <h1 id="name-header" class="font-semibold text-primary text-5xl p-2 popup-animation">Huzaifa Syed</h1>
                     <h2 class="font-semibold text-secondary text-2xl py-1">
                         <span id="typewriter"></span>
                         <span class="cursor inline-flex rounded-sm w-[4px] h-6 bg-blue-600"></span>
-                        <script>
-                            import { typewriter } from "../scripts/typewriter";
-                            document.addEventListener("DOMContentLoaded", () => {
-                                setTimeout(() => {
-                                    typewriter("Full Stack Developer ", 100, "Developer");
-                                }, 1700);
-                            });
-                        </script>
                     </h2>
                 </header>
             </div>      
@@ -86,11 +82,6 @@ import "../styles/button.css"
                     </svg>
                 </Button>
             </div>
-
-            <script>
-                import { buttonDelay } from "src/scripts/button-delay";
-                document.addEventListener("DOMContentLoaded", buttonDelay)
-            </script>
         </section>
     </main>
 
@@ -103,5 +94,30 @@ import "../styles/button.css"
     </section>
 </Base>
 
+<script>
+    import { typewriter } from "../scripts/typewriter";
+    import { buttonDelay } from "src/scripts/button-delay";
+
+    document.addEventListener("introCompleted", () => {
+        setTimeout(() => {
+            const nameHeader = document.getElementById("name-header");
+            if (nameHeader) {
+                setTimeout(() => {
+                    nameHeader.classList.add("popup-animation");
+                }, 2000);
+            };
+
+            setTimeout(() => {
+                const cursor = document.querySelector(".cursor");
+                if (cursor) {
+                    cursor.classList.add("cursor-visible");
+                }
+            });
+            
+            typewriter("Full Stack Developer ", 100, "Developer");
+            buttonDelay();
+        }, 250);
+    });
+</script>
+
 <SpeedInsights/> <!-- speed insights for vercel -->
-        

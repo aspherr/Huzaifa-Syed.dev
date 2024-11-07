@@ -1,3 +1,8 @@
+#name-header {
+    opacity: 0;
+    transform: scale(0);
+}
+
 @keyframes popUp {
     0% {
         transform: scale(0);
@@ -9,11 +14,14 @@
     }
     100% {
         transform: scale(1);
+        opacity: 1;
     }
 }
 
 .popup-animation {
     animation: popUp 0.6s ease-out forwards;
+    animation-delay: 2.2s;
+    opacity: 1;
 }
 
 @keyframes blink {
@@ -27,6 +35,12 @@
 }
 
 .cursor {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
     vertical-align: middle;
     animation: blink 1.2s steps(1) infinite;
+}
+
+.cursor-visible {
+    opacity: 1;
 }

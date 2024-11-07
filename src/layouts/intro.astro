@@ -1,0 +1,14 @@
+---
+import "../styles/global.css";
+import "../styles/intro.css";
+import '@fontsource/space-grotesk'
+---
+
+<div id="intro-overlay">
+    <p class="font-sans font-semibold text-primary text-4xl">print(" Hey there! 👋 ")</p>
+</div>
+
+<script>
+    import { playIntro } from "../scripts/intro"
+    playIntro();
+</script>
