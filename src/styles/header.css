@@ -1,0 +1,32 @@
+@keyframes popUp {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.popup-animation {
+    animation: popUp 0.6s ease-out forwards;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    
+    50.1%, 100% {
+        opacity: 0;
+    }
+}
+
+.cursor {
+    vertical-align: middle;
+    animation: blink 1.2s steps(1) infinite;
+}

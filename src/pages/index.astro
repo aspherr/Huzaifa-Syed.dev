@@ -2,6 +2,8 @@
 import SpeedInsights from '@vercel/speed-insights/astro';
 import Base from "@layouts/base.astro"
 import Button from "@components/Button/button.astro"
+import "../styles/header.css"
+import "../styles/button.css"
 ---
 
 <Base title="Huzaifa Syed" className="overflow-hidden">
@@ -9,7 +11,7 @@ import Button from "@components/Button/button.astro"
         <section id="hero" class="flex justify-center space-y-12">
             <div>
                 <header>
-                    <h1 class="font-semibold text-primary text-5xl p-2">Huzaifa Syed</h1>
+                    <h1 class="font-semibold text-primary text-5xl p-2 popup-animation">Huzaifa Syed</h1>
                     <h2 class="font-semibold text-secondary text-2xl py-1">
                         <span id="typewriter"></span>
                         <span class="cursor inline-flex rounded-sm w-[4px] h-6 bg-blue-600"></span>
