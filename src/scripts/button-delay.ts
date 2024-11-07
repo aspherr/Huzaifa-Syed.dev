@@ -4,6 +4,6 @@ export function buttonDelay() {
     buttons.forEach((button: HTMLButtonElement, index: number) => {
         setTimeout(() => {
             button.classList.add('animate');
-        }, index * 100); // Delay each button by 100ms
+        }, index * 500); // Delay each button by 100ms
     });
 }
