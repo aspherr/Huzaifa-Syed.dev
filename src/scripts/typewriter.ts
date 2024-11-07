@@ -1,4 +1,4 @@
-export function typewriter(text: string, keyword: string, speed: number=100) {
+export function typewriter(text: string, speed: number=100, keyword?: string) {
     const typewriterText = document.getElementById("typewriter");
     let index = 0;
     
@@ -8,7 +8,7 @@ export function typewriter(text: string, keyword: string, speed: number=100) {
             index++;
             setTimeout(type, speed);
         
-        } else if (typewriterText && typewriterText.textContent) {
+        } else if (typewriterText && typewriterText.textContent && keyword) {
             if (text.indexOf(keyword) !== -1) {
                 const keywordElement = document.createElement('span');
                 keywordElement.textContent = keyword;
