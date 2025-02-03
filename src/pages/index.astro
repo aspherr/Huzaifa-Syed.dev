@@ -1,12 +1,16 @@
 ---
 import SpeedInsights from '@vercel/speed-insights/astro';
 import Base from "@layouts/base.astro"
+import Maintenance from '@layouts/maintenance.astro';
 import Intro from "@layouts/intro.astro"
 import Button from "@components/Button/button.astro"
 import "../styles/header.css"
 import "../styles/button.css"
 ---
 
+<Maintenance/>
+
+<!--
 <Base title="Huzaifa Syed" className="overflow-hidden">
 
     <Intro/>
@@ -119,5 +123,6 @@ import "../styles/button.css"
         }, 250);
     });
 </script>
+-->
 
 <SpeedInsights/> <!-- speed insights for vercel -->
