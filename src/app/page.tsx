@@ -42,12 +42,25 @@ export default function Home() {
         }/>
       </div>
 
+      <div className="relative flex h-screen items-center justify-center gap-20">
+        {/* main title */}
+        <div className="flex flex-col h-screen items-center justify-center">
+          <div className="font-mono text-left -translate-x-50 space-y-3">
+            <h1 className="font-bold text-6xl">huzaifa<span className="text-blue-600">.syed()</span></h1>
+            <h3 className="text-base pl-1">An up-and-coming <span className="text-blue-600">full-stack</span> engineer</h3>
+          </div>
+        </div>
 
-      {/* main title */}
-      <div className="flex flex-col h-screen items-center justify-center gap-1">
-        <div className="font-mono text-left -translate-x-50 space-y-3">
-          <h1 className="font-bold text-6xl">huzaifa<span className="text-blue-600">.syed()</span></h1>
-          <h3 className="text-base pl-1">An up-and-coming <span className="text-blue-600">full-stack</span> engineer</h3>
+        {/* page links */}
+        <div className="absolute right-20 top-1/2 -translate-y-1/2">
+          <div className="font-mono font-bold text-3xl text-blue-600 text-left -translate-x-50">
+            <ul className="space-y-4">
+              <li><a href="">.about-me()</a></li>
+              <li><a href="">.experience()</a></li>
+              <li><a href="">.projects()</a></li>
+              <li><a href="">.contact-me()</a></li>
+            </ul>
+          </div>
         </div>
       </div>
 
