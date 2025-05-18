@@ -1,10 +1,17 @@
 import Button from '@/components/button';
 
 export default function Home() {
+  const links = [
+    { href: "#about", label: ".about-me()" },
+    { href: "#experience", label: ".experience()" },
+    { href: "#projects", label: ".projects()" },
+    { href: "#contact", label: ".contact-me()" },
+  ];
+
   return (
     <main className="scrollbar-hide">
       {/* settings navbar */}
-      <div className="flex flex-row fixed gap-4 top-4 right-5"> 
+      <div className="flex flex-row fixed gap-4 top-4 right-5 z-10"> 
         {/* language toggle */}
         <Button Icon={
           <svg 
@@ -14,7 +21,7 @@ export default function Home() {
           viewBox="0 0 24 24" 
           fill="none" 
           stroke="currentColor" 
-          strokeWidth="2" 
+          strokeWidth="1.5" 
           strokeLinecap="round" 
           strokeLinejoin="round" 
           className="group-hover:text-blue-600 transition-colors duration-300">
@@ -33,7 +40,7 @@ export default function Home() {
           viewBox="0 0 24 24" 
           fill="none" 
           stroke="currentColor" 
-          strokeWidth="2" 
+          strokeWidth="1.5" 
           strokeLinecap="round" 
           strokeLinejoin="round" 
           className="group-hover:text-blue-600 transition-colors duration-300">
@@ -42,30 +49,33 @@ export default function Home() {
         }/>
       </div>
 
-      <div className="relative flex h-screen items-center justify-center gap-20">
+      <div className="flex h-screen items-center justify-center max-w-screen-xl mx-auto gap-x-30">
         {/* main title */}
-        <div className="flex flex-col h-screen items-center justify-center">
-          <div className="font-mono text-left -translate-x-50 space-y-3">
-            <h1 className="font-bold text-6xl">huzaifa<span className="text-blue-600">.syed()</span></h1>
-            <h3 className="text-base pl-1">An up-and-coming <span className="text-blue-600">full-stack</span> engineer</h3>
-          </div>
+        <div className="font-mono text-left space-y-3">
+          <h1 className="font-bold text-7xl">
+            huzaifa<span className="text-blue-600">.syed()</span>
+          </h1>
+          <h3 className="text-lg pl-1">
+            An up-and-coming <span className="text-blue-600">full-stack</span> engineer
+          </h3>
         </div>
 
         {/* page links */}
-        <div className="absolute right-20 top-1/2 -translate-y-1/2">
-          <div className="font-mono font-bold text-3xl text-blue-600 text-left -translate-x-50">
-            <ul className="space-y-4">
-              <li><a href="">.about-me()</a></li>
-              <li><a href="">.experience()</a></li>
-              <li><a href="">.projects()</a></li>
-              <li><a href="">.contact-me()</a></li>
-            </ul>
-          </div>
+        <div className="font-mono font-bold text-4xl text-zinc-700 text-right">
+          <ul className="space-y-4">
+            {links.map(({ href, label }) => (
+              <li key={label}>
+                <a href={href} className="block transition-all duration-200 hover:translate-x-2 hover:text-blue-600">
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
       {/* social navbar */}
-      <div className="flex flex-row fixed gap-4 bottom-4 right-5">
+      <div className="flex flex-row fixed gap-4 bottom-4 right-5 z-10">
         {/* github */}
         <Button Icon={
           <svg 
