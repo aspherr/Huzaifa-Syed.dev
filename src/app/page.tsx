@@ -1,4 +1,5 @@
 import Button from '@/components/button';
+import Footer from '@/components/footer';
 
 export default function Home() {
   const links = [
@@ -69,7 +70,7 @@ export default function Home() {
                   {label}
                 </a>
               </li>
-            ))}
+            ))} 
           </ul>
         </div>
       </div>
@@ -115,6 +116,9 @@ export default function Home() {
           Link={"https://www.linkedin.com/in/huzaifa-syed-profile/"}/>
       </div>
 
+      {/* Footer */}
+      <Footer/>
+    
     </main>      
   );
 }
