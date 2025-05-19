@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import Link from 'next/link';
 import Button from '@/components/button';
@@ -41,34 +41,37 @@ export default function Home() {
       
       {/* settings & links navbar */}
       <section id='settings'>
-   
-        {isPastHome && (
-          
-          <motion.div
-          initial={{ x: -200, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ type: "spring", stiffness: 100, damping: 10 }}
-          className="fixed top-4 w-full px-6 z-10 flex flex-row items-center font-mono font-bold text-xl text-zinc-700"
-          >
-             <div className="fixed w-full h-20 bg-[var(--background)]"></div>
+      
+        <AnimatePresence>
+          {isPastHome && (
+            
+            <motion.div
+              initial={{ x: -200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -200, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 100, damping: 10 }}
+              className="fixed top-4 w-full px-6 z-10 flex flex-row items-center font-mono font-bold text-xl text-zinc-700"
+            >
+              <div className="fixed w-full h-20 bg-[var(--background)]"></div>
+              
+              <div className="flex-none mt-1.5 z-10">
+                <Link href="/" className="duration-200 hover:text-blue-600 font-bold">
+                  ()
+                </Link>
+              </div>
 
-            <div className="flex-none mt-1.5 z-10">
-              <Link href="/" className="duration-200 hover:text-blue-600 font-bold">
-                ()
-              </Link>
-            </div>
-
-            <ul className="flex-1 flex justify-center gap-12 z-10">
-              {links.map(({ href, label }) => (
-                <li key={label}>
-                  <Link href={href} className="duration-200 hover:text-blue-600">
-                    {label}
-                  </Link>
-                </li>
-              ))} 
-            </ul>
-          </motion.div>
-        )}
+              <ul className="flex-1 flex justify-center gap-12 z-10">
+                {links.map(({ href, label }) => (
+                  <li key={label}>
+                    <Link href={href} className="duration-200 hover:text-blue-600">
+                      {label}
+                    </Link>
+                  </li>
+                ))} 
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className="flex flex-row fixed gap-4 top-4 right-5 z-10"> 
           {/* language toggle */}
