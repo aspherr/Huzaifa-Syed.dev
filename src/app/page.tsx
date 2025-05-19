@@ -116,6 +116,30 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      <section id="about-me" className="min-h-screen flex">
+        <div className="font-mono text-left ml-10 mt-30">
+          <h1 className="font-bold text-5xl text-blue-600">.about-me()</h1>
+        </div>
+      </section>
+
+      <section id="experience" className="min-h-screen flex">
+        <div className="font-mono text-left ml-10 mt-30">
+          <h1 className="font-bold text-5xl text-blue-600">.experience()</h1>
+        </div>
+      </section>
+
+      <section id="projects" className="min-h-screen flex">
+        <div className="font-mono text-left ml-10 mt-30">
+          <h1 className="font-bold text-5xl text-blue-600">.projects()</h1>
+        </div>
+      </section>
+
+      <section id="contact-me" className="min-h-screen flex">
+        <div className="font-mono text-left ml-10 mt-30">
+          <h1 className="font-bold text-5xl text-blue-600">.contact-me()</h1>
+        </div>
+      </section>
 
       <section id="socials">
         {/* socials navbar */}
