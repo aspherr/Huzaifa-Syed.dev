@@ -41,21 +41,24 @@ export default function Home() {
       
       {/* settings & links navbar */}
       <section id='settings'>
-          
+   
         {isPastHome && (
+          
           <motion.div
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 100, damping: 10 }}
           className="fixed top-4 w-full px-6 z-10 flex flex-row items-center font-mono font-bold text-xl text-zinc-700"
           >
-            <div className="flex-none mt-1.5">
+             <div className="fixed w-full h-20 bg-[var(--background)]"></div>
+
+            <div className="flex-none mt-1.5 z-10">
               <Link href="/" className="duration-200 hover:text-blue-600 font-bold">
                 ()
               </Link>
             </div>
 
-            <ul className="flex-1 flex justify-center gap-12">
+            <ul className="flex-1 flex justify-center gap-12 z-10">
               {links.map(({ href, label }) => (
                 <li key={label}>
                   <Link href={href} className="duration-200 hover:text-blue-600">

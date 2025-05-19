@@ -1,9 +1,8 @@
 const Footer = () => {
-    const classes = "fixed bottom-4 left-1/2 -translate-x-1/2 font-mono text-xs text-zinc-700"
     return (
-        <div className={classes}>
+        <footer className="fixed bottom-0 w-full h-15 bg-[var(--background)] flex items-center justify-center font-mono text-xs text-zinc-700">
             <span>Huzaifa Syed © 2025</span>
-        </div>
+        </footer>
     );
 };
 
