@@ -55,9 +55,15 @@ export default function Home() {
               <div className="fixed w-full h-20 bg-[var(--background)]"></div>
               
               <div className="flex-none mt-1.5 z-10">
-                <Link href="/" className="duration-200 hover:text-blue-600 font-bold">
+                <button
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    history.replaceState(null, '', window.location.pathname);
+                  }}
+                  className="duration-200 hover:text-blue-600 font-bold"
+                >
                   ()
-                </Link>
+                </button>
               </div>
 
               <ul className="flex-1 flex justify-center gap-12 z-10">
