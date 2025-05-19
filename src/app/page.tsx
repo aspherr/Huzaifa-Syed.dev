@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
+import { motion } from 'framer-motion';
+
 import Link from 'next/link';
 import Button from '@/components/button';
 import Footer from '@/components/footer';
@@ -35,13 +37,18 @@ export default function Home() {
   ];
 
   return (
-    <main className="">
+    <main>
       
       {/* settings & links navbar */}
       <section id='settings'>
           
         {isPastHome && (
-          <div className="fixed top-4 w-full px-6 z-10 flex flex-row items-center font-mono font-bold text-xl text-zinc-700">
+          <motion.div
+          initial={{ x: -200, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 100, damping: 10 }}
+          className="fixed top-4 w-full px-6 z-10 flex flex-row items-center font-mono font-bold text-xl text-zinc-700"
+          >
             <div className="flex-none mt-1.5">
               <Link href="/" className="duration-200 hover:text-blue-600 font-bold">
                 ()
@@ -57,7 +64,7 @@ export default function Home() {
                 </li>
               ))} 
             </ul>
-          </div>
+          </motion.div>
         )}
 
         <div className="flex flex-row fixed gap-4 top-4 right-5 z-10"> 
