@@ -1,8 +1,31 @@
+"use client";
+
+import { useEffect, useState } from 'react';
+
 import Link from 'next/link';
 import Button from '@/components/button';
 import Footer from '@/components/footer';
 
 export default function Home() {
+  const [isPastHome, setIsPastHome] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const home = document.getElementById('home');
+      if (!home) return;
+  
+      const scrollY = window.scrollY;
+      const homeBottom = home.offsetTop + home.offsetHeight;
+  
+      setIsPastHome(scrollY > homeBottom - 100);
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Run on mount
+  
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
 
   const links = [
     { href: "#about-me", label: ".about-me()" },
@@ -12,18 +35,18 @@ export default function Home() {
   ];
 
   return (
-    <main className="no-scrollbar">
-    
-        {/* settings & links navbar */}
-        <section id='settings'>
+    <main className="">
+      
+      {/* settings & links navbar */}
+      <section id='settings'>
           
-        <div className="fixed top-4 w-full px-6 z-10 flex flex-row items-center font-mono font-bold text-xl text-zinc-700">
-
-          <div className="flex-none mt-1.5">
-            <Link href="/" className="duration-200 hover:text-blue-600 font-bold">
-              ()
-            </Link>
-          </div>
+        {isPastHome && (
+          <div className="fixed top-4 w-full px-6 z-10 flex flex-row items-center font-mono font-bold text-xl text-zinc-700">
+            <div className="flex-none mt-1.5">
+              <Link href="/" className="duration-200 hover:text-blue-600 font-bold">
+                ()
+              </Link>
+            </div>
 
             <ul className="flex-1 flex justify-center gap-12">
               {links.map(({ href, label }) => (
@@ -34,59 +57,60 @@ export default function Home() {
                 </li>
               ))} 
             </ul>
-
-          <div className="flex flex-row fixed gap-4 top-4 right-5 z-10"> 
-            {/* language toggle */}
-            <Button Icon={
-              <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="20" 
-              height="20" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="1.5" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              className="group-hover:text-blue-600 transition-colors duration-300">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-              </svg>
-            }/>
-
-            {/* light/dark mode toggle */}
-            <Button Icon={
-              <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="20" 
-              height="20" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="1.5" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              className="group-hover:text-blue-600 transition-colors duration-300">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-              </svg>
-            }/>
-
-            {/* colour picker */}
-            <Button Icon={
-              <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20" 
-              height="20"
-              viewBox="0 0 24 24" 
-              fill="none" 
-              strokeWidth="1.5" 
-              stroke="currentColor"
-              className="group-hover:text-blue-600 transition-colors duration-300">
-                <path d="m15 11.25 1.5 1.5.75-.75V8.758l2.276-.61a3 3 0 1 0-3.675-3.675l-.61 2.277H12l-.75.75 1.5 1.5M15 11.25l-8.47 8.47c-.34.34-.8.53-1.28.53s-.94.19-1.28.53l-.97.97-.75-.75.97-.97c.34-.34.53-.8.53-1.28s.19-.94.53-1.28L12.75 9M15 11.25 12.75 9" strokeLinecap="round" strokeLinejoin="round"></path>
-              </svg> 
-            }/>
           </div>
+        )}
+
+        <div className="flex flex-row fixed gap-4 top-4 right-5 z-10"> 
+          {/* language toggle */}
+          <Button Icon={
+            <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="20" 
+            height="20" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="1.5" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            className="group-hover:text-blue-600 transition-colors duration-300">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          }/>
+
+          {/* light/dark mode toggle */}
+          <Button Icon={
+            <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="20" 
+            height="20" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="1.5" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            className="group-hover:text-blue-600 transition-colors duration-300">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          }/>
+
+          {/* colour picker */}
+          <Button Icon={
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20" 
+            height="20"
+            viewBox="0 0 24 24" 
+            fill="none" 
+            strokeWidth="1.5" 
+            stroke="currentColor"
+            className="group-hover:text-blue-600 transition-colors duration-300">
+              <path d="m15 11.25 1.5 1.5.75-.75V8.758l2.276-.61a3 3 0 1 0-3.675-3.675l-.61 2.277H12l-.75.75 1.5 1.5M15 11.25l-8.47 8.47c-.34.34-.8.53-1.28.53s-.94.19-1.28.53l-.97.97-.75-.75.97-.97c.34-.34.53-.8.53-1.28s.19-.94.53-1.28L12.75 9M15 11.25 12.75 9" strokeLinecap="round" strokeLinejoin="round"></path>
+            </svg> 
+          }/>
         </div>
       </section>
 
