@@ -1,72 +1,96 @@
+import Link from 'next/link';
 import Button from '@/components/button';
 import Footer from '@/components/footer';
 
 export default function Home() {
+
   const links = [
-    { href: "#about", label: ".about-me()" },
+    { href: "#about-me", label: ".about-me()" },
     { href: "#experience", label: ".experience()" },
     { href: "#projects", label: ".projects()" },
-    { href: "#contact", label: ".contact-me()" },
+    { href: "#contact-me", label: ".contact-me()" },
   ];
 
   return (
-    <main className="scrollbar-hide">
+    <main className="no-scrollbar">
+    
+        {/* settings & links navbar */}
+        <section id='settings'>
+          
+        <div className="fixed top-4 w-full px-6 z-10 flex flex-row items-center font-mono font-bold text-xl text-zinc-700">
+
+          <div className="flex-none mt-1.5">
+            <Link href="/" className="duration-200 hover:text-blue-600 font-bold">
+              ()
+            </Link>
+          </div>
+
+            <ul className="flex-1 flex justify-center gap-12">
+              {links.map(({ href, label }) => (
+                <li key={label}>
+                  <Link href={href} className="duration-200 hover:text-blue-600">
+                    {label}
+                  </Link>
+                </li>
+              ))} 
+            </ul>
+
+          <div className="flex flex-row fixed gap-4 top-4 right-5 z-10"> 
+            {/* language toggle */}
+            <Button Icon={
+              <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="20" 
+              height="20" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="1.5" 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              className="group-hover:text-blue-600 transition-colors duration-300">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            }/>
+
+            {/* light/dark mode toggle */}
+            <Button Icon={
+              <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="20" 
+              height="20" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="1.5" 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              className="group-hover:text-blue-600 transition-colors duration-300">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            }/>
+
+            {/* colour picker */}
+            <Button Icon={
+              <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20" 
+              height="20"
+              viewBox="0 0 24 24" 
+              fill="none" 
+              strokeWidth="1.5" 
+              stroke="currentColor"
+              className="group-hover:text-blue-600 transition-colors duration-300">
+                <path d="m15 11.25 1.5 1.5.75-.75V8.758l2.276-.61a3 3 0 1 0-3.675-3.675l-.61 2.277H12l-.75.75 1.5 1.5M15 11.25l-8.47 8.47c-.34.34-.8.53-1.28.53s-.94.19-1.28.53l-.97.97-.75-.75.97-.97c.34-.34.53-.8.53-1.28s.19-.94.53-1.28L12.75 9M15 11.25 12.75 9" strokeLinecap="round" strokeLinejoin="round"></path>
+              </svg> 
+            }/>
+          </div>
+        </div>
+      </section>
 
       <section id='home'>
-        {/* settings navbar */}
-        <div className="flex flex-row fixed gap-4 top-4 right-5 z-10"> 
-          {/* language toggle */}
-          <Button Icon={
-            <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="20" 
-            height="20" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="1.5" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            className="group-hover:text-blue-600 transition-colors duration-300">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-            </svg>
-          }/>
-
-          {/* light/dark mode toggle */}
-          <Button Icon={
-            <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="20" 
-            height="20" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="1.5" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            className="group-hover:text-blue-600 transition-colors duration-300">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-          }/>
-
-          {/* colour picker */}
-          <Button Icon={
-            <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20" 
-            height="20"
-            viewBox="0 0 24 24" 
-            fill="none" 
-            strokeWidth="1.5" 
-            stroke="currentColor"
-            className="group-hover:text-blue-600 transition-colors duration-300">
-              <path d="m15 11.25 1.5 1.5.75-.75V8.758l2.276-.61a3 3 0 1 0-3.675-3.675l-.61 2.277H12l-.75.75 1.5 1.5M15 11.25l-8.47 8.47c-.34.34-.8.53-1.28.53s-.94.19-1.28.53l-.97.97-.75-.75.97-.97c.34-.34.53-.8.53-1.28s.19-.94.53-1.28L12.75 9M15 11.25 12.75 9" strokeLinecap="round" strokeLinejoin="round"></path>
-            </svg> 
-          }/>
-        </div>
-
         <div className="flex h-screen items-center justify-center max-w-screen-xl mx-auto gap-x-30">
           {/* main title */}
           <div className="font-mono text-left space-y-3">
@@ -83,15 +107,17 @@ export default function Home() {
             <ul className="space-y-4">
               {links.map(({ href, label }) => (
                 <li key={label}>
-                  <a href={href} className="block transition-all duration-200 hover:translate-x-2 hover:text-blue-600">
+                  <Link href={href} className="block transition-all duration-200 hover:translate-x-2 hover:text-blue-600">
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))} 
             </ul>
           </div>
         </div>
+      </section>
 
+      <section id="socials">
         {/* socials navbar */}
         <div className="flex flex-row fixed gap-4 bottom-4 right-5 z-10">
           {/* github */}
@@ -133,7 +159,6 @@ export default function Home() {
             Link={"https://www.linkedin.com/in/huzaifa-syed-profile/"}/>
         </div>
       </section>
-      
 
       {/* Footer */}
       <Footer/>
