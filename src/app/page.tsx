@@ -1,32 +1,21 @@
 "use client";
 
-import { useEffect, useState } from 'react';
-
 import { motion, AnimatePresence } from 'framer-motion';
 
-import Link from 'next/link';
 import Button from '@/components/button';
 import Footer from '@/components/footer';
 
-export default function Home() {
-  const [isPastHome, setIsPastHome] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const home = document.getElementById('home');
-      if (!home) return;
-  
-      const scrollY = window.scrollY;
-      const homeBottom = home.offsetTop + home.offsetHeight;
-  
-      setIsPastHome(scrollY > homeBottom - 100);
-    };
-  
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Run on mount
-  
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+
+export default function Home() {
+  const isHome = true;
+
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   
 
   const links = [
@@ -37,13 +26,13 @@ export default function Home() {
   ];
 
   return (
-    <main>
+    <main className="h-screen snap-y snap-mandatory overflow-y-scroll">
       
       {/* settings & links navbar */}
       <section id='settings'>
       
         <AnimatePresence>
-          {isPastHome && (
+          {!isHome && (
             
             <motion.div
               initial={{ x: -200, opacity: 0 }}
@@ -69,9 +58,11 @@ export default function Home() {
               <ul className="flex-1 flex justify-center gap-12 z-10">
                 {links.map(({ href, label }) => (
                   <li key={label}>
-                    <Link href={href} className="duration-200 hover:text-blue-600">
+                    <button
+                      onClick={() => scrollToSection(href.replace("#", ""))}
+                      className="hover:text-blue-600 duration-200">
                       {label}
-                    </Link>
+                    </button>
                   </li>
                 ))} 
               </ul>
@@ -134,7 +125,7 @@ export default function Home() {
       </section>
 
       <section id='home'>
-        <div className="flex h-screen items-center justify-center max-w-screen-xl mx-auto gap-x-30">
+        <div className="flex h-screen items-center justify-center max-w-screen-xl mx-auto gap-x-30 snap-start">
           {/* main title */}
           <div className="font-mono text-left space-y-3">
             <h1 className="font-bold text-7xl">
@@ -150,9 +141,11 @@ export default function Home() {
             <ul className="space-y-4">
               {links.map(({ href, label }) => (
                 <li key={label}>
-                  <Link href={href} className="block transition-all duration-200 hover:translate-x-2 hover:text-blue-600">
-                    {label}
-                  </Link>
+                    <button
+                      onClick={() => scrollToSection(href.replace("#", ""))}
+                      className="hover:text-blue-600 duration-200">
+                      {label}
+                    </button>
                 </li>
               ))} 
             </ul>
@@ -160,25 +153,25 @@ export default function Home() {
         </div>
       </section>
       
-      <section id="about-me" className="min-h-screen flex">
+      <section id="about-me" className="min-h-screen flex snap-start">
         <div className="font-mono text-left ml-10 mt-30">
           <h1 className="font-bold text-5xl text-blue-600">.about-me()</h1>
         </div>
       </section>
 
-      <section id="experience" className="min-h-screen flex">
+      <section id="experience" className="min-h-screen flex snap-start">
         <div className="font-mono text-left ml-10 mt-30">
           <h1 className="font-bold text-5xl text-blue-600">.experience()</h1>
         </div>
       </section>
 
-      <section id="projects" className="min-h-screen flex">
+      <section id="projects" className="min-h-screen flex snap-start">
         <div className="font-mono text-left ml-10 mt-30">
           <h1 className="font-bold text-5xl text-blue-600">.projects()</h1>
         </div>
       </section>
 
-      <section id="contact-me" className="min-h-screen flex">
+      <section id="contact-me" className="min-h-screen flex snap-start">
         <div className="font-mono text-left ml-10 mt-30">
           <h1 className="font-bold text-5xl text-blue-600">.contact-me()</h1>
         </div>
