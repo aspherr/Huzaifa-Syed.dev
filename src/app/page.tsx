@@ -1,14 +1,12 @@
 "use client";
 
+import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import Button from '@/components/button';
 import Footer from '@/components/footer';
 
-
-
 export default function Home() {
-  const isHome = true;
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -16,8 +14,34 @@ export default function Home() {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
-  
 
+  const mainRef = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  const handleScroll = () => {
+    const container = mainRef.current;
+    if (!container) return;
+
+    const homeSection = document.getElementById('home');
+    if (!homeSection) return;
+
+    const scrollTop = container.scrollTop;
+    const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
+
+    setVisible(scrollTop > homeBottom - 100);
+  };
+
+  useEffect(() => {
+    const container = mainRef.current;
+    if (!container) return;  
+    
+    container.addEventListener('scroll', handleScroll);
+    handleScroll();
+  
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
+  
+  
   const links = [
     { href: "#about-me", label: ".about-me()" },
     { href: "#experience", label: ".experience()" },
@@ -26,13 +50,13 @@ export default function Home() {
   ];
 
   return (
-    <main className="h-screen snap-y snap-mandatory overflow-y-scroll">
+    <main ref={mainRef} className="h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
       
       {/* settings & links navbar */}
       <section id='settings'>
       
         <AnimatePresence>
-          {!isHome && (
+          {visible && (
             
             <motion.div
               initial={{ x: -200, opacity: 0 }}
@@ -46,8 +70,7 @@ export default function Home() {
               <div className="flex-none mt-1.5 z-10">
                 <button
                   onClick={() => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    history.replaceState(null, '', window.location.pathname);
+                    scrollToSection("home")
                   }}
                   className="duration-200 hover:text-blue-600 font-bold"
                 >
@@ -59,7 +82,8 @@ export default function Home() {
                 {links.map(({ href, label }) => (
                   <li key={label}>
                     <button
-                      onClick={() => scrollToSection(href.replace("#", ""))}
+                      onClick={() => {
+                        scrollToSection(href.replace("#", ""));}}
                       className="hover:text-blue-600 duration-200">
                       {label}
                     </button>
