@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 import Button from '@/components/button';
 import Footer from '@/components/footer';
@@ -15,7 +15,27 @@ export default function Home() {
     }
   };
 
-  const mainRef = useRef<HTMLElement>(null);
+  const mainRef = useRef<HTMLDivElement | null>(null);
+  const aboutRef = useRef<HTMLDivElement | null>(null);
+  const experienceRef = useRef<HTMLDivElement | null>(null);
+  const projectsRef = useRef<HTMLDivElement | null>(null);
+  const contactRef = useRef<HTMLDivElement | null>(null);
+  
+
+ const sectionName = (ref: React.RefObject<HTMLDivElement | null>, name: string, ) => {
+  return (
+    <div ref={ref}>
+      <motion.div
+        initial={{ x: -200, opacity: 0 }}
+        animate={ useInView(ref, { amount: 0.4 }) ? { x: 0, opacity: 1 } : { x: -200, opacity: 0 }}
+        transition={{ type: "spring", stiffness: 100, damping: 10 }}
+        className="font-mono text-left ml-10 mt-30">
+        <h1 className="font-bold text-5xl text-blue-600">{name}</h1>
+      </motion.div>
+    </div> 
+  );
+ }
+
   const [visible, setVisible] = useState(false);
 
   const handleScroll = () => {
@@ -178,27 +198,19 @@ export default function Home() {
       </section>
       
       <section id="about-me" className="min-h-screen flex snap-start">
-        <div className="font-mono text-left ml-10 mt-30">
-          <h1 className="font-bold text-5xl text-blue-600">.about-me()</h1>
-        </div>
+        {sectionName(aboutRef, ".about-me()")}
       </section>
 
       <section id="experience" className="min-h-screen flex snap-start">
-        <div className="font-mono text-left ml-10 mt-30">
-          <h1 className="font-bold text-5xl text-blue-600">.experience()</h1>
-        </div>
+        {sectionName(experienceRef, ".experience()")}
       </section>
 
       <section id="projects" className="min-h-screen flex snap-start">
-        <div className="font-mono text-left ml-10 mt-30">
-          <h1 className="font-bold text-5xl text-blue-600">.projects()</h1>
-        </div>
+        {sectionName(projectsRef, ".projects()")}
       </section>
 
       <section id="contact-me" className="min-h-screen flex snap-start">
-        <div className="font-mono text-left ml-10 mt-30">
-          <h1 className="font-bold text-5xl text-blue-600">.contact-me()</h1>
-        </div>
+        {sectionName(contactRef, ".contact-me()")}
       </section>
 
       <section id="socials">
