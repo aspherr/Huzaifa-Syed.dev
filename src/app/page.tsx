@@ -88,25 +88,29 @@ export default function Home() {
               <div className="fixed w-full h-20 bg-[var(--background)]"></div>
               
               <div className="flex-none mt-1.5 z-10">
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.05  }}
                   onClick={() => {
                     scrollToSection("home")
                   }}
                   className="duration-200 hover:text-blue-600 font-bold"
                 >
                   ()
-                </button>
+                </motion.button>
               </div>
 
               <ul className="flex-1 flex justify-center gap-12 z-10">
                 {links.map(({ href, label }) => (
                   <li key={label}>
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.1 }}
                       onClick={() => {
                         scrollToSection(href.replace("#", ""));}}
                       className="hover:text-blue-600 duration-200">
                       {label}
-                    </button>
+                    </motion.button>
                   </li>
                 ))} 
               </ul>
