@@ -189,11 +189,13 @@ export default function Home() {
             <ul className="space-y-4">
               {links.map(({ href, label }) => (
                 <li key={label}>
-                    <button
+                    <motion.button
+                      whileHover={{ x: -10 }}
+                      transition={{ duration: 0.1 }}
                       onClick={() => scrollToSection(href.replace("#", ""))}
                       className="hover:text-blue-600 duration-200">
                       {label}
-                    </button>
+                    </motion.button>
                 </li>
               ))} 
             </ul>
