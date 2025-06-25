@@ -216,7 +216,69 @@ export default function Home() {
       </section>
 
       <section id="contact-me" className="min-h-screen flex snap-start">
-        {sectionName(contactRef, ".contact-me()")}
+        <div>
+          {sectionName(contactRef, ".contact-me()")}
+
+          <form className='font-mono'>
+            <motion.div className='flex flex-col gap-5 ml-13 mt-5'>
+              <motion.div className='flex flex-row gap-5 mt-10'>
+                <div>
+                  <input
+                    type="text"
+                    placeholder='First Name'
+                    required
+                    className="mt-1 block w-full border border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
+                  />
+                </div>
+
+                <div>
+                  <input
+                    type="text"
+                    placeholder='Last Name'
+                    required
+                    className="mt-1 block w-full border border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
+                  />
+                </div>
+              </motion.div>
+
+              <div>
+                <input
+                  type="text"
+                  placeholder='example@email.com'
+                  required
+                  className="mt-1 block w-full border border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
+                />
+              </div>
+
+              <div>
+                <input
+                  type="text"
+                  placeholder='Subject'
+                  required
+                  className="mt-1 block w-full border border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
+                />
+              </div>
+
+
+              <div>
+                <textarea 
+                required
+                placeholder='Type your message here...'
+                className='mt-1 block w-full h-72 border border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 resize-none'>
+                </textarea>
+              </div>
+
+              <div className='flex justify-center'>
+                <input 
+                type="submit" 
+                value=".Submit()" 
+                className='text-zinc-600 font-bold text-lg rounded-xl px-4 py-2 border border-zinc-500 hover:border-white transition-all duration-300 hover:text-blue-600'>
+                </input>
+              </div>
+            </motion.div>
+
+          </form>
+        </div>
       </section>
 
       <section id="socials">
