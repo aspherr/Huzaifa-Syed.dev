@@ -208,7 +208,19 @@ export default function Home() {
       </section>
 
       <section id="experience" className="min-h-screen flex snap-start">
-        {sectionName(experienceRef, ".experience()")}
+        <div>
+          {sectionName(experienceRef, ".experience()")}
+
+          <div className="flex items-center justify-center w-screen mt-44">
+            <div className="flex flex-col items-center justify-center font-mono text-zinc-700">
+              <h1 className="text-9xl font-bold">404</h1>
+              <p className="text-3xl font-bold">Experience cannot be found</p>
+              <p className="text-lg mt-5">
+                [I am currently exploring my first professional opportunity within the industry]
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="projects" className="min-h-screen flex snap-start">
