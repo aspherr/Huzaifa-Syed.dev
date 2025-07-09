@@ -29,7 +29,7 @@ export default function Home() {
         initial={{ x: -200, opacity: 0 }}
         animate={ useInView(ref, { amount: 0.4 }) ? { x: 0, opacity: 1 } : { x: -200, opacity: 0 }}
         transition={{ type: "spring", stiffness: 100, damping: 10 }}
-        className="font-mono text-left ml-10 mt-30">
+        className="font-mono text-left ml-10 mt-15">
         <h1 className="font-bold text-5xl text-blue-600">{name}</h1>
       </motion.div>
     </div> 
@@ -180,7 +180,7 @@ export default function Home() {
               huzaifa<span className="text-blue-600">.syed()</span>
             </h1>
             <h3 className="text-lg pl-1">
-              An up-and-coming <span className="text-blue-600">full-stack</span> engineer
+              An up-and-coming <span className="text-blue-600">full-stack</span> engineer.
             </h3>
           </div>
 
@@ -213,11 +213,6 @@ export default function Home() {
 
           <div className="flex items-center justify-center w-screen mt-44">
             <div className="flex flex-col items-center justify-center font-mono text-zinc-700">
-              <h1 className="text-9xl font-bold">404</h1>
-              <p className="text-3xl font-bold">Experience cannot be found</p>
-              <p className="text-lg mt-5">
-                [I am currently exploring my first professional opportunity within the industry]
-              </p>
             </div>
           </div>
         </div>
@@ -226,18 +221,38 @@ export default function Home() {
       <section id="projects" className="min-h-screen flex snap-start">
         {sectionName(projectsRef, ".projects()")}
       </section>
-
+        
       <section id="contact-me" className="min-h-screen flex snap-start">
-        <div>
-          {sectionName(contactRef, ".contact-me()")}
+        <div className='flex justify-center items-center w-full'>
+          <div className='border-2 border-zinc-700 rounded-3xl px-20 pb-10'>
+            {sectionName(contactRef, ".contact-me()")}
 
-          <form className='font-mono'>
-            <motion.div className='flex flex-col gap-5 ml-13 mt-5'>
-              <motion.div className='flex flex-row gap-5 mt-10'>
+            <form className='font-mono'>
+              <motion.div className='flex flex-col gap-5'>
+                <motion.div className='flex flex-row gap-5 mt-10'>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder='First Name'
+                      required
+                      className="mt-1 block w-full border border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
+                    />
+                  </div>
+
+                  <div>
+                    <input
+                      type="text"
+                      placeholder='Last Name'
+                      required
+                      className="mt-1 block w-full border border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
+                    />
+                  </div>
+                </motion.div>
+
                 <div>
                   <input
                     type="text"
-                    placeholder='First Name'
+                    placeholder='example@email.com'
                     required
                     className="mt-1 block w-full border border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
                   />
@@ -246,50 +261,32 @@ export default function Home() {
                 <div>
                   <input
                     type="text"
-                    placeholder='Last Name'
+                    placeholder='Subject'
                     required
                     className="mt-1 block w-full border border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
                   />
+                </div>
+
+
+                <div>
+                  <textarea 
+                  required
+                  placeholder='Type your message here...'
+                  className='mt-1 block w-full h-72 border border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 resize-none'>
+                  </textarea>
+                </div>
+
+                <div className='flex justify-center'>
+                  <input 
+                  type="submit" 
+                  value=".Submit()" 
+                  className='text-zinc-600 font-bold text-lg rounded-xl px-4 py-2 border border-zinc-500 hover:border-white transition-all duration-300 hover:text-blue-600'>
+                  </input>
                 </div>
               </motion.div>
 
-              <div>
-                <input
-                  type="text"
-                  placeholder='example@email.com'
-                  required
-                  className="mt-1 block w-full border border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
-                />
-              </div>
-
-              <div>
-                <input
-                  type="text"
-                  placeholder='Subject'
-                  required
-                  className="mt-1 block w-full border border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
-                />
-              </div>
-
-
-              <div>
-                <textarea 
-                required
-                placeholder='Type your message here...'
-                className='mt-1 block w-full h-72 border border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 resize-none'>
-                </textarea>
-              </div>
-
-              <div className='flex justify-center'>
-                <input 
-                type="submit" 
-                value=".Submit()" 
-                className='text-zinc-600 font-bold text-lg rounded-xl px-4 py-2 border border-zinc-500 hover:border-white transition-all duration-300 hover:text-blue-600'>
-                </input>
-              </div>
-            </motion.div>
-
-          </form>
+            </form>
+          </div>
         </div>
       </section>
 
