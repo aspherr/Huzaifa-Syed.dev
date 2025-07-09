@@ -29,7 +29,7 @@ export default function Home() {
         initial={{ x: -200, opacity: 0 }}
         animate={ useInView(ref, { amount: 0.4 }) ? { x: 0, opacity: 1 } : { x: -200, opacity: 0 }}
         transition={{ type: "spring", stiffness: 100, damping: 10 }}
-        className="font-mono text-left ml-10 mt-15">
+        className="font-mono text-left ml-10 mt-25">
         <h1 className="font-bold text-5xl text-blue-600">{name}</h1>
       </motion.div>
     </div> 
@@ -64,7 +64,6 @@ export default function Home() {
   
   const links = [
     { href: "#about-me", label: ".about-me()" },
-    { href: "#experience", label: ".experience()" },
     { href: "#projects", label: ".projects()" },
     { href: "#contact-me", label: ".contact-me()" },
   ];
@@ -83,7 +82,7 @@ export default function Home() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -200, opacity: 0 }}
               transition={{ type: "spring", stiffness: 100, damping: 10 }}
-              className="fixed top-4 w-full px-6 z-10 flex flex-row items-center font-mono font-bold text-xl text-zinc-700"
+              className="fixed top-4 w-full px-6 z-10 flex flex-row items-center font-mono font-bold text-2xl text-zinc-700"
             >
               <div className="fixed w-full h-20 bg-[var(--background)]"></div>
               
@@ -104,8 +103,6 @@ export default function Home() {
                 {links.map(({ href, label }) => (
                   <li key={label}>
                     <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.1 }}
                       onClick={() => {
                         scrollToSection(href.replace("#", ""));}}
                       className="hover:text-blue-600 duration-200">
@@ -204,17 +201,8 @@ export default function Home() {
       </section>
       
       <section id="about-me" className="min-h-screen flex snap-start">
-        {sectionName(aboutRef, ".about-me()")}
-      </section>
-
-      <section id="experience" className="min-h-screen flex snap-start">
         <div>
-          {sectionName(experienceRef, ".experience()")}
-
-          <div className="flex items-center justify-center w-screen mt-44">
-            <div className="flex flex-col items-center justify-center font-mono text-zinc-700">
-            </div>
-          </div>
+          {sectionName(aboutRef, ".about-me()")}
         </div>
       </section>
 
@@ -223,8 +211,8 @@ export default function Home() {
       </section>
         
       <section id="contact-me" className="min-h-screen flex snap-start">
-        <div className='flex justify-center items-center w-full'>
-          <div className='border-2 border-zinc-700 rounded-3xl px-20 pb-10'>
+        <div className='flex justify-center items-center w-full pb-30'>
+          <div>
             {sectionName(contactRef, ".contact-me()")}
 
             <form className='font-mono'>
@@ -280,7 +268,7 @@ export default function Home() {
                   <input 
                   type="submit" 
                   value=".Submit()" 
-                  className='text-zinc-600 font-bold text-lg rounded-xl px-4 py-2 border border-zinc-500 hover:border-white transition-all duration-300 hover:text-blue-600'>
+                  className='text-zinc-600 font-bold text-lg rounded-xl px-6 py-2 border border-zinc-500 hover:border-white transition-all duration-300 hover:text-blue-600'>
                   </input>
                 </div>
               </motion.div>
