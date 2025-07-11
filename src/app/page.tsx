@@ -17,7 +17,6 @@ export default function Home() {
 
   const mainRef = useRef<HTMLDivElement | null>(null);
   const aboutRef = useRef<HTMLDivElement | null>(null);
-  const experienceRef = useRef<HTMLDivElement | null>(null);
   const projectsRef = useRef<HTMLDivElement | null>(null);
   const contactRef = useRef<HTMLDivElement | null>(null);
   
@@ -37,6 +36,7 @@ export default function Home() {
  }
 
   const [visible, setVisible] = useState(false);
+  const [activeSection, setActiveSection] = useState("Home");
 
   const handleScroll = () => {
     const container = mainRef.current;
@@ -78,18 +78,16 @@ export default function Home() {
           {visible && (
             
             <motion.div
-              initial={{ x: -200, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: -200, opacity: 0 }}
+              initial={{ y: -200, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -200, opacity: 0 }}
               transition={{ type: "spring", stiffness: 100, damping: 10 }}
-              className="fixed top-4 w-full px-6 z-10 flex flex-row items-center font-mono font-bold text-2xl text-zinc-700"
+              className="fixed top-6 w-full px-6 z-10 flex flex-row items-center font-mono font-bold text-base text-white"
             >
               <div className="fixed w-full h-20 bg-[var(--background)]"></div>
               
-              <div className="flex-none mt-1.5 z-10">
+              <div className="flex-none mt-1.5 z-10 border-2 border-zinc-800 rounded-xl px-3 py-2">
                 <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.05  }}
                   onClick={() => {
                     scrollToSection("home")
                   }}
@@ -98,19 +96,26 @@ export default function Home() {
                   ()
                 </motion.button>
               </div>
-
-              <ul className="flex-1 flex justify-center gap-12 z-10">
-                {links.map(({ href, label }) => (
-                  <li key={label}>
-                    <motion.button
-                      onClick={() => {
-                        scrollToSection(href.replace("#", ""));}}
-                      className="hover:text-blue-600 duration-200">
-                      {label}
-                    </motion.button>
-                  </li>
-                ))} 
-              </ul>
+              
+              <div className='mx-auto border-2 border-zinc-800 rounded-xl px-3 py-2 z-0'>
+                <ul className="flex-1 flex justify-center gap-4 z-10">
+                  {links.map(({ href, label }) => (
+                    <li key={label}>
+                      <motion.button
+                        onClick={() => {
+                          scrollToSection(href.replace("#", ""));
+                          setActiveSection(label);
+                        }}
+                        className={`hover:text-blue-600 duration-200 px-3 py-1 rounded-lg ${
+                          activeSection === label ? "bg-zinc-800 text-blue-600" : ""
+                        }`}
+                      >
+                        {label}
+                      </motion.button>
+                    </li>
+                  ))} 
+                </ul>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -201,13 +206,15 @@ export default function Home() {
       </section>
       
       <section id="about-me" className="min-h-screen flex snap-start">
-        <div>
+        <div className='flex justify-center w-full mt-10'>
           {sectionName(aboutRef, ".about-me()")}
         </div>
       </section>
 
       <section id="projects" className="min-h-screen flex snap-start">
-        {sectionName(projectsRef, ".projects()")}
+        <div className='flex justify-center w-full mt-10'>
+          {sectionName(projectsRef, ".projects()")}
+        </div>
       </section>
         
       <section id="contact-me" className="min-h-screen flex snap-start">
@@ -217,7 +224,7 @@ export default function Home() {
 
             <form className='font-mono'>
               <motion.div className='flex flex-col gap-5'>
-                <motion.div className='flex flex-row gap-5 mt-10'>
+                <motion.div className='flex flex-row gap-5 mt-20'>
                   <div>
                     <input
                       type="text"
@@ -268,7 +275,7 @@ export default function Home() {
                   <input 
                   type="submit" 
                   value=".Submit()" 
-                  className='text-zinc-600 font-bold text-lg rounded-xl px-6 py-2 border border-zinc-500 hover:border-white transition-all duration-300 hover:text-blue-600'>
+                  className='text-zinc-600 font-bold text-lg rounded-xl w-full py-2 border border-zinc-500 hover:border-white transition-all duration-300 hover:text-blue-600'>
                   </input>
                 </div>
               </motion.div>
