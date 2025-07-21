@@ -16,21 +16,19 @@ export default function Home() {
   };
 
   const mainRef = useRef<HTMLDivElement | null>(null);
-  const aboutRef = useRef<HTMLDivElement | null>(null);
-  const projectsRef = useRef<HTMLDivElement | null>(null);
 
- const sectionName = (ref: React.RefObject<HTMLDivElement | null>, name: string, ) => {
-  return (
-    <div ref={ref}>
-      <motion.div
-        initial={{ x: -200, opacity: 0 }}
-        animate={ useInView(ref, { amount: 0.4 }) ? { x: 0, opacity: 1 } : { x: -200, opacity: 0 }}
-        transition={{ type: "spring", stiffness: 100, damping: 10 }}
-        className="font-mono text-left ml-10 mt-25">
-        <h1 className="font-bold text-5xl text-blue-600">{name}</h1>
-      </motion.div>
-    </div> 
-  );
+  const sectionName = (ref: React.RefObject<HTMLDivElement | null>, name: string, ) => {
+    return (
+      <div ref={ref}>
+        <motion.div
+          initial={{ x: -200, opacity: 0 }}
+          animate={ useInView(ref, { amount: 0.4 }) ? { x: 0, opacity: 1 } : { x: -200, opacity: 0 }}
+          transition={{ type: "spring", stiffness: 100, damping: 10 }}
+          className="font-mono text-left ml-10 mt-25">
+          <h1 className="font-mono font-bold text-4xl text-blue-600">{name}</h1>
+        </motion.div>
+      </div> 
+    );
  }
 
   const [visible, setVisible] = useState(false);
@@ -61,9 +59,10 @@ export default function Home() {
   
   
   const links = [
-    { href: "#about-me", label: ".about-me()" },
-    { href: "#projects", label: ".projects()" },
-    { href: "#contact-me", label: ".contact-me()" },
+    { href: "#home", label: "home" },
+    { href: "#about-me", label: "work" },
+    { href: "#projects", label: "projects" },
+    { href: "#contact-me", label: "contact" },
   ];
 
   return (
@@ -80,22 +79,11 @@ export default function Home() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -200, opacity: 0 }}
               transition={{ type: "spring", stiffness: 100, damping: 10 }}
-              className="fixed top-6 w-full px-6 z-10 flex flex-row items-center font-mono font-bold text-base text-white"
+              className="fixed w-full left-1/2 transform -translate-x-1/2 px-6 py-6 z-10 flex flex-row items-center font-mono text-base text-white"
             >
-              <div className="fixed w-full h-20 bg-[var(--background)]"></div>
-              
-              <div className="flex-none mt-1.5 z-10 border-2 border-zinc-800 rounded-xl px-3 py-2">
-                <motion.button
-                  onClick={() => {
-                    scrollToSection("home")
-                  }}
-                  className="duration-200 hover:text-blue-600 font-bold"
-                >
-                  ()
-                </motion.button>
-              </div>
-              
-              <div className='mx-auto border-2 border-zinc-800 rounded-xl px-3 py-2 z-0'>
+              <div className="fixed w-full h-full bg-[var(--background)]/50 backdrop-blur-sm"></div>
+                            
+              <div className='mx-auto border-2 border-zinc-900 rounded-xl px-3 py-2 z-0'>
                 <ul className="flex-1 flex justify-center gap-4 z-10">
                   {links.map(({ href, label }) => (
                     <li key={label}>
@@ -118,58 +106,6 @@ export default function Home() {
           )}
         </AnimatePresence>
 
-        <div className="flex flex-row fixed gap-4 top-4 right-5 z-10"> 
-          {/* language toggle */}
-          <Button Icon={
-            <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="20" 
-            height="20" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="1.5" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            className="group-hover:text-blue-600 transition-colors duration-300">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-            </svg>
-          }/>
-
-          {/* light/dark mode toggle */}
-          <Button Icon={
-            <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="20" 
-            height="20" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="1.5" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            className="group-hover:text-blue-600 transition-colors duration-300">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-          }/>
-
-          {/* colour picker */}
-          <Button Icon={
-            <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20" 
-            height="20"
-            viewBox="0 0 24 24" 
-            fill="none" 
-            strokeWidth="1.5" 
-            stroke="currentColor"
-            className="group-hover:text-blue-600 transition-colors duration-300">
-              <path d="m15 11.25 1.5 1.5.75-.75V8.758l2.276-.61a3 3 0 1 0-3.675-3.675l-.61 2.277H12l-.75.75 1.5 1.5M15 11.25l-8.47 8.47c-.34.34-.8.53-1.28.53s-.94.19-1.28.53l-.97.97-.75-.75.97-.97c.34-.34.53-.8.53-1.28s.19-.94.53-1.28L12.75 9M15 11.25 12.75 9" strokeLinecap="round" strokeLinejoin="round"></path>
-            </svg> 
-          }/>
-        </div>
       </section>
 
       <section id='home'>
@@ -205,22 +141,19 @@ export default function Home() {
       
       <section id="about-me" className="min-h-screen flex snap-start">
         <div className='flex justify-center w-full mt-10'>
-          {sectionName(aboutRef, ".about-me()")}
+
         </div>
       </section>
 
       <section id="projects" className="min-h-screen flex snap-start">
         <div className='flex justify-center w-full mt-10'>
-          {sectionName(projectsRef, ".projects()")}
+
         </div>
       </section>
         
       <section id="contact-me" className="min-h-screen flex snap-start">
         <div className='flex justify-center items-center w-full pb-30'>
           <div className="w-full max-w-lg mx-auto mt-30">
-            <h1 className="font-mono font-bold text-4xl text-blue-600 pb-4">
-              Contact Me
-            </h1>
 
             <div className="flex flex-col md:flex-row gap-4 pb-4">
               <a href="mailto:your-email@example.com" className="flex-1 bg-zinc-900 rounded-xl p-4 flex items-center justify-center gap-2 group">
