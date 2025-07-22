@@ -60,8 +60,7 @@ export default function Home() {
   
   const links = [
     { href: "#home", label: "home" },
-    { href: "#about-me", label: "work" },
-    { href: "#projects", label: "projects" },
+    { href: "#projects", label: "experience" },
     { href: "#contact-me", label: "contact" },
   ];
 
@@ -75,10 +74,10 @@ export default function Home() {
           {visible && (
             
             <motion.div
-              initial={{ y: -200, opacity: 0 }}
+              initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -200, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 100, damping: 10 }}
+              exit={{ y: -50, opacity: 0 }}
+              transition={{ type: "tween", stiffness: 200, damping: 1 }}
               className="fixed w-full left-1/2 transform -translate-x-1/2 px-6 py-6 z-10 flex flex-row items-center font-mono text-base text-white"
             >
               <div className="fixed w-full h-full bg-[var(--background)]/50 backdrop-blur-sm"></div>
@@ -109,42 +108,19 @@ export default function Home() {
       </section>
 
       <section id='home'>
-        <div className="flex h-screen items-center justify-center max-w-screen-xl mx-auto gap-x-30 snap-start">
+        <div className="flex h-screen justify-center max-w-screen-xl snap-start">
           {/* main title */}
-          <div className="font-mono text-left space-y-3">
-            <h1 className="font-bold text-7xl">
-              huzaifa<span className="text-blue-600">.syed()</span>
+          <div className="font-mono text-left mt-10 space-y-3">
+            <h1 className="font-bold text-5xl">
+              huzaifa<span className="text-blue-600">.syed</span>
             </h1>
-            <h3 className="text-lg pl-1">
-              An up-and-coming <span className="text-blue-600">full-stack</span> engineer.
+            <h3 className="text-base pl-1">
+              A <span className="text-blue-600">full-stack</span> engineer.
             </h3>
-          </div>
-
-          {/* page links */}
-          <div className="font-mono font-bold text-4xl text-zinc-700 text-right">
-            <ul className="space-y-4">
-              {links.map(({ href, label }) => (
-                <li key={label}>
-                    <motion.button
-                      whileHover={{ x: -10 }}
-                      transition={{ duration: 0.1 }}
-                      onClick={() => scrollToSection(href.replace("#", ""))}
-                      className="hover:text-blue-600 duration-200">
-                      {label}
-                    </motion.button>
-                </li>
-              ))} 
-            </ul>
           </div>
         </div>
       </section>
       
-      <section id="about-me" className="min-h-screen flex snap-start">
-        <div className='flex justify-center w-full mt-10'>
-
-        </div>
-      </section>
-
       <section id="projects" className="min-h-screen flex snap-start">
         <div className='flex justify-center w-full mt-10'>
 
@@ -161,7 +137,7 @@ export default function Home() {
                 xmlns="http://www.w3.org/2000/svg" 
                 width="24" height="24" 
                 viewBox="0 0 24 24" 
-                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round"
                 className='group-hover:text-blue-600 transsition-all duration-150'>
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
