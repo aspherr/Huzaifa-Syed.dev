@@ -108,26 +108,46 @@ export default function Home() {
       </section>
 
       <section id="home">
-  <div className="flex flex-col items-center justify-start h-screen max-w-screen-xl mx-auto px-6 pt-12 font-mono snap-start">
-    {/* main title */}
-    <div className="space-y-2 text-left">
-      <h1 className="font-bold text-5xl">
-        huzaifa<span className="text-blue-600">.syed</span>
-      </h1>
-      <h3 className="text-base">
-        A <span className="text-blue-600">full-stack</span> engineer.
-      </h3>
-    </div>
 
-    {/* about me text */}
-    <div className="text-sm leading-relaxed max-w-xl text-left mt-6">
-      <p className='pb-5'>
-        Hey 👋 My name is Huzaifa and I'm a React and Next.js engineer based in the UK with full-stack experience.
-        I build fast, scalable web applications with clean, and maintainable code. 🚀 <br/>
-      </p>
-    </div>
-  </div>
-</section>
+        <div className="flex flex-col items-center justify-start h-screen max-w-screen-xl mx-auto px-6 pt-12 font-mono snap-start">
+    
+          {/* main title */}
+          <div className="space-y-2 text-left w-full max-w-xl">
+            <h1 className="font-bold text-5xl">
+              huzaifa<span className="text-blue-600">.syed</span>
+            </h1>
+            <h3 className="text-base">
+              A <span className="text-blue-600">full-stack</span> engineer.
+            </h3>
+          </div>
+
+          {/* about me */}
+          <div className="text-sm leading-relaxed text-left w-full max-w-xl mt-6">
+            <p className='pb-5'>
+              Hey 👋 My name is Huzaifa and I'm a React and Next.js engineer based in the UK with full-stack experience.
+              I build fast, scalable web applications with clean, and maintainable code. 🚀 <br/>
+            </p>
+          </div>
+
+          {/* education */}
+          <div className="border border-zinc-900 rounded-xl px-6 py-4 w-full max-w-xl">
+            <h2 className="text-xl font-bold text-blue-600 mb-3">Education</h2>
+            <div className="flex items-start gap-3">
+              <img
+                src="/images/university-logo.png"
+                alt="St George's University"
+                className="w-12 h-12 object-contain"
+              />
+              <div className="flex flex-col leading-tight">
+                <p className="text-sm font-semibold">City St George's University of London</p>
+                <p className="text-xs">2022 – 2025</p>
+                <p className="text-xs italic pt-1">BSc Computer Science</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       
       <section id="projects" className="min-h-screen flex snap-start">
