@@ -17,20 +17,6 @@ export default function Home() {
 
   const mainRef = useRef<HTMLDivElement | null>(null);
 
-  const sectionName = (ref: React.RefObject<HTMLDivElement | null>, name: string, ) => {
-    return (
-      <div ref={ref}>
-        <motion.div
-          initial={{ x: -200, opacity: 0 }}
-          animate={ useInView(ref, { amount: 0.4 }) ? { x: 0, opacity: 1 } : { x: -200, opacity: 0 }}
-          transition={{ type: "spring", stiffness: 100, damping: 10 }}
-          className="font-mono text-left ml-10 mt-25">
-          <h1 className="font-mono font-bold text-4xl text-blue-600">{name}</h1>
-        </motion.div>
-      </div> 
-    );
- }
-
   const [visible, setVisible] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
 
@@ -47,6 +33,35 @@ export default function Home() {
     setVisible(scrollTop > homeBottom - 100);
   };
 
+  const FlipCard = () => {
+    const [flipped, setFlipped] = useState(false);
+  
+    return (
+      <div className="w-72 h-72 [perspective:1000px] cursor-pointer" onClick={() => setFlipped(!flipped)}>
+        <div className={`relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] ${flipped ? "rotate-y-180" : ""}`}>
+  
+          {/* Front */}
+          <div className="absolute w-full h-full backface-hidden border border-zinc-900 rounded-xl px-4 py-2 flex items-center justify-center text-center bg-zinc-900 text-white">
+            <span className="font-bold text-6xl">改善</span>
+          </div>
+  
+          {/* Back */}
+          <div className="absolute w-full h-full backface-hidden rotate-y-180 border border-zinc-900 rounded-xl px-6 py-4 flex items-center justify-center text-left bg-blue-600 text-white">
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold">
+                kai·zen
+              </span>
+
+              <span className="text-base pt-2">
+                a Japanese business philosophy of continuous improvement of working practices, personal efficiency, etc.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  
   useEffect(() => {
     const container = mainRef.current;
     if (!container) return;  
@@ -130,7 +145,7 @@ export default function Home() {
           </div>
 
           {/* technologies */}
-          <div className="w-full max-w-xl mx-auto mt-6 flex flex-row gap-6">
+          <div className="w-full max-w-xl mx-auto mt-3 flex flex-row gap-6">
             <div className="border border-zinc-900 rounded-xl px-6 py-4 w-full max-w-4xs sm:max-w-2xs">
               <h2 className="text-xl font-bold text-blue-600 mb-5">Technologies I have worked with</h2>
 
@@ -190,7 +205,9 @@ export default function Home() {
             </div>
 
             <div className='flex flex-col'>
-              <div className="w-68 h-12 mt-4 border border-zinc-900 rounded-xl px-4 py-2 flex items-center justify-center text-center bg-blue-600 hover:border-white duration-450 transition-all">
+              <FlipCard />
+
+              <div className="w-72 h-12 mt-4 border border-zinc-900 rounded-xl px-4 py-2 flex items-center justify-center text-center bg-blue-600 hover:border-white duration-450 transition-all">
                 <a href="/cv.pdf" download className="flex items-center gap-2 font-medium text-white">
                   <svg xmlns="http://www.w3.org/2000/svg" 
                       width="20" height="20" viewBox="0 0 24 24" 
