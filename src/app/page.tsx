@@ -199,7 +199,7 @@ export default function Home() {
                 </svg>
 
                 <svg viewBox="0 0 128 128">
-                  <path fill="#5a5a5a" fill-rule="evenodd" d="M90.767 127.126a7.968 7.968 0 0 0 6.35-.244l26.353-12.681a8 8 0 0 0 4.53-7.209V21.009a8 8 0 0 0-4.53-7.21L97.117 1.12a7.97 7.97 0 0 0-9.093 1.548l-50.45 46.026L15.6 32.013a5.328 5.328 0 0 0-6.807.302l-7.048 6.411a5.335 5.335 0 0 0-.006 7.888L20.796 64 1.74 81.387a5.336 5.336 0 0 0 .006 7.887l7.048 6.411a5.327 5.327 0 0 0 6.807.303l21.974-16.68 50.45 46.025a7.96 7.96 0 0 0 2.743 1.793Zm5.252-92.183L57.74 64l38.28 29.058V34.943Z" clip-rule="evenodd"></path>
+                  <path fill="#5a5a5a" fillRule="evenodd" d="M90.767 127.126a7.968 7.968 0 0 0 6.35-.244l26.353-12.681a8 8 0 0 0 4.53-7.209V21.009a8 8 0 0 0-4.53-7.21L97.117 1.12a7.97 7.97 0 0 0-9.093 1.548l-50.45 46.026L15.6 32.013a5.328 5.328 0 0 0-6.807.302l-7.048 6.411a5.335 5.335 0 0 0-.006 7.888L20.796 64 1.74 81.387a5.336 5.336 0 0 0 .006 7.887l7.048 6.411a5.327 5.327 0 0 0 6.807.303l21.974-16.68 50.45 46.025a7.96 7.96 0 0 0 2.743 1.793Zm5.252-92.183L57.74 64l38.28 29.058V34.943Z" clipRule="evenodd"></path>
                 </svg>                    
               </div>
             </div>
@@ -207,7 +207,7 @@ export default function Home() {
             <div className='flex flex-col'>
               <FlipCard />
 
-              <div className="w-72 h-12 mt-4 border border-zinc-900 rounded-xl px-4 py-2 flex items-center justify-center text-center bg-blue-600 hover:border-white duration-450 transition-all">
+              <div className="w-72 h-12 mt-4 border border-zinc-900 rounded-xl px-4 py-2 flex items-center justify-center text-center bg-blue-600 hover:border-white duration-300 transition-all">
                 <a href="/cv.pdf" download className="flex items-center gap-2 font-medium text-white">
                   <svg xmlns="http://www.w3.org/2000/svg" 
                       width="20" height="20" viewBox="0 0 24 24" 
@@ -262,7 +262,7 @@ export default function Home() {
                 xmlns="http://www.w3.org/2000/svg" 
                 width="24" height="24" 
                 viewBox="0 0 24 24" 
-                fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round"
+                fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                 className='group-hover:text-blue-600 transsition-all duration-150'>
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
@@ -275,7 +275,7 @@ export default function Home() {
                 xmlns="http://www.w3.org/2000/svg" 
                 width="24" height="24" 
                 viewBox="0 0 24 24" 
-                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                 className='group-hover:text-blue-600 transsition-all duration-150'>
                   <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                 </svg>
@@ -288,7 +288,7 @@ export default function Home() {
                   xmlns="http://www.w3.org/2000/svg" 
                   width="24" height="24" 
                   viewBox="0 0 24 24" 
-                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                   className='group-hover:text-blue-600 transsition-all duration-150'>
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                     <rect x="2" y="9" width="4" height="12"></rect>
@@ -329,7 +329,7 @@ export default function Home() {
                   <input 
                   type="submit" 
                   value="Send Message" 
-                  className='text-zinc-600 font-bold text-md rounded-md w-full py-1 border border-zinc-500 hover:border-white transition-all duration-300 hover:text-blue-600'>
+                  className='border-zinc-900 border rounded-xl px-6 py-2 flex items-center justify-center font-medium text-center bg-blue-600 hover:border-white duration-300 transition-all'>
                   </input>
                 </div>
               </motion.div>
