@@ -3,7 +3,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 
-import Button from '@/components/button';
 import Footer from '@/components/footer';
 
 export default function Home() {
@@ -127,18 +126,18 @@ export default function Home() {
         <div className="flex flex-col items-center justify-start h-screen max-w-screen-xl mx-auto px-6 pt-12 font-mono snap-start">
     
           {/* main title */}
-          <div className="space-y-2 text-left w-full max-w-xl">
-            <h1 className="font-bold text-5xl">
+          <div className="space-y-2 text-left w-full max-w-xl px-0" style={{ gap: "var(--fluid-gap)", paddingInline: "var(--fluid-pad)" }}>
+            <h1 className="font-bold text-5xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
               huzaifa<span className="text-blue-600">.syed</span>
             </h1>
-            <h3 className="text-base">
+            <h3 className="text-base xs:text-base sm:text-base md:text-lg lg:text-xl text-neutral-600">
               A <span className="text-blue-600">full-stack</span> engineer.
             </h3>
           </div>
 
           {/* about me */}
-          <div className="text-sm leading-relaxed text-left w-full max-w-xl mt-6">
-            <p className='pb-5'>
+          <div className="leading-relaxed text-left w-full max-w-xl mt-6">
+            <p className='pb-5 text-base'>
               Hey 👋 My name is Huzaifa and I'm a React and Next.js engineer based in the UK with full-stack experience.
               I build fast, scalable web applications with clean, and maintainable code. 🚀 <br/>
             </p>
