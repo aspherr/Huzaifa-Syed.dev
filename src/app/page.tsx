@@ -226,28 +226,25 @@ export default function Home() {
 
           {/* education */}
           <div className="border border-zinc-900 rounded-xl px-6 py-4 mt-5 w-full max-w-xl">
-            <h2 className="text-xl font-bold text-blue-600 mb-3">Education</h2>
+            <h2 className="text-lg sm:text-lg md:text-xl lg:text-2xl font-bold text-blue-600 mb-3">Education</h2>
             <div className="flex items-start gap-3">
               <img
                 src="/images/university-logo.png"
                 alt="St George's University"
-                className="w-12 h-12 object-contain"
+                className="w-14 md:lg-16 lg:w-18 h-14 md:h-16 lg:h-18 object-contain mt-1"
               />
-              <div className="flex flex-col leading-tight">
-                <p className="text-sm font-semibold">City St George's University of London</p>
-                <p className="text-xs">2022 – 2025</p>
-                <p className="text-xs italic pt-1">BSc Computer Science</p>
+              <div className="flex flex-col leading-tigh mt-1 lg:mt-0">
+                <p className="text-sm sm:text-sm md:text-md lg:text-lg font-semibold">City St George's University of London</p>
+                <p className="text-xs sm:text-xs md:text-sm lg:text-md">2022 – 2025</p>
+                <p className="text-xs sm:text-xs md:text-sm lg:text-md italic pt-1">BSc Computer Science</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-
-      
       <section id="projects" className="min-h-screen flex snap-start">
         <div className='flex justify-center w-full mt-10'>
-
         </div>
       </section>
         
