@@ -131,15 +131,14 @@ export default function Home() {
               huzaifa<span className="text-blue-600">.syed</span>
             </h1>
             <h3 className="text-base xs:text-base sm:text-base md:text-lg lg:text-xl text-neutral-600">
-              A <span className="text-blue-600">full-stack</span> engineer.
+              A <span className="text-blue-600">full-stack</span> developer.
             </h3>
           </div>
 
           {/* about me */}
           <div className="leading-relaxed text-left w-full max-w-xl mt-6">
             <p className='pb-5 text-base'>
-              Hey 👋 My name is Huzaifa and I'm a React and Next.js engineer based in the UK with full-stack experience.
-              I build fast, scalable web applications with clean, and maintainable code. 🚀 <br/>
+              Hey 👋 My name is Huzaifa and I'm a React and Next.js developer based in London, UK 📍<br/>
             </p>
           </div>
 
