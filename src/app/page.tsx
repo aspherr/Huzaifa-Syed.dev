@@ -6,10 +6,12 @@ import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import Tag from "@/components/tag";
 import Stat from "@/components/stat";
 import Globe from "@/components/globe";
+import Stack from '@/components/stack';
 import Footer from '@/components/footer';
 
 export default function Home() {
 
+  const [hovered, setHovered] = useState(false);
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -182,32 +184,61 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="gap-8 mt-12 w-full max-w-2xl grid grid-cols-2 sm:grid-cols-4 group">
+          <div className="gap-8 mt-8 w-full max-w-2xl grid grid-cols-2 sm:grid-cols-4 group">
             <Stat num={21} desc={"Age"} />
             <Stat num={2} desc={<>Years of <br /> Experience</>} />
             <Stat num={8} desc={<>Projects <br /> Worked On </>} />
             <Stat num={3} desc={<>Projects <br /> Deployed </>} />
           </div>
 
-          <motion.div 
-          initial="rest"
-          animate="rest"
-          whileHover="hover"
-          className="relative w-80 md:w-96 h-64 border rounded-lg border-zinc-800 bg-zinc-900 mt-20 overflow-hidden shadow transition
-            hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
+          <div className="w-full max-w-2xl mt-8 space-y-8">
             <motion.div
-            variants={textVariants}
-            className='w-full grid grid-cols-1 absolute top-3 left-3 md:top-5 md:left-5 right-56 font-mono'
-            >
-              <span className='opacity-50 text-lg'>Based In</span>
-              <span className='font-bold text-3xl inline'>London, UK 📍</span>
-            </motion.div>   
+              initial="rest"
+              animate="rest"
+              whileHover="hover"
+              onHoverStart={() => setHovered(true)}
+              onHoverEnd={() => setHovered(false)}
+              className="relative w-full h-32 border rounded-lg border-zinc-800 bg-zinc-950 overflow-hidden shadow transition
+                        hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
+              <motion.div
+                variants={textVariants}
+                className="w-full grid grid-cols-1 absolute top-3 left-3 md:top-5 md:left-5 right-56 font-mono">
+                <span className="text-lg text-white/50">My Primary <span className='font-bold text-white'>Tech Stack</span></span>
+              </motion.div>
 
-            <div className="absolute inset-y-0 right-0 w-64">
-              <Globe />
+              <div className='mt-16'>
+                <Stack paused={hovered} />
+              </div>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <motion.div
+                initial="rest"
+                animate="rest"
+                whileHover="hover"
+                className="relative w-full h-60 border rounded-lg border-zinc-800 bg-zinc-950 overflow-hidden shadow transition
+                          hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
+                <motion.div
+                  variants={textVariants}
+                  className="w-full grid grid-cols-1 absolute top-3 left-3 md:top-5 md:left-5 right-56 font-mono">
+                  <span className="opacity-50 text-md">Based In</span>
+                  <span className="font-bold text-2xl inline-block">London, UK 📍</span>
+                </motion.div>
+                <div className="absolute inset-y-0 right-0 w-40 sm:w-48 md:w-64 pointer-events-none">
+                  <Globe />
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial="rest"
+                animate="rest"
+                whileHover="hover"
+                className="relative w-full h-60 border rounded-lg border-zinc-800 bg-zinc-950 overflow-hidden shadow transition
+                          hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
+
+              </motion.div>
             </div>
-          </motion.div>
-
+          </div>
         </div>
       </section>
 
