@@ -5,9 +5,11 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 import Tag from "@/components/tag";
 import Stat from "@/components/stat";
+import Globe from "@/components/globe";
 import Footer from '@/components/footer';
 
 export default function Home() {
+
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -72,8 +74,7 @@ export default function Home() {
   
     return () => container.removeEventListener('scroll', handleScroll);
   }, []);
-  
-  
+
   const links = [
     { href: "#home", label: "home" },
     { href: "#projects", label: "experience" },
@@ -138,7 +139,7 @@ export default function Home() {
 
           <div className="leading-relaxed text-left w-full max-w-2xl mt-6">
             <p className='pb-5 text-base'>
-              Hey 👋 My name is Huzaifa and I'm a React and Next.js developer based in London, UK 📍<br/>
+              Hey 👋 My name is Huzaifa and I'm a React/Next JS developer.<br/>
             </p>
 
             <div className='flex flex-row gap-4 justify-start'>
@@ -181,6 +182,23 @@ export default function Home() {
             <Stat num={2} desc={<>Years of <br /> Experience</>} />
             <Stat num={8} desc={<>Projects <br /> Worked On </>} />
             <Stat num={3} desc={<>Projects <br /> Deployed </>} />
+          </div>
+
+          <div className="relative w-80 md:w-96 h-64 border rounded-lg border-zinc-800 bg-zinc-900 mt-20 overflow-hidden shadow transition
+            hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
+            <div className='w-full grid grid-cols-1 absolute top-3 left-3 md:top-5 md:left-5 right-56 font-mono'>
+              <span className='opacity-50 text-lg'>
+                Based In
+              </span>
+
+              <span className='font-bold text-3xl'>
+                London, UK 📍
+              </span>
+            </div>   
+
+            <div className="absolute inset-y-0 right-0 w-64">
+              <Globe />
+            </div>
           </div>
 
         </div>
