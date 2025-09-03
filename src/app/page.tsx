@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 import Tag from "@/components/tag";
+import Stat from "@/components/stat";
 import Footer from '@/components/footer';
 
 export default function Home() {
@@ -126,7 +127,7 @@ export default function Home() {
 
         <div className="flex flex-col items-center justify-start h-screen max-w-screen-xl mx-auto px-6 pt-12 font-mono">
   
-          <div className="space-y-2 text-left w-full max-w-xl px-0" style={{ gap: "var(--fluid-gap)", paddingInline: "var(--fluid-pad)" }}>
+          <div className="space-y-2 text-left w-full max-w-2xl px-0" style={{ gap: "var(--fluid-gap)", paddingInline: "var(--fluid-pad)" }}>
             <h1 className="font-bold text-5xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
               huzaifa<span className="text-blue-600">.syed</span>
             </h1>
@@ -135,7 +136,7 @@ export default function Home() {
             </h3>
           </div>
 
-          <div className="leading-relaxed text-left w-full max-w-xl mt-6">
+          <div className="leading-relaxed text-left w-full max-w-2xl mt-6">
             <p className='pb-5 text-base'>
               Hey 👋 My name is Huzaifa and I'm a React and Next.js developer based in London, UK 📍<br/>
             </p>
@@ -155,7 +156,7 @@ export default function Home() {
             </div>
           </div>
         
-          <div className="flex flex-col w-full max-w-xl">
+          <div className="flex flex-col w-full max-w-2xl">
             <div className='flex flex-col w-full md:w-auto pt-5 items-center justify-center'>
               <div className="h-12 mt-4 mb-4 border border-blue-600 rounded-3xl px-6 py-2 flex items-center justify-center text-center hover:bg-blue-600 duration-500 transition-all">
                   <a href="/cv.pdf" download className="flex items-center gap-2 text-sm text-white">
@@ -173,6 +174,13 @@ export default function Home() {
                   </a>
                 </div>
             </div>
+          </div>
+
+          <div className="gap-8 mt-12 w-full max-w-2xl grid grid-cols-2 sm:grid-cols-4 group">
+            <Stat num={21} desc={"Age"} />
+            <Stat num={2} desc={<>Years of <br /> Experience</>} />
+            <Stat num={8} desc={<>Projects <br /> Worked On </>} />
+            <Stat num={3} desc={<>Projects <br /> Deployed </>} />
           </div>
 
         </div>
