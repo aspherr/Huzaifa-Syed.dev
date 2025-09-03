@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 
 import Tag from "@/components/tag";
 import Stat from "@/components/stat";
@@ -74,6 +74,11 @@ export default function Home() {
   
     return () => container.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const textVariants: Variants = {
+    rest:  { x: 0 },
+    hover: { x: 8, transition: { type: "spring", stiffness: 300, damping: 20 } }
+  }
 
   const links = [
     { href: "#home", label: "home" },
@@ -184,22 +189,24 @@ export default function Home() {
             <Stat num={3} desc={<>Projects <br /> Deployed </>} />
           </div>
 
-          <div className="relative w-80 md:w-96 h-64 border rounded-lg border-zinc-800 bg-zinc-900 mt-20 overflow-hidden shadow transition
+          <motion.div 
+          initial="rest"
+          animate="rest"
+          whileHover="hover"
+          className="relative w-80 md:w-96 h-64 border rounded-lg border-zinc-800 bg-zinc-900 mt-20 overflow-hidden shadow transition
             hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
-            <div className='w-full grid grid-cols-1 absolute top-3 left-3 md:top-5 md:left-5 right-56 font-mono'>
-              <span className='opacity-50 text-lg'>
-                Based In
-              </span>
-
-              <span className='font-bold text-3xl'>
-                London, UK 📍
-              </span>
-            </div>   
+            <motion.div
+            variants={textVariants}
+            className='w-full grid grid-cols-1 absolute top-3 left-3 md:top-5 md:left-5 right-56 font-mono'
+            >
+              <span className='opacity-50 text-lg'>Based In</span>
+              <span className='font-bold text-3xl inline'>London, UK 📍</span>
+            </motion.div>   
 
             <div className="absolute inset-y-0 right-0 w-64">
               <Globe />
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </section>
