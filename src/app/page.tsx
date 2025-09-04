@@ -136,7 +136,7 @@ export default function Home() {
         <div className="flex flex-col items-center justify-start h-screen max-w-screen-xl mx-auto px-6 pt-12 font-mono">
   
           <div className="space-y-2 text-left w-full max-w-2xl px-0" style={{ gap: "var(--fluid-gap)", paddingInline: "var(--fluid-pad)" }}>
-            <h1 className="font-bold text-5xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
+            <h1 className="font-bold text-4xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight">
               huzaifa<span className="text-blue-600">.syed</span>
             </h1>
             <h3 className="text-base xs:text-base sm:text-base md:text-lg lg:text-xl text-neutral-600">
@@ -145,7 +145,7 @@ export default function Home() {
           </div>
 
           <div className="leading-relaxed text-left w-full max-w-2xl mt-6">
-            <p className='pb-5 text-base'>
+            <p className='pb-5 text-md'>
               Hey 👋 My name is Huzaifa and I'm a React/Next JS developer.<br/>
             </p>
 
