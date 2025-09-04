@@ -220,11 +220,12 @@ export default function Home() {
                           hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
                 <motion.div
                   variants={textVariants}
-                  className="w-full grid grid-cols-1 absolute top-3 left-3 md:top-5 md:left-5 right-56 font-mono">
+                  className="w-full grid grid-cols-1 absolute top-5 left-5 right-56 font-mono">
                   <span className="opacity-50 text-md">Based In</span>
                   <span className="font-bold text-2xl inline-block">London, UK 📍</span>
                 </motion.div>
-                <div className="absolute inset-y-0 right-0 w-40 sm:w-48 md:w-64 pointer-events-none">
+                
+                <div className="absolute inset-y-0 right-32 md:right-0 w-40 sm:w-48 md:w-64 pointer-events-none">
                   <Globe />
                 </div>
               </motion.div>
