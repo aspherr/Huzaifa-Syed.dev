@@ -2,12 +2,14 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
+import Image from "next/image";
 
 import Tag from "@/components/tag";
 import Stat from "@/components/stat";
 import Globe from "@/components/globe";
 import Stack from '@/components/stack';
 import Footer from '@/components/footer';
+import Playback from "@/components/playback";
 
 export default function Home() {
 
@@ -128,12 +130,11 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
-
       </section>
 
       <section id="home">
 
-        <div className="flex flex-col items-center justify-start h-screen max-w-screen-xl mx-auto px-6 pt-12 font-mono">
+        <div className="flex flex-col items-center justify-start h-screen max-w-screen-xl mx-auto px-6 pt-6 font-mono">
   
           <div className="space-y-2 text-left w-full max-w-2xl px-0" style={{ gap: "var(--fluid-gap)", paddingInline: "var(--fluid-pad)" }}>
             <h1 className="font-bold text-4xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight">
@@ -216,7 +217,7 @@ export default function Home() {
                 initial="rest"
                 animate="rest"
                 whileHover="hover"
-                className="relative w-full h-60 border rounded-lg border-zinc-800 bg-zinc-950 overflow-hidden shadow transition
+                className="relative w-full h-64 border rounded-lg border-zinc-800 bg-zinc-950 overflow-hidden shadow transition
                           hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
                 <motion.div
                   variants={textVariants}
@@ -230,14 +231,30 @@ export default function Home() {
                 </div>
               </motion.div>
               
-              <motion.div
-                initial="rest"
-                animate="rest"
-                whileHover="hover"
-                className="relative w-full h-60 border rounded-lg border-zinc-800 bg-zinc-950 overflow-hidden shadow transition
-                          hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
+              <div className='flex flex-col gap-8 md:gap-4'>
+                <motion.div
+                  initial="rest"
+                  animate="rest"
+                  whileHover="hover"
+                  className="relative w-full h-40 border rounded-lg border-zinc-800 bg-zinc-950 overflow-hidden shadow transition
+                            hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
+                  <motion.div
+                    variants={textVariants}
+                    className="w-full grid grid-cols-1 absolute top-5 left-5">
+                    <span className="font-mono font-semibold text-xl z-10">Pragmatic developer <br /> who has built clean, reliable systems 🚀</span>
+                  </motion.div>
 
-              </motion.div>
+                </motion.div>
+
+                <motion.div
+                  initial="rest"
+                  animate="rest"
+                  whileHover="hover"
+                  className="relative w-full h-20 border rounded-lg border-zinc-800 bg-zinc-950 overflow-hidden shadow transition
+                            hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
+                  <Playback />
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>
