@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
-import Image from "next/image";
 
 import Tag from "@/components/tag";
 import Stat from "@/components/stat";
@@ -40,35 +39,6 @@ export default function Home() {
     setVisible(scrollTop > homeBottom - 100);
   };
 
-  const FlipCard = () => {
-    const [flipped, setFlipped] = useState(false);
-  
-    return (
-      <div className="w-full h-72 [perspective:1000px] cursor-pointer" onClick={() => setFlipped(!flipped)}>
-        <div className={`relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] ${flipped ? "rotate-y-180" : ""}`}>
-  
-          {/* Front */}
-          <div className="absolute w-full h-full backface-hidden border border-zinc-900 rounded-xl px-4 py-2 flex items-center justify-center text-center bg-zinc-900 text-white">
-            <span className="font-bold text-6xl">改善</span>
-          </div>
-  
-          {/* Back */}
-          <div className="absolute w-full h-full backface-hidden rotate-y-180 border border-zinc-900 rounded-xl px-6 py-4 flex items-center justify-center text-left bg-blue-600 text-white">
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold">
-                kai·zen
-              </span>
-
-              <span className="text-base pt-2">
-                a Japanese business philosophy of continuous improvement of working practices, personal efficiency, etc.
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-  
   useEffect(() => {
     const container = mainRef.current;
     if (!container) return;  
@@ -147,7 +117,7 @@ export default function Home() {
 
           <div className="leading-relaxed text-left w-full max-w-2xl mt-6">
             <p className='pb-5 text-md'>
-              Hey 👋 My name is Huzaifa and I'm a React/Next JS developer.<br/>
+              Hey 👋 My name is Huzaifa and I'm a React/Next JS developer. I ship clean, tested code and scalable features. ⚙️ <br/>
             </p>
 
             <div className='flex flex-row gap-4 justify-start'>
