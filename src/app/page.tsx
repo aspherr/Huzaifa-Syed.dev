@@ -270,20 +270,18 @@ export default function Home() {
       </section>
 
       <section id="experience" className="font-mono">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <div className="grid grid-cols-[1.25rem,1fr] gap-x-4 gap-y-4 max-w-2xl mx-auto">
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 mt-28">
+          <div className="grid grid-cols-[1.25rem,1fr] gap-x-4 gap-y-6 max-w-2xl mx-auto">
 
-            <div className="flex items-center">
+            <div className="col-start-2 justify-self-end flex items-center gap-3 whitespace-nowrap">
+              <h2 className="font-bold text-4xl opacity-50 leading-none">WORK</h2>
               <span
                 ref={expRef}
                 aria-hidden="true"
-                className={`block w-5 h-5 rounded-full bg-zinc-950 border transition-colors duration-1000 ${
+                className={`inline-block w-5 h-5 rounded-full bg-zinc-950 border transition-colors duration-1000 ${
                   inView ? "border-blue-600" : "border-zinc-800"
-                }`}/>
-            </div>
-            
-            <div className="font-bold text-3xl opacity-50 leading-none">
-              2023–2025
+                }`}
+              />
             </div>
 
             <motion.div
@@ -300,7 +298,7 @@ export default function Home() {
                   Zee-Solutions Corp (Remote)
                 </p>
 
-                <p className="text-xs sm:text-sm mt-2 max-w-prose break-words">
+                <p className="text-xs sm:text-sm mt-2 max-w-2xl break-words">
                   At Zee-Solutions Corp, I worked remotely as a full-stack developer delivering
                   end-to-end web apps for state agencies. I designed and shipped React interfaces
                   and dashboards, connected them to APIs for CRUD and real-time workflows, and built
@@ -326,6 +324,94 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section id="projects" className="font-mono">
+  <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div className="grid grid-cols-[1.25rem,1fr] items-center gap-x-4 gap-y-6 max-w-2xl mx-auto">
+
+      <div className="col-start-2 justify-self-end flex items-center gap-3 whitespace-nowrap">
+        <h2 className="font-bold text-4xl opacity-50 leading-none">PROJECTS</h2>
+        <span
+          aria-hidden="true"
+          className={`inline-block w-5 h-5 rounded-full bg-zinc-950 border transition-colors duration-1000 ${
+            inView ? "border-blue-600" : "border-zinc-800"
+          }`}
+        />
+      </div>
+
+      <div className="">
+
+      </div>
+
+      <div className="col-start-2 min-w-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          {/* Card 1 */}
+          <motion.div
+            initial="rest" animate="rest" whileHover="hover" variants={cardVariants}
+            className="relative w-full rounded-lg border border-zinc-800 bg-zinc-950 shadow transition
+                       hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
+                       min-h-[16rem]"
+          >
+            <div className="p-4 sm:p-6 pb-20 leading-tight">
+              <h1 className="font-bold text-lg sm:text-xl">Project 1</h1>
+              <p className="text-xs sm:text-sm mt-2 max-w-2xl break-words">
+                Description here.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Card 2 */}
+          <motion.div
+            initial="rest" animate="rest" whileHover="hover" variants={cardVariants}
+            className="relative w-full rounded-lg border border-zinc-800 bg-zinc-950 shadow transition
+                       hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
+                       min-h-[16rem]"
+          >
+            <div className="p-4 sm:p-6 pb-20 leading-tight">
+              <h1 className="font-bold text-lg sm:text-xl">Project 2</h1>
+              <p className="text-xs sm:text-sm mt-2 max-w-2xl break-words">
+                Description here.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Card 3 */}
+          <motion.div
+            initial="rest" animate="rest" whileHover="hover" variants={cardVariants}
+            className="relative w-full rounded-lg border border-zinc-800 bg-zinc-950 shadow transition
+                       hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
+                       min-h-[16rem]"
+          >
+            <div className="p-4 sm:p-6 pb-20 leading-tight">
+              <h1 className="font-bold text-lg sm:text-xl">Project 3</h1>
+              <p className="text-xs sm:text-sm mt-2 max-w-2xl break-words">
+                Description here.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Card 4 */}
+          <motion.div
+            initial="rest" animate="rest" whileHover="hover" variants={cardVariants}
+            className="relative w-full rounded-lg border border-zinc-800 bg-zinc-950 shadow transition
+                       hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
+                       min-h-[16rem]"
+          >
+            <div className="p-4 sm:p-6 pb-20 leading-tight">
+              <h1 className="font-bold text-lg sm:text-xl">Project 4</h1>
+              <p className="text-xs sm:text-sm mt-2 max-w-2xl break-words">
+                Description here.
+              </p>
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
               
       <section id="contact-me" className="min-h-screen flex">
         <div className='flex justify-center items-center w-full pb-30'>
