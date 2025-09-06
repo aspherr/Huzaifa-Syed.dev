@@ -56,9 +56,48 @@ export default function Home() {
 
   const links = [
     { href: "#home", label: "home" },
-    { href: "#projects", label: "experience" },
+    { href: "#experience", label: "experience" },
     { href: "#contact-me", label: "contact" },
   ];
+
+  const zs_tags = [
+    {tech: "Javascript"},
+    {tech: "React"},
+    {tech: "Express"},
+    {tech: "Node JS"},
+    {tech: "SQL"},
+    {tech: "REST API"},
+  ];
+
+  const cardVariants = {
+    rest: { scale: 1 },
+    hover: { scale: 1.01 },
+  };
+
+  const expRef = useRef<HTMLSpanElement | null>(null);
+  const [inView, setInView] = useState(false);
+
+
+  useEffect(() => {
+    const container = mainRef.current;
+    if (!container || !expRef.current) return;
+
+    const handleScroll = () => {
+      const rect = expRef.current!.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+
+      if (rect.top <= containerRect.top + 300) {
+        setInView(true);
+      } else {
+        setInView(false);
+      }
+    };
+
+    container.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, [mainRef]);
 
   return (
     <main ref={mainRef} className="h-screen overflow-y-scroll scroll-smooth">
@@ -74,12 +113,12 @@ export default function Home() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -50, opacity: 0 }}
               transition={{ type: "tween", stiffness: 200, damping: 1 }}
-              className="fixed w-full left-1/2 transform -translate-x-1/2 px-6 py-6 z-10 flex flex-row items-center font-mono text-base text-white"
+              className="fixed w-full left-1/2 transform -translate-x-1/2 px-4 py-6 z-10 flex flex-row items-center font-mono text-base text-white"
             >
               <div className="fixed inset-0 w-full h-full bg-[var(--background)]/50 backdrop-blur-sm"></div>
                             
               <div className='mx-auto border-2 border-zinc-900 rounded-xl px-3 py-2 z-0'>
-                <ul className="flex-1 flex justify-center gap-4 z-10">
+                <ul className="flex-1 flex justify-center gap-2 z-10 text-sm">
                   {links.map(({ href, label }) => (
                     <li key={label}>
                       <motion.button
@@ -104,9 +143,9 @@ export default function Home() {
 
       <section id="home">
 
-        <div className="flex flex-col items-center justify-start h-screen max-w-screen-xl mx-auto px-6 pt-6 font-mono">
+        <div className="flex flex-col items-center justify-start min-h-screen max-w-screen-xl mx-auto px-6 pt-6 font-mono">
   
-          <div className="space-y-2 text-left w-full max-w-2xl px-0" style={{ gap: "var(--fluid-gap)", paddingInline: "var(--fluid-pad)" }}>
+          <div className="space-y-2 text-left w-full max-w-2xl px-0">
             <h1 className="font-bold text-4xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight">
               huzaifa<span className="text-blue-600">.syed</span>
             </h1>
@@ -211,7 +250,7 @@ export default function Home() {
                   <motion.div
                     variants={textVariants}
                     className="w-full grid grid-cols-1 absolute top-5 left-5">
-                    <span className="font-mono font-semibold text-xl z-10">Pragmatic developer <br /> who has built clean, reliable systems 🚀</span>
+                    <span className="font-mono font-bold text-xl z-10 leading-tight">Pragmatic developer <br /> who has built clean, reliable systems 🚀</span>
                   </motion.div>
 
                 </motion.div>
@@ -230,11 +269,64 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="min-h-screen flex">
-        <div className='flex justify-center w-full mt-10'>
+      <section id="experience" className="font-mono">
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <div className="grid grid-cols-[1.25rem,1fr] gap-x-4 gap-y-4 max-w-2xl mx-auto">
+
+            <div className="flex items-center">
+              <span
+                ref={expRef}
+                aria-hidden="true"
+                className={`block w-5 h-5 rounded-full bg-zinc-950 border transition-colors duration-1000 ${
+                  inView ? "border-blue-600" : "border-zinc-800"
+                }`}/>
+            </div>
+            
+            <div className="font-bold text-3xl opacity-50 leading-none">
+              2023–2025
+            </div>
+
+            <motion.div
+              initial="rest"
+              animate="rest"
+              whileHover="hover"
+              variants={cardVariants}
+              className="col-start-2 relative w-full rounded-lg border border-zinc-800 bg-zinc-950 shadow transition
+                        hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
+                        min-h-[16rem]">
+              <div className="p-4 sm:p-6 pb-20 sm:pb-20 leading-tight">
+                <h1 className="font-bold text-lg sm:text-xl">FULL-STACK DEVELOPER</h1>
+                <p className="text-blue-600 text-sm sm:text-base font-medium">
+                  Zee-Solutions Corp (Remote)
+                </p>
+
+                <p className="text-xs sm:text-sm mt-2 max-w-prose break-words">
+                  At Zee-Solutions Corp, I worked remotely as a full-stack developer delivering
+                  end-to-end web apps for state agencies. I designed and shipped React interfaces
+                  and dashboards, connected them to APIs for CRUD and real-time workflows, and built
+                  in solid validation and role-based access so things worked as expected. On the
+                  backend, I helped in planning database schemas, permission models, and REST
+                  endpoints, then tuned them for performance and easy maintenance.
+                </p>
+              </div>
+
+              <div className="absolute inset-x-4 sm:inset-x-6 bottom-2 sm:bottom-7 flex flex-wrap items-center gap-2">
+                {zs_tags.map(({ tech }) => (
+                  <div
+                    key={tech}
+                    className="flex items-center gap-2 border rounded-2xl py-1 px-2
+                              border-zinc-700 bg-zinc-950 text-white text-[10px] sm:text-xs
+                              opacity-80 hover:border-blue-600 transition-colors duration-700"
+                  >
+                    <span>{tech}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
-        
+              
       <section id="contact-me" className="min-h-screen flex">
         <div className='flex justify-center items-center w-full pb-30'>
           <div className="w-full max-w-lg mx-auto mt-30 px-4">
