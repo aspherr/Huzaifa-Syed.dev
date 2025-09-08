@@ -271,17 +271,10 @@ export default function Home() {
 
       <section id="experience" className="font-mono">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 mt-28">
-          <div className="grid grid-cols-[1.25rem,1fr] gap-x-4 gap-y-6 max-w-2xl mx-auto">
+          <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
 
-            <div className="col-start-2 justify-self-end flex items-center gap-3 whitespace-nowrap">
+            <div className="flex justify-end flex items-center gap-3 whitespace-nowrap">
               <h2 className="font-bold text-4xl opacity-50 leading-none">WORK</h2>
-              <span
-                ref={expRef}
-                aria-hidden="true"
-                className={`inline-block w-5 h-5 rounded-full bg-zinc-950 border transition-colors duration-1000 ${
-                  inView ? "border-blue-600" : "border-zinc-800"
-                }`}
-              />
             </div>
 
             <motion.div
@@ -331,12 +324,6 @@ export default function Home() {
 
       <div className="col-start-2 justify-self-end flex items-center gap-3 whitespace-nowrap">
         <h2 className="font-bold text-4xl opacity-50 leading-none">PROJECTS</h2>
-        <span
-          aria-hidden="true"
-          className={`inline-block w-5 h-5 rounded-full bg-zinc-950 border transition-colors duration-1000 ${
-            inView ? "border-blue-600" : "border-zinc-800"
-          }`}
-        />
       </div>
 
       <div className="">
