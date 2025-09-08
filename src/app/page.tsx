@@ -61,14 +61,24 @@ export default function Home() {
     { href: "#contact-me", label: "contact" },
   ];
 
+  const emplora_tags = [
+    "Javascript",
+    "React",
+    "Express",
+    "Node JS",
+    "MongoDB",
+    "DaisyUI",
+    "REST API",
+  ] as const;
+
   const zs_tags = [
-    {tech: "Javascript"},
-    {tech: "React"},
-    {tech: "Express"},
-    {tech: "Node JS"},
-    {tech: "SQL"},
-    {tech: "REST API"},
-  ];
+    "Javascript",
+    "React",
+    "Express",
+    "Node JS",
+    "SQL",
+    "REST API",
+  ] as const;
 
   const cardVariants = {
     rest: { scale: 1 },
@@ -303,11 +313,11 @@ export default function Home() {
               </div>
 
               <div className="absolute inset-x-4 sm:inset-x-6 bottom-2 sm:bottom-7 flex flex-wrap items-center gap-2">
-                {zs_tags.map(({ tech }) => (
+                {zs_tags.map((tech) => (
                   <div
                     key={tech}
                     className="flex items-center gap-2 border rounded-2xl py-1 px-2
-                              border-zinc-700 bg-zinc-950 text-white text-[10px] sm:text-xs
+                              border-zinc-700 bg-zinc-950 text-white text-[10px] text-xs
                               opacity-80 hover:border-blue-600 transition-colors duration-700"
                   >
                     <span>{tech}</span>
@@ -333,25 +343,29 @@ export default function Home() {
                 <Project 
                   name={"EMPLORA"} 
                   subtitle={"Employee Management System"} 
-                  desc={"Built a full-stack web app with CRUD operations, search & sort, REST API with rate limiting, and dynamic form validation for efficient employee record management."} 
+                  desc={"Built a full-stack web app with CRUD operations, search & sort, REST API with rate limiting, and dynamic form validation for efficient employee record management."}
+                  tech_tags={emplora_tags}
                   cardVar={cardVariants}/>
     
                 <Project 
                   name={"MORPH"} 
                   subtitle={"File-Converstion Web App"} 
-                  desc={""} 
+                  desc={""}
+                  tech_tags={[""]}
                   cardVar={cardVariants}/>
                               
                 <Project 
                   name={"Project δ"} 
                   subtitle={""} 
-                  desc={"Coming Soon..."} 
+                  desc={"Coming Soon..."}
+                  tech_tags={[""]}
                   cardVar={cardVariants}/>
 
                 <Project 
                   name={"Project λ"} 
                   subtitle={""} 
                   desc={"Coming Soon..."} 
+                  tech_tags={[""]}
                   cardVar={cardVariants}/>
                   
               </div>

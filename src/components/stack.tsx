@@ -21,7 +21,7 @@
         
         return (
             <div className='relative'>
-                <Marquee play={!paused} pauseOnHover={false} gradient gradientWidth="80" gradientColor={[24, 24, 27]}>
+                <Marquee play={!paused} pauseOnHover={false}>
                     {tech.map((t) => (
                         <div key={t} className={tagClasses}>
                             {t}
