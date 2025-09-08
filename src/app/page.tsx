@@ -9,6 +9,7 @@ import Globe from "@/components/globe";
 import Stack from '@/components/stack';
 import Footer from '@/components/footer';
 import Playback from "@/components/playback";
+import Project from '@/components/project';
 
 export default function Home() {
 
@@ -273,8 +274,8 @@ export default function Home() {
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 mt-28">
           <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
 
-            <div className="flex justify-end flex items-center gap-3 whitespace-nowrap">
-              <h2 className="font-bold text-4xl opacity-50 leading-none">WORK</h2>
+            <div className="flex justify-end items-center gap-3 whitespace-nowrap">
+              <h2 className="font-bold text-4xl text-neutral-600 leading-none">WORK</h2>
             </div>
 
             <motion.div
@@ -284,7 +285,7 @@ export default function Home() {
               variants={cardVariants}
               className="col-start-2 relative w-full rounded-lg border border-zinc-800 bg-zinc-950 shadow transition
                         hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
-                        min-h-[16rem]">
+                        min-h-[16em]">
               <div className="p-4 sm:p-6 pb-20 sm:pb-20 leading-tight">
                 <h1 className="font-bold text-lg sm:text-xl">FULL-STACK DEVELOPER</h1>
                 <p className="text-blue-600 text-sm sm:text-base font-medium">
@@ -319,85 +320,45 @@ export default function Home() {
       </section>
 
       <section id="projects" className="font-mono">
-  <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-    <div className="grid grid-cols-[1.25rem,1fr] items-center gap-x-4 gap-y-6 max-w-2xl mx-auto">
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
 
-      <div className="col-start-2 justify-self-end flex items-center gap-3 whitespace-nowrap">
-        <h2 className="font-bold text-4xl opacity-50 leading-none">PROJECTS</h2>
-      </div>
-
-      <div className="">
-
-      </div>
-
-      <div className="col-start-2 min-w-0">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-          {/* Card 1 */}
-          <motion.div
-            initial="rest" animate="rest" whileHover="hover" variants={cardVariants}
-            className="relative w-full rounded-lg border border-zinc-800 bg-zinc-950 shadow transition
-                       hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
-                       min-h-[16rem]"
-          >
-            <div className="p-4 sm:p-6 pb-20 leading-tight">
-              <h1 className="font-bold text-lg sm:text-xl">Project 1</h1>
-              <p className="text-xs sm:text-sm mt-2 max-w-2xl break-words">
-                Description here.
-              </p>
+            <div className="flex justify-end items-center gap-3 whitespace-nowrap">
+              <h2 className="font-bold text-4xl text-neutral-600 leading-none">PROJECTS</h2>
             </div>
-          </motion.div>
 
-          {/* Card 2 */}
-          <motion.div
-            initial="rest" animate="rest" whileHover="hover" variants={cardVariants}
-            className="relative w-full rounded-lg border border-zinc-800 bg-zinc-950 shadow transition
-                       hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
-                       min-h-[16rem]"
-          >
-            <div className="p-4 sm:p-6 pb-20 leading-tight">
-              <h1 className="font-bold text-lg sm:text-xl">Project 2</h1>
-              <p className="text-xs sm:text-sm mt-2 max-w-2xl break-words">
-                Description here.
-              </p>
+            <div className="fex min-w-0">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                
+                <Project 
+                  name={"EMPLORA"} 
+                  subtitle={"Employee Management System"} 
+                  desc={"Built a full-stack web app with CRUD operations, search & sort, REST API with rate limiting, and dynamic form validation for efficient employee record management."} 
+                  cardVar={cardVariants}/>
+    
+                <Project 
+                  name={"MORPH"} 
+                  subtitle={"File-Converstion Web App"} 
+                  desc={""} 
+                  cardVar={cardVariants}/>
+                              
+                <Project 
+                  name={"Project δ"} 
+                  subtitle={""} 
+                  desc={"Coming Soon..."} 
+                  cardVar={cardVariants}/>
+
+                <Project 
+                  name={"Project λ"} 
+                  subtitle={""} 
+                  desc={"Coming Soon..."} 
+                  cardVar={cardVariants}/>
+                  
+              </div>
             </div>
-          </motion.div>
-
-          {/* Card 3 */}
-          <motion.div
-            initial="rest" animate="rest" whileHover="hover" variants={cardVariants}
-            className="relative w-full rounded-lg border border-zinc-800 bg-zinc-950 shadow transition
-                       hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
-                       min-h-[16rem]"
-          >
-            <div className="p-4 sm:p-6 pb-20 leading-tight">
-              <h1 className="font-bold text-lg sm:text-xl">Project 3</h1>
-              <p className="text-xs sm:text-sm mt-2 max-w-2xl break-words">
-                Description here.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Card 4 */}
-          <motion.div
-            initial="rest" animate="rest" whileHover="hover" variants={cardVariants}
-            className="relative w-full rounded-lg border border-zinc-800 bg-zinc-950 shadow transition
-                       hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
-                       min-h-[16rem]"
-          >
-            <div className="p-4 sm:p-6 pb-20 leading-tight">
-              <h1 className="font-bold text-lg sm:text-xl">Project 4</h1>
-              <p className="text-xs sm:text-sm mt-2 max-w-2xl break-words">
-                Description here.
-              </p>
-            </div>
-          </motion.div>
-
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
               
       <section id="contact-me" className="min-h-screen flex">
