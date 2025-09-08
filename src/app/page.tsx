@@ -303,7 +303,7 @@ export default function Home() {
                 </p>
 
                 <p className="text-xs sm:text-sm mt-2 max-w-2xl break-words">
-                  At Zee-Solutions Corp, I worked remotely as a full-stack developer delivering
+                  Worked remotely as a full-stack developer delivering
                   end-to-end web apps for state agencies. I designed and shipped React interfaces
                   and dashboards, connected them to APIs for CRUD and real-time workflows, and built
                   in solid validation and role-based access so things worked as expected. On the
