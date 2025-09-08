@@ -1,4 +1,9 @@
-const Stat = ({num, desc}) => {
+type StatProps = {
+  num: number;
+  desc: React.ReactNode;
+};
+
+const Stat = ({num, desc}: StatProps) => {
     return (
         <div
         className="flex gap-4 justify-center items-center cursor-pointer text-white
