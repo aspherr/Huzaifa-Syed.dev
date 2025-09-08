@@ -345,27 +345,31 @@ export default function Home() {
                   subtitle={"Employee Management System"} 
                   desc={"Built a full-stack web app with CRUD operations, search & sort, REST API with rate limiting, and dynamic form validation for efficient employee record management."}
                   tech_tags={emplora_tags}
+                  link={"https://github.com/aspherr/Emplora"}
                   cardVar={cardVariants}/>
     
                 <Project 
                   name={"MORPH"} 
                   subtitle={"File-Converstion Web App"} 
-                  desc={""}
+                  desc={"Coming Soon..."}
                   tech_tags={[""]}
+                  link={""}
                   cardVar={cardVariants}/>
                               
                 <Project 
-                  name={"Project δ"} 
+                  name={"PROJECT δ"} 
                   subtitle={""} 
                   desc={"Coming Soon..."}
                   tech_tags={[""]}
+                  link={""}
                   cardVar={cardVariants}/>
 
                 <Project 
-                  name={"Project λ"} 
+                  name={"PROJECT λ"} 
                   subtitle={""} 
                   desc={"Coming Soon..."} 
                   tech_tags={[""]}
+                  link={""}
                   cardVar={cardVariants}/>
                   
               </div>
