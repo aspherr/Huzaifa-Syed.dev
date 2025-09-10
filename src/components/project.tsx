@@ -4,12 +4,12 @@ type ProjectProps = {
   name: string;
   subtitle: string;
   desc: string;
-  tech_tags: readonly string[];
+  tech_stack: readonly string[];
   link: string;
   cardVar: Variants;
 };
 
-const Project = ({ name, subtitle, desc, tech_tags, link, cardVar }: ProjectProps) => {
+const Project = ({ name, subtitle, desc, tech_stack, link, cardVar }: ProjectProps) => {
   return (
         <motion.div
         initial="rest" animate="rest" whileHover="hover" variants={cardVar}
@@ -38,7 +38,7 @@ const Project = ({ name, subtitle, desc, tech_tags, link, cardVar }: ProjectProp
                       </p>
 
                       <div className="inset-x-4 md:inset-x-6 flex flex-wrap items-center gap-2 mt-4">
-                        {tech_tags.map((tech) => (
+                        {tech_stack.map((tech) => (
                           <div
                             key={tech}
                             className="flex items-center gap-2 border rounded-2xl py-1 px-2

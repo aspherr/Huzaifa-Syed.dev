@@ -9,6 +9,7 @@ import Globe from "@/components/globe";
 import Stack from '@/components/stack';
 import Footer from '@/components/footer';
 import Playback from "@/components/playback";
+import Work from '@/components/work';
 import Project from '@/components/project';
 
 export default function Home() {
@@ -288,43 +289,18 @@ export default function Home() {
               <h2 className="font-bold text-4xl text-neutral-600 leading-none">WORK</h2>
             </div>
 
-            <motion.div
-              initial="rest"
-              animate="rest"
-              whileHover="hover"
-              variants={cardVariants}
-              className="col-start-2 relative w-full rounded-lg border border-zinc-800 bg-zinc-950 shadow transition
-                        hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
-                        min-h-[16em]">
-              <div className="p-4 sm:p-6 pb-20 sm:pb-20 leading-tight">
-                <h1 className="font-bold text-lg sm:text-xl">FULL-STACK DEVELOPER</h1>
-                <p className="text-blue-600 text-sm sm:text-base font-medium">
-                  Zee-Solutions Corp (Remote)
-                </p>
-
-                <p className="text-xs sm:text-sm mt-2 max-w-2xl break-words">
-                  Worked remotely as a full-stack developer delivering
+            <Work 
+            role={"FULL-STACK DEVELOPER"}
+            company={"Zee-Solutions Corp (Remote)"}
+            desc={`Worked remotely as a full-stack developer delivering
                   end-to-end web apps for state agencies. I designed and shipped React interfaces
                   and dashboards, connected them to APIs for CRUD and real-time workflows, and built
                   in solid validation and role-based access so things worked as expected. On the
                   backend, I helped in planning database schemas, permission models, and REST
-                  endpoints, then tuned them for performance and easy maintenance.
-                </p>
-              </div>
+                  endpoints, then tuned them for performance and easy maintenance.`}
+            tech_stack={zs_tags}
+            cardVar={cardVariants}/>
 
-              <div className="absolute inset-x-4 sm:inset-x-6 bottom-2 sm:bottom-7 flex flex-wrap items-center gap-2">
-                {zs_tags.map((tech) => (
-                  <div
-                    key={tech}
-                    className="flex items-center gap-2 border rounded-2xl py-1 px-2
-                              border-zinc-700 bg-zinc-950 text-white text-[10px] text-xs
-                              opacity-80 hover:border-blue-600 transition-colors duration-700"
-                  >
-                    <span>{tech}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
@@ -343,8 +319,8 @@ export default function Home() {
                 <Project 
                   name={"EMPLORA"} 
                   subtitle={"Employee Management System"} 
-                  desc={"Built a full-stack web app with CRUD operations, search & sort, REST API with rate limiting, and dynamic form validation for efficient employee record management."}
-                  tech_tags={emplora_tags}
+                  desc={`Built a full-stack web app with CRUD operations, search & sort, REST API with rate limiting, and dynamic form validation for efficient employee record management.`}
+                  tech_stack={emplora_tags}
                   link={"https://github.com/aspherr/Emplora"}
                   cardVar={cardVariants}/>
     
@@ -352,7 +328,7 @@ export default function Home() {
                   name={"MORPH"} 
                   subtitle={"File-Converstion Web App"} 
                   desc={"Coming Soon..."}
-                  tech_tags={[""]}
+                  tech_stack={[""]}
                   link={""}
                   cardVar={cardVariants}/>
                               
@@ -360,7 +336,7 @@ export default function Home() {
                   name={"PROJECT δ"} 
                   subtitle={""} 
                   desc={"Coming Soon..."}
-                  tech_tags={[""]}
+                  tech_stack={[""]}
                   link={""}
                   cardVar={cardVariants}/>
 
@@ -368,7 +344,7 @@ export default function Home() {
                   name={"PROJECT λ"} 
                   subtitle={""} 
                   desc={"Coming Soon..."} 
-                  tech_tags={[""]}
+                  tech_stack={[""]}
                   link={""}
                   cardVar={cardVariants}/>
                   
