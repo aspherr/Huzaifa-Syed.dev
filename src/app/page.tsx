@@ -286,7 +286,7 @@ export default function Home() {
           <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
 
             <div className="flex justify-end items-center gap-3 whitespace-nowrap">
-              <h2 className="font-bold text-5xl md:text-4xl text-neutral-600 leading-none">WORK</h2>
+              <h2 className="font-bold text-6xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-800   :via-white to-neutral-700 leading-none">WORK</h2>
             </div>
 
             <Work 
@@ -310,7 +310,7 @@ export default function Home() {
           <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
 
             <div className="flex justify-end items-center gap-3 whitespace-nowrap">
-              <h2 className="font-bold text-5xl md:text-4xl text-neutral-600 leading-none">PROJECTS</h2>
+              <h2 className="font-bold text-6xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-800   :via-white to-neutral-700 leading-none">PROJECTS</h2>
             </div>
 
             <div className="fex min-w-0">
