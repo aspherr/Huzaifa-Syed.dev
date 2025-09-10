@@ -15,9 +15,9 @@ const Work = ({ role, company, desc, tech_stack, cardVar }: WorkProps) => {
         animate="rest"
         whileHover="hover"
         variants={cardVar}
-        className="col-start-2 relative w-full rounded-lg border border-zinc-800 bg-zinc-950 shadow transition
+        className="col-start-2 relative w-full pb-2 md:pb-0 rounded-lg border border-zinc-800 bg-zinc-950 shadow transition
                 hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
-                min-h-[16em]">
+                md:min-h-[16em]">
             <div className="p-4 sm:p-6 pb-20 sm:pb-20 leading-tight">
             <h1 className="font-bold text-lg sm:text-xl">{role}</h1>
             <p className="text-blue-600 text-sm sm:text-base font-medium">
@@ -29,7 +29,7 @@ const Work = ({ role, company, desc, tech_stack, cardVar }: WorkProps) => {
             </p>
             </div>
 
-            <div className="absolute inset-x-4 sm:inset-x-6 bottom-2 sm:bottom-7 flex flex-wrap items-center gap-2">
+            <div className="absolute inset-x-4 sm:inset-x-6 bottom-4 sm:bottom-7 flex flex-wrap items-center gap-2">
             {tech_stack.map((tech) => (
                 <div
                 key={tech}
