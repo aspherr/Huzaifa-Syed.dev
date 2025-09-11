@@ -1,5 +1,7 @@
 import { motion, type Variants } from "framer-motion"
 
+import Dots from "./dots";
+
 type WorkProps = {
     role: string;
     company: string;
@@ -15,7 +17,7 @@ const Work = ({ role, company, desc, tech_stack, cardVar }: WorkProps) => {
         animate="rest"
         whileHover="hover"
         variants={cardVar}
-        className="col-start-2 relative w-full pb-2 md:pb-0 rounded-lg border border-zinc-800 bg-zinc-950 shadow transition
+        className="col-start-2 relative w-full pb-2 md:pb-0 rounded-md bg-neutral-900 shadow transition
                 hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
                 md:min-h-[16em]">
             <div className="p-4 sm:p-6 pb-20 sm:pb-20 leading-tight">
@@ -41,7 +43,10 @@ const Work = ({ role, company, desc, tech_stack, cardVar }: WorkProps) => {
                 </div>
             ))}
         </div>
+        
     </motion.div>
+
+    
   )
 }
 

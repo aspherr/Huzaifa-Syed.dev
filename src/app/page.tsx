@@ -11,6 +11,7 @@ import Footer from '@/components/footer';
 import Playback from "@/components/playback";
 import Work from '@/components/work';
 import Project from '@/components/project';
+import Dots from '@/components/dots';
 
 export default function Home() {
 
@@ -158,9 +159,14 @@ export default function Home() {
         <div className="flex flex-col items-center justify-start min-h-screen max-w-screen-xl mx-auto px-6 pt-6 font-mono">
   
           <div className="space-y-2 text-left w-full max-w-2xl px-0">
-            <h1 className="font-bold text-4xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight">
-              huzaifa<span className="text-blue-600">.syed</span>
-            </h1>
+            <div className='bg-neutral-900 p-2 rounded-sm inline-block relative'>
+              <h1 className="font-bold text-4xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight">
+                huzaifa<span className="text-blue-600">.syed</span>
+              </h1>
+
+              <Dots />
+            </div>
+
             <h3 className="text-base xs:text-base sm:text-base md:text-lg lg:text-xl text-neutral-600">
               A <span className="text-blue-600">full-stack</span> developer.
             </h3>
@@ -220,7 +226,7 @@ export default function Home() {
               whileHover="hover"
               onHoverStart={() => setHovered(true)}
               onHoverEnd={() => setHovered(false)}
-              className="relative w-full h-32 border rounded-lg border-zinc-800 bg-zinc-950 overflow-hidden shadow transition
+              className="relative w-full h-32 rounded-sm bg-neutral-900 overflow-hidden shadow transition
                         hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
               <motion.div
                 variants={textVariants}
@@ -238,7 +244,7 @@ export default function Home() {
                 initial="rest"
                 animate="rest"
                 whileHover="hover"
-                className="relative w-full h-64 border rounded-lg border-zinc-800 bg-zinc-950 overflow-hidden shadow transition
+                className="relative w-full h-64 rounded-sm bg-neutral-900 overflow-hidden shadow transition
                           hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
                 <motion.div
                   variants={textVariants}
@@ -257,7 +263,7 @@ export default function Home() {
                   initial="rest"
                   animate="rest"
                   whileHover="hover"
-                  className="relative w-full h-40 border rounded-lg border-zinc-800 bg-zinc-950 overflow-hidden shadow transition
+                  className="relative w-full h-40 rounded-sm bg-neutral-900 overflow-hidden shadow transition
                             hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
                   <motion.div
                     variants={textVariants}
@@ -271,7 +277,7 @@ export default function Home() {
                   initial="rest"
                   animate="rest"
                   whileHover="hover"
-                  className="relative w-full h-20 border rounded-lg border-zinc-800 bg-zinc-950 overflow-hidden shadow transition
+                  className="relative w-full h-20 rounded-sm bg-neutral-900 overflow-hidden shadow transition
                             hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
                   <Playback />
                 </motion.div>
