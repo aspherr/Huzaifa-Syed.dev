@@ -226,17 +226,23 @@ export default function Home() {
               whileHover="hover"
               onHoverStart={() => setHovered(true)}
               onHoverEnd={() => setHovered(false)}
-              className="relative w-full h-32 rounded-sm bg-neutral-900 overflow-hidden shadow transition
+              className="relative w-full h-72 md:h-32 rounded-sm bg-neutral-900 overflow-hidden shadow transition
                         hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
               <motion.div
                 variants={textVariants}
                 className="w-full grid grid-cols-1 absolute top-3 left-3 md:top-5 md:left-5 right-56 font-mono">
-                <span className="text-lg text-white/50">My Primary <span className='font-bold text-white'>Tech Stack</span></span>
+                  <div className="grid grid-cols-1 md:grid-cols-2 leading-tight">
+                    <div className="flex flex-col space-y-1 ml-2 mt-2">
+                      <span className="opacity-50 text-lg">My Primary</span>
+                      <span className="font-bold text-3xl inline-block">Tech Stack</span>
+                    </div>
+
+                    <div className="mt-5 md:-mt-2 ml-2 md:-ml-24">
+                      <Stack />
+                    </div>
+                  </div>
               </motion.div>
 
-              <div className='mt-16'>
-                <Stack paused={hovered} />
-              </div>
             </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
