@@ -328,7 +328,9 @@ export default function Home() {
             <div className="fex min-w-0">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 
-                <Project 
+                <Project
+                  hasImage={true}
+                  image={<img src="images/emplora.png" alt="emplora-showcase" className='rounded-lg' />}
                   name={"EMPLORA"} 
                   subtitle={"Employee Management System"} 
                   desc={`Built a full-stack web app with CRUD operations, search & sort, REST API with rate limiting, and dynamic form validation for efficient employee record management.`}
@@ -336,7 +338,8 @@ export default function Home() {
                   link={"https://github.com/aspherr/Emplora"}
                   cardVar={cardVariants}/>
     
-                <Project 
+                <Project
+                  hasImage={false}
                   name={"MORPH"} 
                   subtitle={"File-Converstion Web App"} 
                   desc={"Coming Soon..."}
@@ -344,7 +347,8 @@ export default function Home() {
                   link={""}
                   cardVar={cardVariants}/>
                               
-                <Project 
+                <Project
+                  hasImage={false}
                   name={"PROJECT δ"} 
                   subtitle={""} 
                   desc={"Coming Soon..."}
@@ -353,6 +357,7 @@ export default function Home() {
                   cardVar={cardVariants}/>
 
                 <Project 
+                  hasImage={false}
                   name={"PROJECT λ"} 
                   subtitle={""} 
                   desc={"Coming Soon..."} 

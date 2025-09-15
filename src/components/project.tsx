@@ -1,6 +1,8 @@
 import { motion, type Variants } from 'framer-motion';
 
 type ProjectProps = {
+  hasImage: boolean;
+  image?: React.ReactNode;
   name: string;
   subtitle: string;
   desc: string;
@@ -9,7 +11,7 @@ type ProjectProps = {
   cardVar: Variants;
 };
 
-const Project = ({ name, subtitle, desc, tech_stack, link, cardVar }: ProjectProps) => {
+const Project = ({ hasImage, image, name, subtitle, desc, tech_stack, link, cardVar }: ProjectProps) => {
   return (
     <motion.div
       initial="rest" animate="rest" whileHover="hover" variants={cardVar}
@@ -18,8 +20,12 @@ const Project = ({ name, subtitle, desc, tech_stack, link, cardVar }: ProjectPro
             md:min-h-[16rem]"
     >
       <div className="p-4 pb-5 leading-tight">
-        <div className="flex items-center justify-between">
 
+        <div className={`mb-5 mt-2 md:mt-0 rounded-lg border-zinc-900 bg-neutral-800 ${hasImage ? "w-full h-full" : "w-full h-46"}`}>
+          {image}
+        </div>
+
+        <div className="flex items-center justify-between">
           <h1 className="font-bold text-lg md:text-xl">{name}</h1>
           
           <a href={link} target='_blank'>
@@ -30,7 +36,6 @@ const Project = ({ name, subtitle, desc, tech_stack, link, cardVar }: ProjectPro
               </svg>
             </span>
           </a>
-
         </div>
 
         <h2 className='text-blue-600 text-sm'>{subtitle}</h2>
