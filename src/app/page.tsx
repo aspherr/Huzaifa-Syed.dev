@@ -37,9 +37,13 @@ export default function Home() {
     if (!homeSection) return;
 
     const scrollTop = container.scrollTop;
-    const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
 
-    setVisible(scrollTop > homeBottom + 100);
+    const homeBottomInContainer =
+    homeSection.getBoundingClientRect().bottom -
+    container.getBoundingClientRect().top +
+    container.scrollTop;
+
+    setVisible(scrollTop >= homeBottomInContainer - 700);
   };
 
   useEffect(() => {
@@ -86,31 +90,6 @@ export default function Home() {
     rest: { scale: 1 },
     hover: { scale: 1.01 },
   };
-
-  const expRef = useRef<HTMLSpanElement | null>(null);
-  const [inView, setInView] = useState(false);
-
-
-  useEffect(() => {
-    const container = mainRef.current;
-    if (!container || !expRef.current) return;
-
-    const handleScroll = () => {
-      const rect = expRef.current!.getBoundingClientRect();
-      const containerRect = container.getBoundingClientRect();
-
-      if (rect.top <= containerRect.top + 300) {
-        setInView(true);
-      } else {
-        setInView(false);
-      }
-    };
-
-    container.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, [mainRef]);
 
   return (
     <main ref={mainRef} className="h-screen overflow-y-scroll scroll-smooth">
