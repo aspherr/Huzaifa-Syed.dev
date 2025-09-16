@@ -6,7 +6,7 @@ type ProjectProps = {
   name: string;
   subtitle: string;
   desc: string;
-  tech_stack: readonly string[];
+  tech_stack?: readonly string[];
   link: string;
   cardVar: Variants;
 };
@@ -48,7 +48,7 @@ const Project = ({ hasImage, image, name, subtitle, desc, tech_stack, link, card
         </p>
 
         <div className="inset-x-4 md:inset-x-6 flex flex-wrap items-center gap-2 mt-4">
-          {tech_stack.map((tech) => (
+          {tech_stack?.map((tech) => (
             <div
               key={tech}
               className="flex items-center gap-2 border rounded-2xl py-1 px-2

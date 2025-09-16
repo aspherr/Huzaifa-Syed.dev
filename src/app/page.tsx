@@ -326,7 +326,6 @@ export default function Home() {
                   name={"MORPH"} 
                   subtitle={"File-Converstion Web App"} 
                   desc={"Coming Soon..."}
-                  tech_stack={[""]}
                   link={""}
                   cardVar={cardVariants}/>
                               
@@ -335,7 +334,6 @@ export default function Home() {
                   name={"PROJECT δ"} 
                   subtitle={""} 
                   desc={"Coming Soon..."}
-                  tech_stack={[""]}
                   link={""}
                   cardVar={cardVariants}/>
 
@@ -344,7 +342,6 @@ export default function Home() {
                   name={"PROJECT λ"} 
                   subtitle={""} 
                   desc={"Coming Soon..."} 
-                  tech_stack={[""]}
                   link={""}
                   cardVar={cardVariants}/>
                   
