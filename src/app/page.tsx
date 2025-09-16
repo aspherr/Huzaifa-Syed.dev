@@ -298,21 +298,25 @@ export default function Home() {
           <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
 
             <div className="flex justify-end items-center gap-3 whitespace-nowrap">
-              <h2 className="font-bold text-6xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-800   :via-white to-neutral-700 leading-none">WORK</h2>
+              <div className='bg-neutral-900 p-2 rounded-sm inline-block relative'>
+                <h2 className="font-bold text-5xl md:text-6xl lg:text-7xl text-blue-600 leading-none">.work</h2>
+                <Dots />
+              </div>
             </div>
-
-            <Work 
-            role={"FULL-STACK DEVELOPER"}
-            company={"Zee-Solutions Corp (Remote)"}
-            desc={`Worked remotely as a full-stack developer delivering
-                  end-to-end web apps for state agencies. I designed and shipped React interfaces
-                  and dashboards, connected them to APIs for CRUD and real-time workflows, and built
-                  in solid validation and role-based access so things worked as expected. On the
-                  backend, I helped in planning database schemas, permission models, and REST
-                  endpoints, then tuned them for performance and easy maintenance.`}
-            tech_stack={zs_tags}
-            cardVar={cardVariants}/>
-
+            
+            <div className='mt-3'>
+              <Work 
+              role={"FULL-STACK DEVELOPER"}
+              company={"Zee-Solutions Corp (Remote)"}
+              desc={`Worked remotely as a full-stack developer delivering
+                    end-to-end web apps for state agencies. I designed and shipped React interfaces
+                    and dashboards, connected them to APIs for CRUD and real-time workflows, and built
+                    in solid validation and role-based access so things worked as expected. On the
+                    backend, I helped in planning database schemas, permission models, and REST
+                    endpoints, then tuned them for performance and easy maintenance.`}
+              tech_stack={zs_tags}
+              cardVar={cardVariants}/>
+            </div>
           </div>
         </div>
       </section>
@@ -322,11 +326,14 @@ export default function Home() {
           <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
 
             <div className="flex justify-end items-center gap-3 whitespace-nowrap">
-              <h2 className="font-bold text-6xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-800   :via-white to-neutral-700 leading-none">PROJECTS</h2>
+              <div className='bg-neutral-900 p-2 rounded-sm inline-block relative'>
+                <h2 className="font-bold text-5xl md:text-6xl lg:text-7xl text-blue-600 leading-none">.projects</h2>
+                <Dots />
+              </div>
             </div>
 
             <div className="fex min-w-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-3">
                                 
                 <Project
                   hasImage={true}
