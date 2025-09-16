@@ -15,8 +15,6 @@ import Dots from '@/components/dots';
 
 export default function Home() {
 
-  const [hovered, setHovered] = useState(false);
-
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
@@ -27,7 +25,7 @@ export default function Home() {
   const mainRef = useRef<HTMLDivElement | null>(null);
 
   const [visible, setVisible] = useState(false);
-  const [activeSection, setActiveSection] = useState("Home");
+  const [activeSection, setActiveSection] = useState("home");
 
   const handleScroll = () => {
     const container = mainRef.current;
@@ -91,6 +89,7 @@ export default function Home() {
     hover: { scale: 1.01 },
   };
 
+  
   return (
     <main ref={mainRef} className="h-screen overflow-y-scroll scroll-smooth">
       
@@ -203,8 +202,6 @@ export default function Home() {
               initial="rest"
               animate="rest"
               whileHover="hover"
-              onHoverStart={() => setHovered(true)}
-              onHoverEnd={() => setHovered(false)}
               className="relative w-full h-72 md:h-32 rounded-sm bg-neutral-900 overflow-hidden shadow transition
                         hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
               <motion.div
@@ -272,7 +269,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" className="font-mono">
+      <section id="experience" className="font-mono scroll-mt-24">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 mt-28">
           <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
 
