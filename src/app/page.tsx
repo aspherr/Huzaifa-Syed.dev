@@ -102,6 +102,7 @@ export default function Home() {
   
   return (
     <main ref={mainRef} className="h-screen overflow-y-scroll scroll-smooth">
+
       
       {/* settings & links navbar */}
       <section id='settings'>
