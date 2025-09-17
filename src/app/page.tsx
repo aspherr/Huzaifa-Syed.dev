@@ -99,6 +99,32 @@ export default function Home() {
     "Redis",
     "OpenAI API",
   ] as const;
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); 
+
+    try {
+        const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, message }),
+          });
+
+        const json = await res.json();
+        if (json) {
+          setName('');
+          setEmail('');
+          setMessage('');
+        }
+      
+    } catch (error) {
+        console.log("Error: ", error);
+    }  
+}
   
   return (
     <main ref={mainRef} className="h-screen overflow-y-scroll scroll-smooth">
@@ -412,22 +438,24 @@ export default function Home() {
               </a>
             </div>
 
-            <form className='font-mono'>
+            <form className='font-mono' onSubmit={sendEmail}>
               <motion.div className='flex flex-col gap-5'>
                 <div>
                   <input
+                    required
                     type="text"
                     placeholder='Jane Doe'
-                    required
+                    onChange={(e) => setName(e.target.value)}
                     className="mt-1 block w-full border bg-zinc-950 border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
                   />
                 </div>
 
                 <div>
                   <input
+                    required
                     type="text"
                     placeholder='jane.doe@example.com'
-                    required
+                    onChange={(e) => setEmail(e.target.value)}
                     className="mt-1 block w-full border bg-zinc-950 border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
                   />
                 </div>
@@ -436,6 +464,7 @@ export default function Home() {
                   <textarea 
                   required
                   placeholder='Type your message here...'
+                  onChange={(e) => setMessage(e.target.value)}
                   className='mt-1 block w-full h-72 border bg-zinc-950 border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 resize-none'>
                   </textarea>
                 </div>
@@ -443,7 +472,7 @@ export default function Home() {
                 <div className='flex justify-center'>
                   <input 
                   type="submit" 
-                  value="Send Message" 
+                  value="Send Message"
                   className='border border-blue-600 rounded-3xl px-6 py-2 flex items-center justify-center text-center hover:bg-blue-600 duration-500 transition-all'>
                   </input>
                 </div>
