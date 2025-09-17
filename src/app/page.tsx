@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
+import toast, { Toaster } from 'react-hot-toast';
 
 import Tag from "@/components/tag";
 import Stat from "@/components/stat";
@@ -12,8 +13,30 @@ import Playback from "@/components/playback";
 import Work from '@/components/work';
 import Project from '@/components/project';
 import Dots from '@/components/dots';
+import { em } from 'framer-motion/client';
 
 export default function Home() {
+
+  const successMsg = () => toast.success('Message was sent successfully!',
+    {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    }
+  );
+
+  const failMsg = () => toast.error('Failed to send message. Try Again!',
+    {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    }
+  );
+
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -115,11 +138,15 @@ export default function Home() {
           });
 
         const json = await res.json();
-        if (json) {
-          setName('');
-          setEmail('');
-          setMessage('');
+        if (!json) {
+          failMsg();
+          return;
         }
+
+        setName('');
+        setEmail('');
+        setMessage('');
+        successMsg();
       
     } catch (error) {
         console.log("Error: ", error);
@@ -128,7 +155,8 @@ export default function Home() {
   
   return (
     <main ref={mainRef} className="h-screen overflow-y-scroll scroll-smooth">
-
+      
+      <Toaster position="bottom-right" reverseOrder={false} />
       
       {/* settings & links navbar */}
       <section id='settings'>
@@ -445,6 +473,7 @@ export default function Home() {
                     required
                     type="text"
                     placeholder='Jane Doe'
+                    value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="mt-1 block w-full border bg-zinc-950 border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
                   />
@@ -455,6 +484,7 @@ export default function Home() {
                     required
                     type="text"
                     placeholder='jane.doe@example.com'
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="mt-1 block w-full border bg-zinc-950 border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
                   />
@@ -464,6 +494,7 @@ export default function Home() {
                   <textarea 
                   required
                   placeholder='Type your message here...'
+                  value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   className='mt-1 block w-full h-72 border bg-zinc-950 border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 resize-none'>
                   </textarea>
