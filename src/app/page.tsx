@@ -65,15 +65,10 @@ export default function Home() {
     { href: "#contact-me", label: "contact" },
   ];
 
-  const emplora_tags = [
-    "Javascript",
-    "React",
-    "Express",
-    "Node JS",
-    "MongoDB",
-    "DaisyUI",
-    "REST API",
-  ] as const;
+  const cardVariants = {
+    rest: { scale: 1 },
+    hover: { scale: 1.01 },
+  };
 
   const zs_tags = [
     "Javascript",
@@ -84,11 +79,25 @@ export default function Home() {
     "REST API",
   ] as const;
 
-  const cardVariants = {
-    rest: { scale: 1 },
-    hover: { scale: 1.01 },
-  };
+  const emplora_tags = [
+    "Javascript",
+    "React",
+    "Express",
+    "Node JS",
+    "MongoDB",
+    "TailwindCSS",
+    "DaisyUI",
+    "REST API",
+  ] as const;
 
+  const neuro_tags = [
+    "Rust",
+    "Tauri",
+    "Svelte",
+    "TailwindCSS",
+    "Redis",
+    "OpenAI API",
+  ] as const;
   
   return (
     <main ref={mainRef} className="h-screen overflow-y-scroll scroll-smooth">
@@ -313,10 +322,11 @@ export default function Home() {
                                 
                 <Project
                   hasImage={true}
-                  image={<img src="images/emplora.png" alt="emplora-showcase" className='rounded-lg' />}
+                  image={<img src="images/emplora.png" alt="emplora-showcase" className='rounded-lg border border-neutral-500' />}
                   name={"EMPLORA"} 
                   subtitle={"Employee Management System"} 
-                  desc={`Built a full-stack web app with CRUD operations, search & sort, REST API with rate limiting, and dynamic form validation for efficient employee record management.`}
+                  desc={`Built a full-stack web app with CRUD operations, search & sort, REST API with rate limiting, 
+                          and dynamic form validation for efficient employee record management.`}
                   tech_stack={emplora_tags}
                   link={"https://github.com/aspherr/Emplora"}
                   cardVar={cardVariants}/>
@@ -330,11 +340,14 @@ export default function Home() {
                   cardVar={cardVariants}/>
                               
                 <Project
-                  hasImage={false}
-                  name={"PROJECT δ"} 
-                  subtitle={""} 
-                  desc={"Coming Soon..."}
-                  link={""}
+                  hasImage={true}
+                  image={<img src="images/neuro.png" alt="neuro-showcase" className='rounded-lg border border-neutral-500' />}
+                  name={"NEURO"} 
+                  subtitle={"AI Powered Notebook"} 
+                  desc={`Built a cross-platform AI-powered notebook with Rust and Tauri, featuring vault-based note management, 
+                          authentication with Redis, cloud storage, and OpenAI API integration for prompt interactions.`}
+                  tech_stack={neuro_tags}
+                  link={"https://github.com/aspherr/Neuro"}
                   cardVar={cardVariants}/>
 
                 <Project 
