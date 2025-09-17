@@ -94,6 +94,7 @@ export default function Home() {
     "Rust",
     "Tauri",
     "Svelte",
+    "Javascript",
     "TailwindCSS",
     "Redis",
     "OpenAI API",
