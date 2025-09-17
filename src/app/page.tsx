@@ -322,7 +322,7 @@ export default function Home() {
                                 
                 <Project
                   hasImage={true}
-                  image={<img src="images/emplora.png" alt="emplora-showcase" className='rounded-lg border border-neutral-500' />}
+                  image={<img src="images/emplora.png" alt="emplora-showcase" className='rounded-lg' />}
                   name={"EMPLORA"} 
                   subtitle={"Employee Management System"} 
                   desc={`Built a full-stack web app with CRUD operations, search & sort, REST API with rate limiting, 
@@ -335,13 +335,13 @@ export default function Home() {
                   hasImage={false}
                   name={"MORPH"} 
                   subtitle={"File-Converstion Web App"} 
-                  desc={"Coming Soon..."}
+                  desc={`Built a Next.js app for efficient multi-format file conversion with drag-and-drop uploads and cloud storage. Designed a responsive UI with TailwindCSS and optimized backend processing with Node.js for fast, secure conversions.`}
                   link={"https://github.com/aspherr/Morph"}
                   cardVar={cardVariants}/>
                               
                 <Project
                   hasImage={true}
-                  image={<img src="images/neuro.png" alt="neuro-showcase" className='rounded-lg border border-neutral-500' />}
+                  image={<img src="images/neuro.png" alt="neuro-showcase" className='rounded-lg' />}
                   name={"NEURO"} 
                   subtitle={"AI Powered Notebook"} 
                   desc={`Built a cross-platform AI-powered notebook with Rust and Tauri, featuring vault-based note management, 
@@ -352,7 +352,7 @@ export default function Home() {
 
                 <Project 
                   hasImage={false}
-                  name={"PROJECT λ"} 
+                  name={"PROJECT λ"}  
                   subtitle={""} 
                   desc={"Coming Soon..."} 
                   link={""}
