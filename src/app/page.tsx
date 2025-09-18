@@ -325,7 +325,7 @@ export default function Home() {
   
           <div className="space-y-2 text-left w-full max-w-2xl px-0">
             <div className='bg-neutral-900 p-2 rounded-sm inline-block relative'>
-              <h1 className="font-bold text-4xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight">
+              <h1 className="font-bold text-4xl md:text-6xl lg:text-7xl leading-tight">
                 huzaifa<span className="text-blue-600">.syed</span>
               </h1>
 
@@ -437,7 +437,7 @@ export default function Home() {
                   <motion.div
                     variants={textVariants}
                     className="w-full grid grid-cols-1 absolute top-5 left-5">
-                    <span className="font-mono font-bold text-xl z-10 leading-tight">Pragmatic developer <br /> who has built clean, reliable systems 🚀</span>
+                    <span className="font-mono font-bold text-xl">Pragmatic developer <br /> who has built clean, <br /> reliable systems 🚀</span>
                   </motion.div>
 
                 </motion.div>
@@ -456,13 +456,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" className="font-mono scroll-mt-24 md:-mt-32">
+      <section id="experience" className="font-mono scroll-mt-24">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
 
             <div className="flex justify-end items-center gap-3 whitespace-nowrap">
               <div className='bg-neutral-900 p-2 rounded-sm inline-block relative'>
-                <h2 className="font-bold text-5xl md:text-6xl lg:text-7xl text-blue-600 leading-none">.work</h2>
+                <h2 className="font-bold text-4xl md:text-6xl lg:text-7xl text-blue-600 leading-none">.work</h2>
                 <Dots />
               </div>
             </div>
@@ -490,7 +490,7 @@ export default function Home() {
 
             <div className="flex justify-end items-center gap-3 whitespace-nowrap">
               <div className='bg-neutral-900 p-2 rounded-sm inline-block relative'>
-                <h2 className="font-bold text-5xl md:text-6xl lg:text-7xl text-blue-600 leading-none">.projects</h2>
+                <h2 className="font-bold text-4xl md:text-6xl lg:text-7xl text-blue-600 leading-none">.projects</h2>
                 <Dots />
               </div>
             </div>
