@@ -26,6 +26,16 @@ export default function Home() {
     }
   );
 
+  const warningMsg = (msg: string) => toast.error(msg,
+    {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    }
+  );
+
   const failMsg = () => toast.error('Failed to send message. Try Again!',
     {
       style: {
@@ -136,8 +146,45 @@ export default function Home() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/i;
+  const nameRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
+
+  type Fields = {
+    name: string;
+    email: string;
+    message: string;
+  };
+
+  function validate(fields: Fields) {
+    for (const [key, value] of Object.entries(fields)) {
+      const val = value.trim();
+      if (!val) {
+        warningMsg(`Please enter your ${key}.`);
+        return false;
+      }
+
+      switch (key) {
+        case 'name':
+          if (!nameRegex.test(val)) {
+            warningMsg('Please enter a valid name.');
+            return false;
+          }
+          break;
+      
+        case 'email':
+          if (!emailRegex.test(val)) {
+            warningMsg('Please enter a valid email.');
+            return false;
+          }
+          break;
+      }
+    }
+    return true;
+  }
+  
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); 
+    e.preventDefault();
+    if (!validate({ name, email, message })) return;
 
     try {
         const res = await fetch('/api/contact', {
@@ -480,7 +527,6 @@ export default function Home() {
               <motion.div className='flex flex-col gap-5'>
                 <div>
                   <input
-                    required
                     type="text"
                     placeholder='Jane Doe'
                     value={name}
@@ -491,7 +537,6 @@ export default function Home() {
 
                 <div>
                   <input
-                    required
                     type="text"
                     placeholder='jane.doe@example.com'
                     value={email}
@@ -502,7 +547,6 @@ export default function Home() {
 
                 <div>
                   <textarea 
-                  required
                   placeholder='Type your message here...'
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
