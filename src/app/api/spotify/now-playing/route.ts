@@ -18,7 +18,7 @@ type Artist = { name: string };
 type Album = { name: string; artists: Artist[]; images: SpotifyImage[] };
 type Track = {
   name: string;
-  album: { name: string; albumn: Album, artists: Artist[]; images: SpotifyImage[] };
+  album: Album;
   external_urls?: { spotify?: string };
 };
 
@@ -82,7 +82,7 @@ const getRecentTrack = async () => {
   });
 };
 
-export async function GET() {
+export async function GET(): Promise<Response> {
   try {
     const response = await getActiveTrack();
 
@@ -99,9 +99,9 @@ export async function GET() {
       if (response.data?.currently_playing_type === 'track' && response.data.item) {
         return NextResponse.json(toPayload(response.data.item, response.data.is_playing), { status: 200 });
       }
-  
-      return null;
     }
+
+    return NextResponse.json({ isPlaying: false, message: 'Not playing' }, { status: 200 });
 
   } catch (error) {
     console.error("Error with GET controller: ", error);
