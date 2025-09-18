@@ -260,7 +260,7 @@ export default function Home() {
                           setActiveSection(label);
                         }}
                         className={`hover:text-blue-600 duration-200 px-3 py-1 rounded-lg ${
-                          activeSection === label ? "bg-zinc-800 text-blue-600" : ""
+                          activeSection === label ? "bg-neutral-800 text-blue-600" : ""
                         }`}
                       >
                         {label}
@@ -411,8 +411,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" className="font-mono scroll-mt-24">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 mt-28">
+      <section id="experience" className="font-mono scroll-mt-24 md:-mt-32">
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
 
             <div className="flex justify-end items-center gap-3 whitespace-nowrap">
@@ -439,7 +439,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="font-mono">
+      <section id="projects" className="font-mono -mt-10">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
 
