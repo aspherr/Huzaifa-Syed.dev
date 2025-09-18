@@ -13,7 +13,6 @@ import Playback from "@/components/playback";
 import Work from '@/components/work';
 import Project from '@/components/project';
 import Dots from '@/components/dots';
-import { em } from 'framer-motion/client';
 
 export default function Home() {
 
@@ -110,6 +109,16 @@ export default function Home() {
     "MongoDB",
     "TailwindCSS",
     "DaisyUI",
+    "REST API",
+  ] as const;
+
+  const morph_tags = [
+    "Typescript",
+    "NextJS",
+    "Node JS",
+    "Redis",
+    "TailwindCSS",
+    "Shadecn/UI",
     "REST API",
   ] as const;
 
@@ -392,6 +401,7 @@ export default function Home() {
                   name={"MORPH"} 
                   subtitle={"File-Converstion Web App"} 
                   desc={`Built a Next.js app for efficient multi-format file conversion with drag-and-drop uploads and cloud storage. Designed a responsive UI with TailwindCSS and optimized backend processing with Node.js for fast, secure conversions.`}
+                  tech_stack={morph_tags}
                   link={"https://github.com/aspherr/Morph"}
                   cardVar={cardVariants}/>
                               
