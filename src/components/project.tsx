@@ -1,5 +1,4 @@
 import { motion, type Variants } from 'framer-motion';
-import { div } from 'framer-motion/client';
 
 type ProjectProps = {
   hasImage: boolean;

@@ -1,7 +1,5 @@
 import { motion, type Variants } from "framer-motion"
 
-import Dots from "./dots";
-
 type WorkProps = {
     role: string;
     company: string;

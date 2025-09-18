@@ -339,7 +339,7 @@ export default function Home() {
 
           <div className="leading-relaxed text-left w-full max-w-2xl mt-6">
             <p className='pb-5 text-md'>
-              Hey 👋 My name is Huzaifa and I'm a React/Next JS developer. I ship clean, tested code and scalable features. ⚙️ <br/>
+              Hey 👋 My name is Huzaifa and I{"'"}m a React/Next JS developer. I ship clean, tested code and scalable features. ⚙️ <br/>
             </p>
 
             <div className='flex flex-row gap-4 justify-start'>
