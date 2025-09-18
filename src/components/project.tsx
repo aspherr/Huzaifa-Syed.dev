@@ -50,7 +50,7 @@ const Project = ({ hasImage, image, name, subtitle, desc, tech_stack, link, card
         </div>
 
         <h2 className='text-blue-600 text-sm'>{subtitle}</h2>
-        <p className="text-xs md:text-sm mt-2 max-w-2xl break-words">
+        <p className="text-sm mt-2 max-w-2xl break-words">
             {desc}
         </p>
 

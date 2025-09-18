@@ -24,7 +24,7 @@ const Work = ({ role, company, desc, tech_stack, cardVar }: WorkProps) => {
                 {company}
             </p>
 
-            <p className="text-xs sm:text-sm mt-2 max-w-2xl break-words">
+            <p className="text-sm mt-2 max-w-2xl break-words">
                 {desc}
             </p>
             </div>
