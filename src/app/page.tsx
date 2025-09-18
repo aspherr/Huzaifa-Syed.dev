@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -14,6 +14,7 @@ import Playback from "@/components/playback";
 import Work from '@/components/work';
 import Project from '@/components/project';
 import Link from '@/components/link';
+
 
 export default function Home() {
 
@@ -102,6 +103,50 @@ export default function Home() {
     rest: { scale: 1 },
     hover: { scale: 1.01 },
   };
+
+  const idToLabel = useMemo(
+    () => new Map(links.map(({ href, label }) => [href.replace('#', ''), label])),
+    [links]
+  );
+
+  useEffect(() => {
+    const container = mainRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries.length > 0) {
+          const id = visibleEntries[0].target.getAttribute('id') || '';
+          const label = idToLabel.get(id) ?? id;
+          setActiveSection(label);
+        }
+      },
+      {
+        root: container,
+        rootMargin: '-35% 0px -35% 0px',
+        threshold: [0.1, 0.25, 0.5, 0.75, 1],
+      }
+    );
+
+    const observed: Element[] = [];
+    links.forEach(({ href }) => {
+      const id = href.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        observer.observe(el);
+        observed.push(el);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [links, idToLabel]);
+
 
   const zs_tags = [
     "Javascript",
@@ -250,7 +295,7 @@ export default function Home() {
             >
               <div className="fixed inset-0 w-full h-full bg-[var(--background)]/75 backdrop-blur-sm"></div>
                             
-              <div className='mx-auto border-2 border-neutral-800 bg-neutral-900 rounded-xl px-3 py-2 z-0'>
+              <div className='mx-auto bg-neutral-900 rounded-2xl px-3 py-2 z-0'>
                 <ul className="flex-1 flex justify-center gap-2 z-10 text-sm">
                   {links.map(({ href, label }) => (
                     <li key={label}>
