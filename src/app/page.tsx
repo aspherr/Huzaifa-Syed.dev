@@ -603,7 +603,7 @@ export default function Home() {
                     placeholder='Jane Doe'
                     value={name}
                     onChange={(e) => {setName(e.target.value); setNameError(false); }}
-                    className={`mt-1 block w-full border bg-zinc-950 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 ${nameError ? "border-dashed border-red-500" : "border-zinc-500"}`}
+                    className={`mt-1 block w-full border bg-[var(--background)] text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 ${nameError ? "border-dashed border-red-500" : "border-zinc-500"}`}
                   />
                 </div>
 
@@ -613,7 +613,7 @@ export default function Home() {
                     placeholder='jane.doe@example.com'
                     value={email}
                     onChange={(e) => {setEmail(e.target.value); setEmailError(false); }}
-                    className={`mt-1 block w-full border bg-zinc-950 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 ${emailError ? "border-dashed border-red-500" : "border-zinc-500"}`}
+                    className={`mt-1 block w-full border bg-[var(--background)] text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 ${emailError ? "border-dashed border-red-500" : "border-zinc-500"}`}
                   />
                 </div>
 
@@ -622,7 +622,7 @@ export default function Home() {
                   placeholder='Type your message here...'
                   value={message}
                   onChange={(e) => {setMessage(e.target.value); setMessageError(false)}}
-                  className={`mt-1 block w-full h-72 border bg-zinc-950 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 resize-none ${messageError ? "border-dashed border-red-500" : "border-zinc-500"}`}>
+                  className={`mt-1 block w-full h-72 border bg-[var(--background)] text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 resize-none ${messageError ? "border-dashed border-red-500" : "border-zinc-500"}`}>
                   </textarea>
                 </div>
 
