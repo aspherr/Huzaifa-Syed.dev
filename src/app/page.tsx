@@ -360,7 +360,7 @@ export default function Home() {
           <div className="flex flex-col w-full max-w-2xl">
             <div className='flex flex-col w-full md:w-auto pt-5 items-center justify-center'>
               <div className="h-12 mt-4 mb-4 border border-blue-600 rounded-3xl px-6 py-2 flex items-center justify-center text-center hover:bg-blue-600 duration-500 transition-all">
-                  <a href="/cv.pdf" download className="flex items-center gap-2 text-sm text-white">
+                  <a href="/download/cv.pdf" download className="flex items-center gap-2 text-sm text-white">
                     <span>DOWNLOAD CV</span>
                     <svg xmlns="http://www.w3.org/2000/svg" 
                         width="20" height="20" viewBox="0 0 24 24" 
