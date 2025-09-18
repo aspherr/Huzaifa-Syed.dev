@@ -248,9 +248,9 @@ export default function Home() {
               transition={{ type: "tween", stiffness: 200, damping: 1 }}
               className="fixed w-full left-1/2 transform -translate-x-1/2 px-4 py-6 z-10 flex flex-row items-center font-mono text-base text-white"
             >
-              <div className="fixed inset-0 w-full h-full bg-[var(--background)]/50 backdrop-blur-sm"></div>
+              <div className="fixed inset-0 w-full h-full bg-[var(--background)]/75 backdrop-blur-sm"></div>
                             
-              <div className='mx-auto border-2 border-zinc-900 rounded-xl px-3 py-2 z-0'>
+              <div className='mx-auto border-2 border-neutral-800 bg-neutral-900 rounded-xl px-3 py-2 z-0'>
                 <ul className="flex-1 flex justify-center gap-2 z-10 text-sm">
                   {links.map(({ href, label }) => (
                     <li key={label}>
