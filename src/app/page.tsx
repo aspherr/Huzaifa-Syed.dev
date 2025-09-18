@@ -143,8 +143,14 @@ export default function Home() {
   ] as const;
 
   const [name, setName] = useState('');
+  const [nameError, setNameError] = useState(false);
+  
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState(false);
+
   const [message, setMessage] = useState('');
+  const [messageError, setMessageError] = useState(false);
+  
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/i;
   const nameRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
@@ -158,15 +164,11 @@ export default function Home() {
   function validate(fields: Fields) {
     for (const [key, value] of Object.entries(fields)) {
       const val = value.trim();
-      if (!val) {
-        warningMsg(`Please enter your ${key}.`);
-        return false;
-      }
-
       switch (key) {
         case 'name':
           if (!nameRegex.test(val)) {
             warningMsg('Please enter a valid name.');
+            setNameError(true);
             return false;
           }
           break;
@@ -174,11 +176,24 @@ export default function Home() {
         case 'email':
           if (!emailRegex.test(val)) {
             warningMsg('Please enter a valid email.');
+            setEmailError(true);
+            return false;
+          }
+          break;
+
+        case 'message':
+          if (!val) {
+            warningMsg('Please enter a message.');
+            setMessageError(true);
             return false;
           }
           break;
       }
     }
+
+    setNameError(false);
+    setEmailError(false);
+    setMessageError(false);
     return true;
   }
   
@@ -200,8 +215,14 @@ export default function Home() {
         }
 
         setName('');
+        setNameError(false);
+        
         setEmail('');
+        setEmailError(false);
+        
         setMessage('');
+        setMessageError(false);
+       
         successMsg();
       
     } catch (error) {
@@ -210,9 +231,9 @@ export default function Home() {
 }
   
   return (
-    <main ref={mainRef} className="h-screen overflow-y-scroll scroll-smooth">
+    <main ref={mainRef} className="h-screen overflow-y-scroll scroll-smooth mt-5 md:mt-10">
       
-      <Toaster position="bottom-right" reverseOrder={false} />
+      <Toaster position="bottom-center" reverseOrder={false} />
       
       {/* settings & links navbar */}
       <section id='settings'>
@@ -530,8 +551,8 @@ export default function Home() {
                     type="text"
                     placeholder='Jane Doe'
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="mt-1 block w-full border bg-zinc-950 border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
+                    onChange={(e) => {setName(e.target.value); setNameError(false); }}
+                    className={`mt-1 block w-full border bg-zinc-950 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 ${nameError ? "border-dashed border-red-500" : "border-zinc-500"}`}
                   />
                 </div>
 
@@ -540,8 +561,8 @@ export default function Home() {
                     type="text"
                     placeholder='jane.doe@example.com'
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="mt-1 block w-full border bg-zinc-950 border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300"
+                    onChange={(e) => {setEmail(e.target.value); setEmailError(false); }}
+                    className={`mt-1 block w-full border bg-zinc-950 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 ${emailError ? "border-dashed border-red-500" : "border-zinc-500"}`}
                   />
                 </div>
 
@@ -549,8 +570,8 @@ export default function Home() {
                   <textarea 
                   placeholder='Type your message here...'
                   value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className='mt-1 block w-full h-72 border bg-zinc-950 border-zinc-500 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 resize-none'>
+                  onChange={(e) => {setMessage(e.target.value); setMessageError(false)}}
+                  className={`mt-1 block w-full h-72 border bg-zinc-950 text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 resize-none ${messageError ? "border-dashed border-red-500" : "border-zinc-500"}`}>
                   </textarea>
                 </div>
 
