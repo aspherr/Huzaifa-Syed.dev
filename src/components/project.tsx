@@ -21,7 +21,7 @@ const Project = ({ hasImage, image, name, subtitle, desc, tech_stack, link, card
     >
       <div className="p-4 pb-5 leading-tight">
 
-        <div className="relative flex overflow-hidden items-center justify-center mb-5 mt-2 md:mt-0 rounded-lg border-zinc-900 bg-neutral-800 w-full h-full md:h-46">
+        <div className="relative flex overflow-hidden items-center justify-center mb-5 mt-2 md:mt-0 rounded-lg border-zinc-900 bg-neutral-800 w-full h-full md:h-44">
           {hasImage ? (
             <>
               {image}

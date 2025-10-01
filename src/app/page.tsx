@@ -510,7 +510,8 @@ export default function Home() {
                   cardVar={cardVariants}/>
     
                 <Project
-                  hasImage={false}
+                  hasImage={true}
+                  image={<img src="images/morph.png" alt="morph-showcase" className='rounded-lg' />}
                   name={"MORPH"} 
                   subtitle={"File-Converstion Web App"} 
                   desc={`Built a Next.js app for efficient multi-format file conversion with drag-and-drop uploads and cloud storage. Designed a responsive UI with TailwindCSS and optimized backend processing with Node.js for fast, secure conversions.`}
