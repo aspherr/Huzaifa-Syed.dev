@@ -469,7 +469,7 @@ export default function Home() {
             
             <div className='mt-3'>
               <Work 
-              role={"FULL-STACK DEVELOPER"}
+              role={"FULL-STACK DEVELOPER INTERN"}
               company={"Zee-Solutions Corp (Remote)"}
               desc={`Worked remotely as a full-stack developer delivering
                     end-to-end web apps for state agencies. I designed and shipped React interfaces
