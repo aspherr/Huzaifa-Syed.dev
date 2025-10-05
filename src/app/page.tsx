@@ -18,6 +18,8 @@ import {
 } from 'react-icons/si';
 
 import Dots from '@/components/dots';
+import ThemeToggle from '@/components/themeToggle';
+import LangToggle from '@/components/langToggle';
 import Tag from "@/components/tag";
 import Stat from "@/components/stat";
 import Globe from "@/components/globe";
@@ -304,49 +306,27 @@ export default function Home() {
     <main ref={mainRef} className="h-screen overflow-y-scroll scroll-smooth">
       <Toaster position="bottom-center" reverseOrder={false} />
       
-      {/* settings & links navbar */}
-      <section id='settings'>
-      
-        <AnimatePresence>
-          {visible && (
-            
-            <motion.div
-              initial={{ y: -50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -50, opacity: 0 }}
-              transition={{ type: "tween", stiffness: 200, damping: 1 }}
-              className="fixed w-full left-1/2 transform -translate-x-1/2 px-4 py-6 z-10 flex flex-row items-center font-mono text-base text-white"
-            >
-              <div className="fixed inset-0 w-full h-full bg-[var(--background)]/75 backdrop-blur-sm"></div>
-                            
-              <div className='mx-auto bg-neutral-900 rounded-2xl px-3 py-2 z-0'>
-                <ul className="flex-1 flex justify-center gap-2 z-10 text-sm">
-                  {links.map(({ href, label }) => (
-                    <li key={label}>
-                      <motion.button
-                        onClick={() => {
-                          scrollToSection(href.replace("#", ""));
-                          setActiveSection(label);
-                        }}
-                        className={`hover:text-blue-600 duration-200 px-3 py-1 rounded-lg ${
-                          activeSection === label ? "bg-neutral-800 text-blue-600" : ""
-                        }`}
-                      >
-                        {label}
-                      </motion.button>
-                    </li>
-                  ))} 
-                </ul>
+      <section id="settings" className="mt-5 md:mt-20 pointer-events-none">
+        <div className="fixed top-4 z-50 w-full flex justify-center pointer-events-none">
+          <div className="flex flex-col items-center justify-center 
+                          w-full max-w-2xl mx-4 sm:mx-6 
+                          font-mono backdrop-blur bg-accent/30 
+                          rounded-md p-1 px-3 shadow-md border border-accent/40 
+                          pointer-events-auto">
+            <div className="flex flex-row items-center justify-between w-full">
+              <div className="text-sm leading-tight">📍 London, UK</div>
+
+              <div className="flex flex-row items-center space-x-2">
+                <LangToggle />
+                <ThemeToggle />
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section id="home" className='mt-5 md:mt-10'>
-
+      <section id="home" className='mt-15 md:mt-5'>
         <div className="flex flex-col items-center justify-start min-h-screen max-w-screen-xl mx-auto px-6 pt-6 font-mono">
-  
           <div className="flex md:flex-row items-center justify-between w-full max-w-2xl px-0 font-mono">
             <div className="text-left">
               <p>Hey there I'm</p>
@@ -356,7 +336,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex justify-center items-center border bg-accent/10 rounded-lg border-accent/80 overflow-hidden w-24 h-24 md:w-30 md:h-30 p-3">
+            <div className="flex justify-center items-center bg-accent/30 border border-accent/40 rounded overflow-hidden w-24 h-24 md:w-30 md:h-30 p-3">
               <div className="relative w-full h-full flex justify-center items-center">
                 <Image
                   src="/images/memoji.png"
