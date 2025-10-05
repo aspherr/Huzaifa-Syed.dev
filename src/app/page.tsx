@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image'
 import { useEffect, useState, useRef, useMemo } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import toast, { Toaster } from 'react-hot-toast';
@@ -346,11 +347,26 @@ export default function Home() {
 
         <div className="flex flex-col items-center justify-start min-h-screen max-w-screen-xl mx-auto px-6 pt-6 font-mono">
   
-          <div className="space-y-2 text-left w-full max-w-2xl px-0 font-mono">
-            <p className=''>Hey there I'm</p>
-            <div className='text-4xl md:text-6xl font-semibold'>
-              <h1>Huzaifa</h1>
-              <h1 className='text-blue-600'>Syed</h1>
+          <div className="flex md:flex-row items-center justify-between w-full max-w-2xl px-0 font-mono">
+            <div className="text-left">
+              <p>Hey there I'm</p>
+              <div className="text-4xl md:text-6xl font-semibold">
+                <h1>Huzaifa</h1>
+                <h1 className="text-blue-600">Syed</h1>
+              </div>
+            </div>
+
+            <div className="flex justify-center items-center border-2 rounded-2xl border-accent overflow-hidden w-24 h-24 md:w-30 md:h-30 bg-transparent p-3">
+              <div className="relative w-full h-full flex justify-center items-center">
+                <Image
+                  src="/images/memoji.png"
+                  alt="Memoji"
+                  width={480}
+                  height={480}
+                  className="object-contain"
+                  priority
+                />
+              </div>
             </div>
           </div>
 
