@@ -3,12 +3,24 @@
 import { useEffect, useState, useRef, useMemo } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import toast, { Toaster } from 'react-hot-toast';
+import { 
+  SiReact, 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiTailwindcss,
+  SiJavascript,
+  SiExpress,
+  SiPython,
+  SiAmazonwebservices,
+  SiDocker,
+  SiNodedotjs
+} from 'react-icons/si';
 
 import Dots from '@/components/dots';
 import Tag from "@/components/tag";
 import Stat from "@/components/stat";
 import Globe from "@/components/globe";
-import Stack from '@/components/stack';
+import LogoLoop from '@/components/LogoLoop';
 import Footer from '@/components/footer';
 import Playback from "@/components/playback";
 import Work from '@/components/work';
@@ -147,6 +159,18 @@ export default function Home() {
     };
   }, [links, idToLabel]);
 
+  const techLogos = [
+    { node: <SiReact />, title: "React", href: "https://react.dev" },
+    { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+    { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+    { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+    { node: <SiJavascript />, title: "Javascript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+    { node: <SiPython />, title: "Python", href: "https://www.python.org/" },
+    { node: <SiExpress />, title: "Express", href: "https://expressjs.com/" },
+    { node: <SiAmazonwebservices />, title: "AWS", href: "https://aws.amazon.com/" },
+    { node: <SiDocker />, title: "Docker", href: "https://www.docker.com/" },
+    { node: <SiNodedotjs />, title: "Node.js", href: "https://nodejs.org/en" },
+  ];
 
   const zs_tags = [
     "Javascript",
@@ -172,7 +196,6 @@ export default function Home() {
     "Typescript",
     "NextJS",
     "Node JS",
-    "Redis",
     "TailwindCSS",
     "Shadecn/UI",
     "REST API",
@@ -384,29 +407,27 @@ export default function Home() {
             <Stat num={3} desc={<>Projects <br /> Deployed </>} />
           </div>
 
-          <div className="w-full max-w-2xl mt-8 space-y-8">
-            <motion.div
-              initial="rest"
-              animate="rest"
-              whileHover="hover"
-              className="relative w-full h-72 md:h-32 rounded-sm bg-neutral-900 overflow-hidden shadow transition
-                        hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
-              <motion.div
-                variants={textVariants}
-                className="w-full grid grid-cols-1 absolute top-3 left-3 md:top-5 md:left-5 right-56 font-mono">
-                  <div className="grid grid-cols-1 md:grid-cols-2 leading-tight">
-                    <div className="flex flex-col space-y-1 ml-2 mt-2">
-                      <span className="opacity-50 text-lg">My Primary</span>
-                      <span className="font-bold text-3xl inline-block">Tech Stack</span>
-                    </div>
-
-                    <div className="mt-5 md:-mt-2 ml-2 md:-ml-24">
-                      <Stack />
-                    </div>
-                  </div>
-              </motion.div>
-
-            </motion.div>
+          <div className="w-full max-w-2xl space-y-15">
+            <div className='mt-15'>
+              <LogoLoop
+                logos={techLogos}
+                speed={90}
+                direction="left"
+                logoHeight={38}
+                gap={50}
+                pauseOnHover
+                scaleOnHover
+                fadeOut
+                fadeOutColor={`color-mix(in oklch, var(--background) 70%, transparent 30%)`}
+                style={{
+                  maskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
+                  WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                }}
+                ariaLabel="Technology partners"
+              />
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <motion.div
