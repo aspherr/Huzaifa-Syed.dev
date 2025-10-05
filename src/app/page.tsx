@@ -356,7 +356,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex justify-center items-center border-2 rounded-2xl border-accent overflow-hidden w-24 h-24 md:w-30 md:h-30 bg-transparent p-3">
+            <div className="flex justify-center items-center border bg-accent/10 rounded-lg border-accent/80 overflow-hidden w-24 h-24 md:w-30 md:h-30 p-3">
               <div className="relative w-full h-full flex justify-center items-center">
                 <Image
                   src="/images/memoji.png"
@@ -371,9 +371,10 @@ export default function Home() {
           </div>
 
           <div className="leading-relaxed text-left w-full max-w-2xl mt-6">
-            <p className='pb-5 text-md'>
-              Hey 👋 My name is Huzaifa and I{"'"}m a React/Next JS developer. I ship clean, tested code and scalable features. ⚙️ <br/>
+            <p className="pb-5 text-sm md:text-md max-w-full md:max-w-md mx-auto md:mx-0 md:text-left">
+              I'm a full-stack React and Next.js developer focused on building fast, scalable, and reliable web experiences ⚡
             </p>
+
 
             <div className='flex flex-row gap-4 justify-start'>
               <Tag icon={
