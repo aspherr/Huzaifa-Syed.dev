@@ -29,6 +29,8 @@ import Playback from "@/components/playback";
 import Work from '@/components/work';
 import Project from '@/components/project';
 import Link from '@/components/link';
+import GradualBlur from '@/components/GradualBlur';
+
 
 
 export default function Home() {
@@ -303,7 +305,7 @@ export default function Home() {
 }
   
   return (
-    <main ref={mainRef} className="h-screen overflow-y-scroll scroll-smooth">
+    <main ref={mainRef} className="h-screen overflow-y-scroll scroll-smooth w-full">
       <Toaster position="bottom-center" reverseOrder={false} />
       
       <section id="settings" className="mt-5 md:mt-20 pointer-events-none">
@@ -655,7 +657,17 @@ export default function Home() {
 
       {/* Footer */}
       <Footer/>
-    
+      
+      <GradualBlur
+        target="parent"
+        position="bottom"
+        height="6rem"
+        strength={1}
+        divCount={2}
+        curve="bezier"
+        exponential={true}
+        opacity={1}
+      />
     </main>      
   );
 }
