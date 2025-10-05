@@ -346,18 +346,12 @@ export default function Home() {
 
         <div className="flex flex-col items-center justify-start min-h-screen max-w-screen-xl mx-auto px-6 pt-6 font-mono">
   
-          <div className="space-y-2 text-left w-full max-w-2xl px-0">
-            <div className='bg-neutral-900 p-2 rounded-sm inline-block relative'>
-              <h1 className="font-bold text-4xl md:text-6xl lg:text-7xl leading-tight">
-                huzaifa<span className="text-blue-600">.syed</span>
-              </h1>
-
-              <Dots />
+          <div className="space-y-2 text-left w-full max-w-2xl px-0 font-mono">
+            <p className=''>Hey there I'm</p>
+            <div className='text-4xl md:text-6xl font-semibold'>
+              <h1>Huzaifa</h1>
+              <h1 className='text-blue-600'>Syed</h1>
             </div>
-
-            <h3 className="text-base xs:text-base sm:text-base md:text-lg lg:text-xl text-neutral-600">
-              A <span className="text-blue-600">full-stack</span> developer.
-            </h3>
           </div>
 
           <div className="leading-relaxed text-left w-full max-w-2xl mt-6">
