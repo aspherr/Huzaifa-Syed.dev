@@ -330,7 +330,7 @@ export default function Home() {
       <section id="home" className='mt-15 md:mt-5'>
         <div className="flex flex-col items-center justify-start min-h-screen max-w-screen-xl mx-auto px-6 pt-6 font-mono">
           <div className="flex md:flex-row items-center justify-between w-full max-w-2xl px-0 font-mono">
-            <div className="text-left">
+            <div className="text-left text-black/75 dark:text-white">
               <p>Hey there I'm</p>
               <div className="text-4xl md:text-6xl font-semibold">
                 <h1>Huzaifa</h1>
@@ -353,7 +353,7 @@ export default function Home() {
           </div>
 
           <div className="leading-relaxed text-left w-full max-w-2xl mt-6">
-            <p className="pb-5 text-sm md:text-md max-w-full md:max-w-md mx-auto md:mx-0 md:text-left">
+            <p className="pb-5 text-sm md:text-md max-w-full md:max-w-md mx-auto md:mx-0 md:text-left text-black/75 dark:text-white">
               I'm a full-stack React and Next.js developer focused on building fast, scalable, and reliable web experiences ⚡
             </p>
 
@@ -376,7 +376,7 @@ export default function Home() {
           <div className="flex flex-col w-full max-w-2xl">
             <div className='flex flex-col w-full md:w-auto pt-5 items-center justify-center'>
               <div className="h-12 mt-4 mb-4 border border-blue-600 backdrop-blur bg-accent/30 rounded-xl px-6 py-2 flex items-center justify-center text-center hover:bg-blue-600 duration-500 transition-all">
-                  <a href="/download/cv.pdf" download className="flex items-center gap-2 text-sm">
+                  <a href="/download/cv.pdf" download className="flex items-center gap-2 text-sm text-black/75 dark:text-white">
                     <span>DOWNLOAD CV</span>
                     <svg xmlns="http://www.w3.org/2000/svg" 
                         width="20" height="20" viewBox="0 0 24 24" 
