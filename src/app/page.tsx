@@ -401,7 +401,7 @@ export default function Home() {
           </div>
 
           <div className="w-full max-w-2xl space-y-15">
-            <div className='mt-15'>
+            <div className='mt-15 text-black/75 dark:text-white'>
               <LogoLoop
                 logos={techLogos}
                 speed={90}
