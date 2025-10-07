@@ -3,7 +3,9 @@
 import Image from 'next/image'
 import { useEffect, useState, useRef, useMemo } from 'react';
 import { motion, type Variants } from 'framer-motion';
+import { useTheme } from "next-themes"
 import toast, { Toaster } from 'react-hot-toast';
+import GitHubCalendar from "react-github-calendar";
 import { 
   SiReact, 
   SiNextdotjs, 
@@ -97,6 +99,8 @@ export default function Home() {
   };
 
   useEffect(() => {
+    setMounted(true)
+    
     const container = mainRef.current;
     if (!container) return;  
     
@@ -164,6 +168,16 @@ export default function Home() {
       observer.disconnect();
     };
   }, [links, idToLabel]);
+
+  const today = new Date();
+  const threeMonthsAgo = new Date();
+  threeMonthsAgo.setMonth(today.getMonth() - 3);
+  threeMonthsAgo.setDate(threeMonthsAgo.getDate() - 23);
+
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const colorScheme = resolvedTheme === "dark" ? "dark" : "light";
 
   const techLogos = [
     { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -473,15 +487,34 @@ export default function Home() {
                   initial="rest"
                   animate="rest"
                   whileHover="hover"
-                  className="relative w-full h-40 rounded-sm bg-neutral-900 overflow-hidden shadow transition
-                            hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
-                  <motion.div
-                    variants={textVariants}
-                    className="w-full grid grid-cols-1 absolute top-5 left-5">
-                    <span className="font-mono font-bold text-xl">Pragmatic developer <br /> who has built clean, <br /> reliable systems 🚀</span>
-                  </motion.div>
-
+                  className="relative w-full h-36 bg-accent/30 border border-accent/40 rounded overflow-hidden shadow transition
+                            hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
+                            flex items-center justify-center p-3"
+                >
+                  <div className="flex items-center justify-center overflow-hidden scale-110 rounded-md p-3 bg-tranparent">
+                    {!mounted ? (
+                      null
+                    ) : (
+                      <GitHubCalendar
+                        username="aspherr"
+                        transformData={(data) =>
+                          data.filter(
+                            (day) =>
+                              new Date(day.date) >= threeMonthsAgo && new Date(day.date) <= today)
+                          }
+                        hideColorLegend={true}
+                        hideMonthLabels={true}
+                        hideTotalCount={true}
+                        colorScheme={colorScheme}
+                        theme={{
+                          dark: ["#27272a", "#1e3a8a", "#2563eb", "#3b82f6", "#93c5fd"],
+                          light: ["#f8fafc", "#1e3a8a", "#2563eb", "#3b82f6", "#93c5fd"]
+                        }}
+                      />
+                    )}
+                  </div>
                 </motion.div>
+
 
                 <motion.div
                   initial="rest"

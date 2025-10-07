@@ -26,6 +26,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-fast-marquee": "^1.6.5",
+    "react-github-calendar": "^4.5.11",
     "react-hot-toast": "^2.6.0",
     "react-icons": "^5.5.0",
     "resend": "^6.1.0",
