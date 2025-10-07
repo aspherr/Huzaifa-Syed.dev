@@ -40,7 +40,7 @@ const Cursor = () => {
 
   return (
     <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-[9999] h-3 w-3 rounded-full bg-blue-600"
+      className="pointer-events-none fixed left-0 top-0 z-[99999] h-4.5 w-4.5 rounded-full bg-blue-600"
       style={{
         x: xSpring,
         y: ySpring,
