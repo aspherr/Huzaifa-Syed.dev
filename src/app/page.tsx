@@ -395,7 +395,7 @@ export default function Home() {
 
           <div className="gap-8 mt-8 w-full max-w-2xl grid grid-cols-2 sm:grid-cols-4 group">
             <Stat num={21} desc={"Age"} />
-            <Stat num={2} desc={<>Years of <br /> Experience</>} />
+            <Stat num={1} desc={<>Year of <br /> Experience</>} />
             <Stat num={8} desc={<>Projects <br /> Worked On </>} />
             <Stat num={3} desc={<>Projects <br /> Deployed </>} />
           </div>
