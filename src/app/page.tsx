@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useEffect, useState, useRef, useMemo } from 'react';
-import { motion, AnimatePresence, type Variants } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import toast, { Toaster } from 'react-hot-toast';
 import { 
   SiReact, 
@@ -14,8 +14,9 @@ import {
   SiPython,
   SiAmazonwebservices,
   SiDocker,
-  SiNodedotjs
+  SiNodedotjs,
 } from 'react-icons/si';
+import { House, BriefcaseBusiness, Layers, Mail} from "lucide-react"
 
 import Dots from '@/components/dots';
 import ThemeToggle from '@/components/themeToggle';
@@ -322,6 +323,32 @@ export default function Home() {
                 <LangToggle />
                 <ThemeToggle />
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="navbar" className="mt-5 md:mt-20 pointer-events-none">
+        <div className="fixed bottom-4 z-[9999] w-full flex justify-center pointer-events-none">
+          <div
+            className="flex flex-col items-center justify-center 
+                      w-full max-w-[275px] md:max-w-[275px] sm:max-w-sm mx-auto sm:mx-6
+                      font-mono backdrop-blur-md bg-accent/30
+                      rounded-2xl px-4 py-2 shadow-lg border border-accent/40
+                      pointer-events-auto">
+            <div className="flex flex-row items-center justify-between w-full px-2">
+              <button className="p-2 hover:scale-110 transition-transform duration-200">
+                <House className="w-5 h-5" />
+              </button>
+              <button className="p-2 hover:scale-110 transition-transform duration-200">
+                <BriefcaseBusiness className="w-5 h-5" />
+              </button>
+              <button className="p-2 hover:scale-110 transition-transform duration-200">
+                <Layers className="w-5 h-5" />
+              </button>
+              <button className="p-2 hover:scale-110 transition-transform duration-200">
+                <Mail className="w-5 h-5" />
+              </button>
             </div>
           </div>
         </div>
