@@ -26,13 +26,13 @@ const PlayBack = () => {
               <Bars />
             </div>
           ) : null}
-
-          <span className="font-bold text-md flex-1 min-w-0 truncate w-[200px]">
+        
+          <span className={`font-bold text-md flex-1 truncate max-w-[175px] ${data?.isPlaying ? "ml-1" : "ml-0"}`}>
             {data?.title ?? "loading..."}
           </span>
         </div>
 
-        <span className="text-xs truncate w-[200px]">{data?.artist ?? "loading..."}</span>
+        <span className="text-xs truncate max-w-[150px]">{data?.artist ?? "loading..."}</span>
       </div>
     </div>
   );
