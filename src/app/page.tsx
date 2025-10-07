@@ -338,7 +338,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex justify-center items-center bg-accent/30 border border-accent/40 rounded overflow-hidden w-24 h-24 md:w-30 md:h-30 p-3">
+            <div className="flex justify-center items-center bg-accent/30 border border-accent/40 rounded-md overflow-hidden w-24 h-24 md:w-30 md:h-30 p-3">
               <div className="relative w-full h-full flex justify-center items-center">
                 <Image
                   src="/images/memoji.png"
@@ -460,7 +460,7 @@ export default function Home() {
                   initial="rest"
                   animate="rest"
                   whileHover="hover"
-                  className="relative w-full h-20 rounded-sm bg-neutral-900 overflow-hidden shadow transition
+                  className="relative w-full h-20 bg-accent/30 border border-accent/40 rounded overflow-hidden shadow transition-all
                             hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
                   <Playback />
                 </motion.div>

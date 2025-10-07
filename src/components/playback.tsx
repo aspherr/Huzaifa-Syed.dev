@@ -8,10 +8,10 @@ const PlayBack = () => {
   const { data } = useSWR('/api/spotify/now-playing', fetcher);
 
   return (
-    <div className="grid grid-cols-[auto_1fr] items-center gap-x-4 leading-tight ml-4 mt-2">
+    <div className="grid grid-cols-[auto_1fr] items-center gap-x-4 leading-tight ml-4 mt-2 text-black/75 dark:text-white">
       {data?.image ? (
         <a href={data.url} target="_blank">
-          <img src={data.image}  alt="Cover Art" className="w-14 h-14 rounded" />
+          <img src={data.image}  alt="Cover Art" className="w-14 h-14 rounded mt-0.5 border border-accent/40" />
         </a>
       ) : null}
 
@@ -20,20 +20,19 @@ const PlayBack = () => {
           {data?.isPlaying ? "CURRENTLY LISTENING TO" : " OFFLINE | LAST PLAYED SONG"}
         </span>
         
-        <div className="flex items-center gap-2 w-full">
+        <div className="flex items-center gap-1 w-full">
           {data?.isPlaying ? (
             <div className="shrink-0">
               <Bars />
             </div>
-                
           ) : null}
 
-          <span className="font-bold text-md flex-1 min-w-0 truncate">
+          <span className="font-bold text-md flex-1 min-w-0 truncate w-[200px]">
             {data?.title ?? "loading..."}
           </span>
         </div>
 
-        <span className="text-xs truncate">{data?.artist ?? "loading..."}</span>
+        <span className="text-xs truncate w-[200px]">{data?.artist ?? "loading..."}</span>
       </div>
     </div>
   );
