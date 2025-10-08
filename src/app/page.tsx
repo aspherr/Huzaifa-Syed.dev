@@ -18,11 +18,11 @@ import {
   SiDocker,
   SiNodedotjs,
 } from 'react-icons/si';
-import { House, BriefcaseBusiness, Layers, Mail} from "lucide-react"
 
 import Dots from '@/components/dots';
 import ThemeToggle from '@/components/themeToggle';
 import LangToggle from '@/components/langToggle';
+import Navbar from '@/components/navbar';
 import Tag from "@/components/tag";
 import Stat from "@/components/stat";
 import Globe from "@/components/globe";
@@ -33,8 +33,6 @@ import Work from '@/components/work';
 import Project from '@/components/project';
 import Link from '@/components/link';
 import GradualBlur from '@/components/GradualBlur';
-
-
 
 export default function Home() {
 
@@ -68,47 +66,7 @@ export default function Home() {
     }
   );
 
-
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const mainRef = useRef<HTMLDivElement | null>(null);
-
-  const [visible, setVisible] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
-
-  const handleScroll = () => {
-    const container = mainRef.current;
-    if (!container) return;
-
-    const homeSection = document.getElementById('home');
-    if (!homeSection) return;
-
-    const scrollTop = container.scrollTop;
-
-    const homeBottomInContainer =
-    homeSection.getBoundingClientRect().bottom -
-    container.getBoundingClientRect().top +
-    container.scrollTop;
-
-    setVisible(scrollTop >= homeBottomInContainer - 700);
-  };
-
-  useEffect(() => {
-    setMounted(true)
-    
-    const container = mainRef.current;
-    if (!container) return;  
-    
-    container.addEventListener('scroll', handleScroll);
-    handleScroll();
-  
-    return () => container.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const textVariants: Variants = {
     rest:  { x: 0 },
@@ -126,53 +84,10 @@ export default function Home() {
     hover: { scale: 1.01 },
   };
 
-  const idToLabel = useMemo(
-    () => new Map(links.map(({ href, label }) => [href.replace('#', ''), label])),
-    [links]
-  );
-
-  useEffect(() => {
-    const container = mainRef.current;
-    if (!container) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visibleEntries.length > 0) {
-          const id = visibleEntries[0].target.getAttribute('id') || '';
-          const label = idToLabel.get(id) ?? id;
-          setActiveSection(label);
-        }
-      },
-      {
-        root: container,
-        rootMargin: '-35% 0px -35% 0px',
-        threshold: [0.1, 0.25, 0.5, 0.75, 1],
-      }
-    );
-
-    const observed: Element[] = [];
-    links.forEach(({ href }) => {
-      const id = href.replace('#', '');
-      const el = document.getElementById(id);
-      if (el) {
-        observer.observe(el);
-        observed.push(el);
-      }
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [links, idToLabel]);
-
   const today = new Date();
   const threeMonthsAgo = new Date();
   threeMonthsAgo.setMonth(today.getMonth() - 3);
-  threeMonthsAgo.setDate(threeMonthsAgo.getDate() - 23);
+  threeMonthsAgo.setDate(threeMonthsAgo.getDate() - 24);
 
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -343,29 +258,7 @@ export default function Home() {
       </section>
 
       <section id="navbar" className="mt-5 md:mt-20 pointer-events-none">
-        <div className="fixed bottom-4 z-[9999] w-full flex justify-center pointer-events-none">
-          <div
-            className="flex flex-col items-center justify-center 
-                      w-full max-w-[275px] md:max-w-[275px] sm:max-w-sm mx-auto sm:mx-6
-                      font-mono backdrop-blur-md bg-accent/30
-                      rounded-2xl px-4 py-2 shadow-lg border border-accent/40
-                      pointer-events-auto">
-            <div className="flex flex-row items-center justify-between w-full px-2">
-              <button className="p-2 hover:scale-110 transition-transform duration-200">
-                <House className="w-5 h-5" />
-              </button>
-              <button className="p-2 hover:scale-110 transition-transform duration-200">
-                <BriefcaseBusiness className="w-5 h-5" />
-              </button>
-              <button className="p-2 hover:scale-110 transition-transform duration-200">
-                <Layers className="w-5 h-5" />
-              </button>
-              <button className="p-2 hover:scale-110 transition-transform duration-200">
-                <Mail className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-        </div>
+        <Navbar ref={mainRef}/>
       </section>
 
       <section id="home" className='mt-15 md:mt-5'>
@@ -530,7 +423,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" className="font-mono scroll-mt-24">
+      <section id="work" className="font-mono scroll-mt-24">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
 
