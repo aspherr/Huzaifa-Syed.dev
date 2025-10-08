@@ -19,20 +19,19 @@ import {
   SiNodedotjs,
 } from 'react-icons/si';
 
-import Dots from '@/components/dots';
 import ThemeToggle from '@/components/themeToggle';
 import LangToggle from '@/components/langToggle';
 import Navbar from '@/components/navbar';
 import Tag from "@/components/tag";
 import Stat from "@/components/stat";
-import Globe from "@/components/globe";
 import LogoLoop from '@/components/LogoLoop';
-import Footer from '@/components/footer';
+import Globe from "@/components/globe";
 import Playback from "@/components/playback";
 import Work from '@/components/work';
 import Project from '@/components/project';
 import Link from '@/components/link';
 import GradualBlur from '@/components/GradualBlur';
+import Footer from '@/components/footer';
 
 export default function Home() {
 
@@ -430,7 +429,6 @@ export default function Home() {
             <div className="flex justify-end items-center gap-3 whitespace-nowrap">
               <div className='bg-neutral-900 p-2 rounded-sm inline-block relative'>
                 <h2 className="font-bold text-4xl md:text-6xl lg:text-7xl text-blue-600 leading-none">.work</h2>
-                <Dots />
               </div>
             </div>
             
@@ -458,7 +456,6 @@ export default function Home() {
             <div className="flex justify-end items-center gap-3 whitespace-nowrap">
               <div className='bg-neutral-900 p-2 rounded-sm inline-block relative'>
                 <h2 className="font-bold text-4xl md:text-6xl lg:text-7xl text-blue-600 leading-none">.projects</h2>
-                <Dots />
               </div>
             </div>
 
