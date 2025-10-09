@@ -69,11 +69,11 @@ const Navbar = React.forwardRef<HTMLDivElement, {}>((_, ref)  => {
     return (
         <div className="fixed bottom-4 z-[9999] w-full flex justify-center pointer-events-none">
             <div className="flex flex-col items-center justify-center 
-                w-full max-w-[275px] md:max-w-[275px] sm:max-w-sm mx-auto sm:mx-6
+                w-full max-w-[275px] md:max-w-[240px] sm:max-w-sm mx-auto sm:mx-6
                 font-mono backdrop-blur-md bg-accent/30
                 rounded-2xl px-4 py-2 shadow-lg border border-accent/40
                 pointer-events-auto">
-                <div className="flex flex-row items-center justify-between w-full px-2">
+                <div className="flex flex-row items-center justify-between w-full text-black/75 dark:text-white">
                     {icons.map(({ label, icon }) => (
                         <ul key={ label }>
                             <motion.button
