@@ -1,11 +1,12 @@
 "use client";
 
 import Image from 'next/image'
-import { useEffect, useState, useRef, useMemo } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { useTheme } from "next-themes"
 import toast, { Toaster } from 'react-hot-toast';
 import GitHubCalendar from "react-github-calendar";
+import { GitCommitHorizontal } from "lucide-react"
 import { 
   SiReact, 
   SiNextdotjs, 
@@ -19,13 +20,15 @@ import {
   SiNodedotjs,
 } from 'react-icons/si';
 
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator"
+
 import ThemeToggle from '@/components/themeToggle';
 import LangToggle from '@/components/langToggle';
 import Navbar from '@/components/navbar';
 import Tag from "@/components/tag";
 import Stat from "@/components/stat";
 import LogoLoop from '@/components/LogoLoop';
-import Globe from "@/components/globe";
 import Playback from "@/components/playback";
 import Work from '@/components/work';
 import Project from '@/components/project';
@@ -35,63 +38,17 @@ import Footer from '@/components/footer';
 
 export default function Home() {
 
-  const successMsg = () => toast.success('Message was sent successfully!',
-    {
-      style: {
-        borderRadius: '10px',
-        background: '#333',
-        color: '#fff',
-      },
-    }
-  );
-
-  const warningMsg = (msg: string) => toast.error(msg,
-    {
-      style: {
-        borderRadius: '10px',
-        background: '#333',
-        color: '#fff',
-      },
-    }
-  );
-
-  const failMsg = () => toast.error('Failed to send message. Try Again!',
-    {
-      style: {
-        borderRadius: '10px',
-        background: '#333',
-        color: '#fff',
-      },
-    }
-  );
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const colorScheme = resolvedTheme === "dark" ? "dark" : "light";
 
   const mainRef = useRef<HTMLDivElement | null>(null);
-
-  const textVariants: Variants = {
-    rest:  { x: 0 },
-    hover: { x: 8, transition: { type: "spring", stiffness: 300, damping: 20 } }
-  }
-
-  const links = [
-    { href: "#home", label: "home" },
-    { href: "#experience", label: "experience" },
-    { href: "#contact-me", label: "contact" },
-  ];
 
   const cardVariants = {
     rest: { scale: 1 },
     hover: { scale: 1.01 },
   };
-
-  const today = new Date();
-  const threeMonthsAgo = new Date();
-  threeMonthsAgo.setMonth(today.getMonth() - 3);
-  threeMonthsAgo.setDate(threeMonthsAgo.getDate() - 24);
-
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  const colorScheme = resolvedTheme === "dark" ? "dark" : "light";
 
   const techLogos = [
     { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -105,6 +62,34 @@ export default function Home() {
     { node: <SiDocker />, title: "Docker", href: "https://www.docker.com/" },
     { node: <SiNodedotjs />, title: "Node.js", href: "https://nodejs.org/en" },
   ];
+
+  const today = new Date();
+  const threeMonthsAgo = new Date();
+  threeMonthsAgo.setMonth(today.getMonth() - 3);
+  threeMonthsAgo.setDate(threeMonthsAgo.getDate() - 24);
+
+  const repoName = "Morph"
+  const repoUrl = "https://github.com/aspherr/Morph"
+  const [commits, setCommits] = useState([])
+  useEffect(() => {
+    const fetchCommits = async () => {
+      try {
+        const res = await fetch("https://api.github.com/repos/aspherr/Morph/commits")
+        if (!res.ok) {
+          throw new Error("Could not fetch commit data")
+        }
+
+        const data = await res.json()
+        const messages = data.map((c: { commit: { message: string } }) => c.commit.message);
+        setCommits(messages)
+    
+      } catch (error) {
+        console.error("Error:", error);
+      } 
+    }
+
+    fetchCommits();
+  }, []);
 
   const zs_tags = [
     "Javascript",
@@ -144,6 +129,37 @@ export default function Home() {
     "Redis",
     "OpenAI API",
   ] as const;
+
+
+  const successMsg = () => toast.success('Message was sent successfully!',
+    {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    }
+  );
+
+  const warningMsg = (msg: string) => toast.error(msg,
+    {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    }
+  );
+
+  const failMsg = () => toast.error('Failed to send message. Try Again!',
+    {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    }
+  );
 
   const [name, setName] = useState('');
   const [nameError, setNameError] = useState(false);
@@ -355,24 +371,44 @@ export default function Home() {
               />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <motion.div
-                initial="rest"
-                animate="rest"
-                whileHover="hover"
-                className="relative w-full h-64 rounded-sm bg-neutral-900 overflow-hidden shadow transition
-                          hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
-                <motion.div
-                  variants={textVariants}
-                  className="w-full grid grid-cols-1 absolute top-5 left-5 right-56 font-mono">
-                  <span className="opacity-50 text-md">Based In</span>
-                  <span className="font-bold text-2xl inline-block">London, UK 📍</span>
-                </motion.div>
-                
-                <div className="absolute inset-y-0 right-32 md:right-0 w-40 sm:w-48 md:w-64 pointer-events-none">
-                  <Globe />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="relative w-full h-[240px]  bg-accent/30 border border-accent/40 rounded overflow-hidden shadow transition
+                    hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
+                <div className="absolute top-3 left-3">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-accent/20 px-3 py-1 text-sm font-semibold tracking-wide uppercase">
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-600 shadow-[0_0_0_3px_rgba(37,99,235,0.25)]" />
+                    Currently Building
+                  </span>
                 </div>
-              </motion.div>
+                        
+                <div className="px-4 mt-15">
+                  <div className="mb-3 flex items-center gap-2">
+                    <GitCommitHorizontal strokeWidth={1.25} className="h-5 w-5 opacity-80" />
+                    <a href={repoUrl} target="_blank" rel="noreferrer noopener" 
+                      className="text-sm font-semibold underline">{repoName}
+                    </a>
+                    <span className="ml-auto text-[11px] rounded-full bg-foreground/5 px-2 py-0.5">
+                      {commits.length}
+                    </span>
+                  </div>
+
+                  <ScrollArea className="h-[120px] w-full rounded">
+                    <ul className="divide-y divide-accent/30">
+                      {commits.map((msg, i) => (
+                        <li
+                          key={`${i}-${msg}`}
+                          className="group flex items-start gap-2 px-1 py-2 hover:bg-foreground/[0.03]"
+                          title={msg}>
+                          <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-accent/70 group-hover:bg-accent" />
+                          <p className="text-xs leading-relaxed line-clamp-2 break-words">
+                            {msg}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </ScrollArea>
+                </div>
+              </div>
               
               <div className='flex flex-col gap-8 md:gap-4'>
                 <div className="relative w-full h-36 bg-accent/30 border border-accent/40 rounded overflow-hidden shadow transition
