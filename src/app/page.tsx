@@ -375,14 +375,9 @@ export default function Home() {
               </motion.div>
               
               <div className='flex flex-col gap-8 md:gap-4'>
-                <motion.div
-                  initial="rest"
-                  animate="rest"
-                  whileHover="hover"
-                  className="relative w-full h-36 bg-accent/30 border border-accent/40 rounded overflow-hidden shadow transition
+                <div className="relative w-full h-36 bg-accent/30 border border-accent/40 rounded overflow-hidden shadow transition
                             hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out
-                            flex items-center justify-center p-3"
-                >
+                            flex items-center justify-center p-3">
                   <div className="flex items-center justify-center overflow-hidden scale-110 rounded-md p-3 bg-tranparent">
                     {!mounted ? (
                       null
@@ -405,17 +400,12 @@ export default function Home() {
                       />
                     )}
                   </div>
-                </motion.div>
+                </div>
 
-
-                <motion.div
-                  initial="rest"
-                  animate="rest"
-                  whileHover="hover"
-                  className="relative w-full h-20 bg-accent/30 border border-accent/40 rounded overflow-hidden shadow transition-all
-                            hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
+                <div className="relative w-full h-20 bg-accent/30 border border-accent/40 rounded overflow-hidden shadow transition-all
+                                  hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
                   <Playback />
-                </motion.div>
+                </div>
               </div>
             </div>
           </div>
