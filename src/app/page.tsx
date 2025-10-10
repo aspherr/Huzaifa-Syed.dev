@@ -6,7 +6,7 @@ import { motion, type Variants } from 'framer-motion';
 import { useTheme } from "next-themes"
 import toast, { Toaster } from 'react-hot-toast';
 import GitHubCalendar from "react-github-calendar";
-import { GitCommitHorizontal } from "lucide-react"
+import { GitCommitHorizontal, BriefcaseBusiness, Layers } from "lucide-react"
 import { 
   SiReact, 
   SiNextdotjs, 
@@ -21,7 +21,6 @@ import {
 } from 'react-icons/si';
 
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
 
 import ThemeToggle from '@/components/themeToggle';
 import LangToggle from '@/components/langToggle';
@@ -372,7 +371,7 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="relative w-full h-[240px]  bg-accent/30 border border-accent/40 rounded overflow-hidden shadow transition
+              <div className="relative w-full h-[240px] bg-accent/30 border border-accent/40 rounded overflow-hidden shadow transition
                     hover:shadow-[0_16px_48px_-16px_rgb(23_23_23_/_0.55)] duration-300 ease-in-out">
                 <div className="absolute top-3 left-3">
                   <span className="inline-flex items-center gap-2 rounded-full bg-accent/20 px-3 py-1 text-sm font-semibold tracking-wide uppercase">
@@ -448,93 +447,42 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="work" className="font-mono scroll-mt-24">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
+      <section id='experience' className='relative mt-10'>
+        <section id="work" className="font-mono scroll-mt-24">
+          <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
 
-            <div className="flex justify-end items-center gap-3 whitespace-nowrap">
-              <div className='bg-neutral-900 p-2 rounded-sm inline-block relative'>
-                <h2 className="font-bold text-4xl md:text-6xl lg:text-7xl text-blue-600 leading-none">.work</h2>
+              <div className="flex flex-row justify-start items-center gap-6 whitespace-nowrap">
+                <div className='p-3 bg-accent/30 border border-accent/40 rounded-xl text-blue-600'>
+                  <BriefcaseBusiness className='w-5 h-5 md:w-6 md:h-6'/>
+                </div>
+                <h1 className='text-2xl md:text-4xl font-semibold'>
+                  WORK EXPERIENCE
+                </h1>
               </div>
-            </div>
-            
-            <div className='mt-3'>
-              <Work 
-              role={"FULL-STACK DEVELOPER INTERN"}
-              company={"Zee-Solutions Corp (Remote)"}
-              desc={`Worked remotely as a full-stack developer delivering
-                    end-to-end web apps for state agencies. I designed and shipped React interfaces
-                    and dashboards, connected them to APIs for CRUD and real-time workflows, and built
-                    in solid validation and role-based access so things worked as expected. On the
-                    backend, I helped in planning database schemas, permission models, and REST
-                    endpoints, then tuned them for performance and easy maintenance.`}
-              tech_stack={zs_tags}
-              cardVar={cardVariants}/>
+                          
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="projects" className="font-mono -mt-10">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
+        <section id="projects" className="font-mono -mt-10">
+          <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
 
-            <div className="flex justify-end items-center gap-3 whitespace-nowrap">
-              <div className='bg-neutral-900 p-2 rounded-sm inline-block relative'>
-                <h2 className="font-bold text-4xl md:text-6xl lg:text-7xl text-blue-600 leading-none">.projects</h2>
+              <div className="flex flex-row justify-start items-center gap-6 whitespace-nowrap">
+                <div className='p-3 bg-accent/30 border border-accent/40 rounded-xl text-blue-600'>
+                  <Layers className='w-5 h-5 md:w-6 md:h-6'/>
+                </div>
+                <h1 className='text-2xl md:text-4xl font-semibold'>
+                  PROJECTS
+                </h1>
               </div>
-            </div>
 
-            <div className="fex min-w-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-3">
-                                
-                <Project
-                  hasImage={true}
-                  image={<img src="images/emplora.png" alt="emplora-showcase" className='rounded-lg' />}
-                  name={"EMPLORA"} 
-                  subtitle={"Employee Management System"} 
-                  desc={`Built a full-stack web app with CRUD operations, search & sort, REST API with rate limiting, 
-                          and dynamic form validation for efficient employee record management.`}
-                  tech_stack={emplora_tags}
-                  link={"https://github.com/aspherr/Emplora"}
-                  cardVar={cardVariants}/>
-    
-                <Project
-                  hasImage={true}
-                  image={<img src="images/morph.png" alt="morph-showcase" className='rounded-lg' />}
-                  name={"MORPH"} 
-                  subtitle={"File-Converstion Web App"} 
-                  desc={`Built a Next.js app for efficient multi-format file conversion with drag-and-drop uploads and cloud storage. Designed a responsive UI with TailwindCSS and optimized backend processing with Node.js for fast, secure conversions.`}
-                  tech_stack={morph_tags}
-                  link={"https://github.com/aspherr/Morph"}
-                  cardVar={cardVariants}/>
-                              
-                <Project
-                  hasImage={true}
-                  image={<img src="images/neuro.png" alt="neuro-showcase" className='rounded-lg' />}
-                  name={"NEURO"} 
-                  subtitle={"AI Powered Notebook"} 
-                  desc={`Built a cross-platform AI-powered notebook with Rust and Tauri, featuring vault-based note management, 
-                          authentication with Redis, cloud storage, and OpenAI API integration for prompt interactions.`}
-                  tech_stack={neuro_tags}
-                  link={"https://github.com/aspherr/Neuro"}
-                  cardVar={cardVariants}/>
-
-                <Project 
-                  hasImage={false}
-                  name={"PROJECT λ"}  
-                  subtitle={""} 
-                  desc={"Coming Soon..."} 
-                  link={""}
-                  cardVar={cardVariants}/>
-                  
-              </div>
             </div>
           </div>
-        </div>
+        </section>
       </section>
-
-              
+        
       <section id="contact-me" className="min-h-screen flex">
         <div className='flex justify-center items-center w-full pb-30'>
           <div className="w-full max-w-lg mx-auto mt-30 px-4">
