@@ -91,10 +91,10 @@ export default function Home() {
   }, []);
 
   const zs_tags = [
-    "Javascript",
-    "React",
+    "TypeScript",
+    "ReactJS",
     "Express",
-    "Node JS",
+    "NodeJS",
     "SQL",
     "REST API",
   ] as const;
@@ -460,7 +460,19 @@ export default function Home() {
                   WORK EXPERIENCE
                 </h1>
               </div>
-                          
+
+              <div className='mx-2'>
+                <Work
+                date_range='2023-2024'
+                role={"FULL-STACK DEVELOPER"}
+                company={"Zee-Solutions Corp"}
+                desc={`Built and integrated full-stack features for government web apps using React and Node.js. 
+                        Developed responsive UI components, APIs, and role-based systems, ensuring secure, scalable, 
+                        and user-friendly solutions in an Agile environment.`}
+                tech_stack={zs_tags}
+                cardVar={cardVariants}/>
+              </div>
+            
             </div>
           </div>
         </section>
