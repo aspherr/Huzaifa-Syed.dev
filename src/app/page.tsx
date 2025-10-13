@@ -26,6 +26,7 @@ import {
   SiSvelte,
   SiRedis,
   SiOpenai,
+  SiMysql,
 } from 'react-icons/si';
 
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -99,12 +100,11 @@ export default function Home() {
   }, []);
 
   const zs_stack = [
-    "TypeScript",
-    "ReactJS",
-    "Express",
-    "NodeJS",
-    "SQL",
-    "REST API",
+    { key: 'ts', Icon: SiTypescript },
+    { key: 'react', Icon: SiReact },
+    { key: 'express', Icon: SiExpress },
+    { key: 'node', Icon: SiNodedotjs },
+    { key: 'sql', Icon: SiMysql }
   ] as const;
 
   const emplora_stack = [

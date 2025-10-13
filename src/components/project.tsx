@@ -53,7 +53,9 @@ const Project = ({ hasImage, image, name, subtitle, desc, tech_stack, demoLink, 
               {desc}
           </p>
 
-          <Stack tech_stack={tech_stack}/>
+          <div className="inset-x-4 md:inset-x-6 flex flex-wrap items-center gap-2 mt-4 mb-12 -space-x-4">
+            <Stack tech_stack={tech_stack}/>
+          </div>
         </div>
 
         <div className='absolute bottom-1 flex flex-row items-center p-4 gap-4 text-xs'>
