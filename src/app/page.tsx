@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useEffect, useState, useRef } from 'react';
-import { motion, type Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTheme } from "next-themes"
 import toast, { Toaster } from 'react-hot-toast';
 import GitHubCalendar from "react-github-calendar";
@@ -18,6 +18,14 @@ import {
   SiAmazonwebservices,
   SiDocker,
   SiNodedotjs,
+  SiMongodb,
+  SiDaisyui,
+  SiShadcnui,
+  SiRust,
+  SiTauri,
+  SiSvelte,
+  SiRedis,
+  SiOpenai,
 } from 'react-icons/si';
 
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -90,7 +98,7 @@ export default function Home() {
     fetchCommits();
   }, []);
 
-  const zs_tags = [
+  const zs_stack = [
     "TypeScript",
     "ReactJS",
     "Express",
@@ -99,36 +107,34 @@ export default function Home() {
     "REST API",
   ] as const;
 
-  const emplora_tags = [
-    "Javascript",
-    "React",
-    "Express",
-    "Node JS",
-    "MongoDB",
-    "TailwindCSS",
-    "DaisyUI",
-    "REST API",
+  const emplora_stack = [
+    { key: 'js', Icon: SiJavascript },
+    { key: 'react', Icon: SiReact },
+    { key: 'express', Icon: SiExpress },
+    { key: 'node', Icon: SiNodedotjs },
+    { key: 'mongo', Icon: SiMongodb },
+    { key: 'tailwind', Icon: SiTailwindcss },
+    { key: 'daisyui', Icon: SiDaisyui },
   ] as const;
 
-  const morph_tags = [
-    "Typescript",
-    "NextJS",
-    "Node JS",
-    "TailwindCSS",
-    "Shadecn/UI",
-    "REST API",
+  const morph_stack = [
+    { key: 'ts', Icon: SiTypescript },
+    { key: 'react', Icon: SiReact },
+    { key: 'next', Icon: SiNextdotjs },
+    { key: 'node', Icon: SiNodedotjs },
+    { key: 'tailwind', Icon: SiTailwindcss },
+    { key: 'shadecn/ui', Icon: SiShadcnui },
   ] as const;
 
-  const neuro_tags = [
-    "Rust",
-    "Tauri",
-    "Svelte",
-    "Javascript",
-    "TailwindCSS",
-    "Redis",
-    "OpenAI API",
+  const neuro_stack = [
+    { key: 'rust', Icon: SiRust },
+    { key: 'tauri', Icon: SiTauri },
+    { key: 'svelte', Icon: SiSvelte },
+    { key: 'js', Icon: SiJavascript },
+    { key: 'tailwind', Icon: SiTailwindcss },
+    { key: 'redis', Icon: SiRedis },
+    { key: 'openai', Icon: SiOpenai }
   ] as const;
-
 
   const successMsg = () => toast.success('Message was sent successfully!',
     {
@@ -447,7 +453,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id='experience' className='relative mt-10'>
+      <section id='experience' className='relative'>
         <section id="work" className="font-mono scroll-mt-24">
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
             <div className="flex flex-col gap-x-4 gap-y-6 w-full max-w-2xl mx-auto">
@@ -460,8 +466,7 @@ export default function Home() {
                   WORK EXPERIENCE
                 </h1>
               </div>
-
-              <div className='mx-2'>
+                
                 <Work
                 date_range='2023-2024'
                 role={"FULL-STACK DEVELOPER"}
@@ -469,10 +474,9 @@ export default function Home() {
                 desc={`Built and integrated full-stack features for government web apps using React and Node.js. 
                         Developed responsive UI components, APIs, and role-based systems, ensuring secure, scalable, 
                         and user-friendly solutions in an Agile environment.`}
-                tech_stack={zs_tags}
+                tech_stack={zs_stack}
                 cardVar={cardVariants}/>
-              </div>
-            
+          
             </div>
           </div>
         </section>
@@ -489,6 +493,53 @@ export default function Home() {
                   PROJECTS
                 </h1>
               </div>
+
+              <div className="fex min-w-0">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-15 md:gap-10 mt-3">
+                                
+                <Project
+                  hasImage={true}
+                  image={<img src="images/emplora.png" alt="emplora-showcase" className='w-full h-full object-cover rounded-t-lg' />}
+                  name={"EMPLORA"} 
+                  subtitle={"Employee Management System"} 
+                  desc={`Employee management web app featuring full CRUD operations, RESTful APIs, and 
+                          built-in rate limiting for secure and efficient data handling.`}
+                  tech_stack={emplora_stack}
+                  repoLink={"https://github.com/aspherr/Emplora"}
+                  cardVar={cardVariants}/>
+    
+                <Project
+                  hasImage={true}
+                  image={<img src="images/morph.png" alt="morph-showcase" className='w-full h-full object-cover rounded-t-lg' />}
+                  name={"MORPH"} 
+                  subtitle={"File-Converstion Web App"} 
+                  desc={`A simple and fast file conversion web app built with Next.js, enabling users to 
+                          seamlessly convert files between multiple formats.`}
+                  tech_stack={morph_stack}
+                  demoLink={"https://use-morph.vercel.app/"}
+                  repoLink={"https://github.com/aspherr/Morph"}
+                  cardVar={cardVariants}/>
+                              
+                <Project
+                  hasImage={true}
+                  image={<img src="images/neuro.png" alt="neuro-showcase" className='w-full h-full object-cover rounded-t-lg' />}
+                  name={"NEURO"} 
+                  subtitle={"AI Powered Notebook"} 
+                  desc={`A cross-platform AI-powered notebook that helps you organize, store, and interact with your notes 
+                          intelligently.`}
+                  tech_stack={neuro_stack}
+                  repoLink={"https://github.com/aspherr/Neuro"}
+                  cardVar={cardVariants}/>
+
+                <Project 
+                  hasImage={false}
+                  name={"PROJECT λ"}  
+                  subtitle={""} 
+                  desc={"Coming Soon..."} 
+                  cardVar={cardVariants}/>
+                  
+              </div>
+            </div>
 
             </div>
           </div>
