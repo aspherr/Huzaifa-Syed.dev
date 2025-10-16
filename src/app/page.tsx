@@ -161,7 +161,7 @@ export default function Home() {
       switch (key) {
         case 'name':
           if (!nameRegex.test(val)) {
-            warningMsg('Please enter a valid name.');
+            toast.warning('Please enter a valid name.');
             setNameError(true);
             return false;
           }
@@ -169,7 +169,7 @@ export default function Home() {
       
         case 'email':
           if (!emailRegex.test(val)) {
-            warningMsg('Please enter a valid email.');
+            toast.warning('Please enter a valid email.');
             setEmailError(true);
             return false;
           }
@@ -177,7 +177,7 @@ export default function Home() {
 
         case 'message':
           if (!val) {
-            warningMsg('Please enter a message.');
+            toast.warning('Please enter a message.');
             setMessageError(true);
             return false;
           }
@@ -204,7 +204,7 @@ export default function Home() {
 
         const json = await res.json();
         if (!json) {
-          failMsg();
+          toast.error("Message failed to send. Please try again.");
           return;
         }
 
@@ -217,7 +217,10 @@ export default function Home() {
         setMessage('');
         setMessageError(false);
        
+        toast.success("Message sent successfully.");
+      
     } catch (error) {
+        toast.error("Message failed to send. Please try again.");
         console.log("Error: ", error);
     }  
 }
