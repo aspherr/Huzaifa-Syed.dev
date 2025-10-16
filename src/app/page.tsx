@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { useTheme } from "next-themes"
 import toast, { Toaster } from 'react-hot-toast';
 import GitHubCalendar from "react-github-calendar";
-import { GitCommitHorizontal, BriefcaseBusiness, Layers } from "lucide-react"
+import { GitCommitHorizontal, BriefcaseBusiness, Layers, MessageSquareShare } from "lucide-react"
 import { 
   SiReact, 
   SiNextdotjs, 
@@ -548,7 +548,7 @@ export default function Home() {
         
       <section id="contact-me" className="min-h-screen flex">
         <div className='flex justify-center items-center w-full pb-30'>
-          <div className="w-full max-w-lg mx-auto mt-30 px-4">
+          <div className="w-full max-w-2xl mx-auto mt-30 px-4 md:px-0">
 
             <div className="flex flex-col md:flex-row gap-4 pb-4 ">
               <Link
@@ -559,7 +559,7 @@ export default function Home() {
                   width="24" height="24" 
                   viewBox="0 0 24 24" 
                   fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-                  className='text-blue-600 md:text-zinc-500 transition-colors duration-500'>
+                  className='text-neutral-500 group-hover:text-black/75 dark:group-hover:text-white transition-colors duration-500'>
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                     <polyline points="22,6 12,13 2,6"></polyline>
                   </svg>
@@ -574,7 +574,7 @@ export default function Home() {
                   width="24" height="24" 
                   viewBox="0 0 24 24" 
                   fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-                  className='text-blue-600 md:text-zinc-500 transition-colors duration-500'>
+                  className='text-neutral-500 group-hover:text-black/75 dark:group-hover:text-white  transition-colors duration-500'>
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                   </svg>
                 }
@@ -588,7 +588,7 @@ export default function Home() {
                   width="24" height="24" 
                   viewBox="0 0 24 24" 
                   fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-                  className='text-blue-600 md:text-zinc-500 transition-colors duration-500'>
+                  className='text-neutral-500 group-hover:text-black/75 dark:group-hover:text-white  transition-colors duration-500'>
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                     <rect x="2" y="9" width="4" height="12"></rect>
                     <circle cx="4" cy="4" r="2"></circle>
@@ -605,7 +605,7 @@ export default function Home() {
                     placeholder='Jane Doe'
                     value={name}
                     onChange={(e) => {setName(e.target.value); setNameError(false); }}
-                    className={`mt-1 block w-full border bg-[var(--background)] text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 ${nameError ? "border-dashed border-red-500" : "border-zinc-500"}`}
+                    className={`mt-1 block w-full border focus:border-black/75 dark:focus:border-white/75 bg-[var(--background)] text-black/75 dark:text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none transition-all duration-300 ${nameError ? "border-dashed border-red-500" : "border-accent"}`}
                   />
                 </div>
 
@@ -615,7 +615,7 @@ export default function Home() {
                     placeholder='jane.doe@example.com'
                     value={email}
                     onChange={(e) => {setEmail(e.target.value); setEmailError(false); }}
-                    className={`mt-1 block w-full border bg-[var(--background)] text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 ${emailError ? "border-dashed border-red-500" : "border-zinc-500"}`}
+                    className={`mt-1 block w-full border focus:border-black/75 focus:dark:border-white/75 bg-[var(--background)] text-black/75 dark:text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none transition-all duration-300 ${emailError ? "border-dashed border-red-500" : "border-accent"}`}
                   />
                 </div>
 
@@ -624,16 +624,19 @@ export default function Home() {
                   placeholder='Type your message here...'
                   value={message}
                   onChange={(e) => {setMessage(e.target.value); setMessageError(false)}}
-                  className={`mt-1 block w-full h-72 border bg-[var(--background)] text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none focus:border-white transition-all duration-300 resize-none ${messageError ? "border-dashed border-red-500" : "border-zinc-500"}`}>
+                  className={`mt-1 block w-full h-72 border focus:border-black/75 focus:dark:border-white/75 bg-[var(--background)] text-black/75 dark:text-white placeholder-zinc-600 rounded-md shadow-sm p-2 outline-none transition-all duration-300 resize-none ${messageError ? "border-dashed border-red-500" : "border-accent"}`}>
                   </textarea>
                 </div>
 
-                <div className='flex justify-center'>
-                  <input 
-                  type="submit" 
-                  value="Send Message"
-                  className='border border-blue-600 rounded-3xl px-6 py-2 flex items-center justify-center text-center hover:bg-blue-600 duration-500 transition-all'>
-                  </input>
+                <div className='flex flex-row justify-center items-center'>
+                  <div className='flex items-center w-44 h-12 mt-4 mb-4 border border-blue-600 backdrop-blur bg-accent/30 rounded-xl px-6 py-2 text-center hover:bg-blue-600 duration-500 transition-all gap-2'>
+                    <input 
+                    type="submit" 
+                    value="SEND MESSAGE"
+                    className='text-sm'>
+                    </input>
+                    <MessageSquareShare strokeWidth={1.5} width={16} height={16}/>
+                  </div>
                 </div>
               </motion.div>
 
@@ -642,7 +645,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
       <Footer/>
       
       <GradualBlur
