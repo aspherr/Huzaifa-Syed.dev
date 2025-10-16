@@ -27,7 +27,7 @@ const Work = ({ date_range, role, company, desc, tech_stack, cardVar }: WorkProp
         <p className="text-xs md:text-sm mt-2 max-w-2xl break-words leading-relaxed text-left">{desc}</p>
       </div>
 
-      <div className="absolute inset-x-4 sm:inset-x-6 bottom-3 sm:bottom-7 flex flex-wrap items-center gap-2 -space-x-4">
+      <div className="absolute inset-x-4 sm:inset-x-6 bottom-4 sm:bottom-6 flex flex-wrap items-center gap-2 -space-x-4">
         <Stack tech_stack={tech_stack} />
       </div>
     </motion.div>
