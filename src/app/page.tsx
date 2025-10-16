@@ -82,7 +82,8 @@ export default function Home() {
   const today = new Date();
   const threeMonthsAgo = new Date();
   threeMonthsAgo.setMonth(today.getMonth() - 3);
-  threeMonthsAgo.setDate(threeMonthsAgo.getDate() - 24);
+  const totalDays = window.innerWidth <= 768 ? 46 : 24;
+  threeMonthsAgo.setDate(threeMonthsAgo.getDate() - totalDays);
 
   const repoName = "Morph"
   const repoUrl = "https://github.com/aspherr/Morph"
