@@ -19,8 +19,8 @@ function useIsMobile(breakpoint = 900) {
 const Cursor = () => {
   const isMobile = useIsMobile();
 
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+  const x = useMotionValue(-8);
+  const y = useMotionValue(-8);
   const springConfig = { damping: 20, stiffness: 180, mass: 0.2 };
   const xSpring = useSpring(x, springConfig);
   const ySpring = useSpring(y, springConfig);
@@ -40,7 +40,7 @@ const Cursor = () => {
 
   return (
     <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-[99999] h-4.5 w-4.5 rounded-full bg-blue-600"
+      className="pointer-events-none fixed left-0 top-0 z-[99999] h-7 w-7 rounded-full bg-accent/80 border border-accent/30"
       style={{
         x: xSpring,
         y: ySpring,
