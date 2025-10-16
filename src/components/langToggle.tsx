@@ -4,12 +4,15 @@ import Image from "next/image"
 import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
+import { toast } from "sonner"
 
 const LangToggle = () => {
   const [language, setLanguage] = useState<"en" | "jp">("en")
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "en" ? "jp" : "en"))
+    // setLanguage((prev) => (prev === "en" ? "jp" : "en"))
+    setLanguage("en");
+    toast.info("Hang tight — We're still working on this feature.")
   }
 
   return (
