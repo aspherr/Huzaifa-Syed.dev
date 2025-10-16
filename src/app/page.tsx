@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from "next-themes"
-import toast, { Toaster } from 'react-hot-toast';
+import { toast } from "sonner"
 import GitHubCalendar from "react-github-calendar";
 import { GitCommitHorizontal, BriefcaseBusiness, Layers, MessageSquareShare } from "lucide-react"
 import { 
@@ -136,36 +136,6 @@ export default function Home() {
     { key: 'openai', Icon: SiOpenai }
   ] as const;
 
-  const successMsg = () => toast.success('Message was sent successfully!',
-    {
-      style: {
-        borderRadius: '10px',
-        background: '#333',
-        color: '#fff',
-      },
-    }
-  );
-
-  const warningMsg = (msg: string) => toast.error(msg,
-    {
-      style: {
-        borderRadius: '10px',
-        background: '#333',
-        color: '#fff',
-      },
-    }
-  );
-
-  const failMsg = () => toast.error('Failed to send message. Try Again!',
-    {
-      style: {
-        borderRadius: '10px',
-        background: '#333',
-        color: '#fff',
-      },
-    }
-  );
-
   const [name, setName] = useState('');
   const [nameError, setNameError] = useState(false);
   
@@ -247,17 +217,13 @@ export default function Home() {
         setMessage('');
         setMessageError(false);
        
-        successMsg();
-      
     } catch (error) {
         console.log("Error: ", error);
     }  
 }
   
   return (
-    <main ref={mainRef} className="h-screen overflow-y-scroll scroll-smooth w-full">
-      <Toaster position="bottom-center" reverseOrder={false} />
-      
+    <main ref={mainRef} className="h-screen overflow-y-scroll scroll-smooth w-full">    
       <section id="settings" className="mt-5 md:mt-20 pointer-events-none">
         <div className="fixed top-4 z-50 w-full flex justify-center pointer-events-none">
           <div className="flex flex-col items-center justify-center 

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ThemeProvider } from "@/components/ui/theme-provider"
+import { Toaster } from "@/components/ui/sonner"
 import "./globals.css";
 
 
@@ -46,6 +47,11 @@ export default function RootLayout({
           <SpeedInsights />
           <Cursor />
           {children}
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              className: "w-[90vw] max-w-full md:max-w-[300px]",
+            }}/>
         </ThemeProvider>
       </body>
     </html>
