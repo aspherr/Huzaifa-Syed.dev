@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useEffect, useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useTheme } from "next-themes"
 import { toast } from "sonner"
 import GitHubCalendar from "react-github-calendar";
@@ -52,6 +52,14 @@ export default function Home() {
   const colorScheme = resolvedTheme === "dark" ? "dark" : "light";
 
   const mainRef = useRef<HTMLDivElement | null>(null);
+  const titleRef = useRef<HTMLDivElement | null>(null);
+
+  const titleInView = useInView(titleRef, {
+    root: mainRef,
+    margin: "-10% 0px -70% 0px",
+    amount: "some",
+  });
+  const showLocation = titleInView
 
   const cardVariants = {
     rest: { scale: 1 },
@@ -235,7 +243,48 @@ export default function Home() {
                           rounded-md p-1 px-3 shadow-md border border-accent/40 
                           pointer-events-auto">
             <div className="flex flex-row items-center justify-between w-full">
-              <div className="text-sm leading-tight">📍 London, UK</div>
+              <div className="relative w-56 h-7 overflow-hidden flex items-center">
+                <AnimatePresence
+                  mode="wait">
+                  {showLocation ? (
+                    <motion.div
+                      key="location"
+                      className="absolute text-sm leading-tight"
+                      initial={{ x: -50, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      exit={{ x: -50, opacity: 0 }}
+                      transition={{
+                        duration: 0.6,
+                        ease: [0.25, 0.1, 0.25, 1],
+                      }}>
+                      📍 London, UK
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="name"
+                      className="absolute text-sm leading-tight"
+                      initial={{ x: -50, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      exit={{ x: -50, opacity: 0 }}
+                      transition={{
+                        duration: 0.6,
+                        ease: [0.25, 0.1, 0.25, 1],
+                      }}>
+                      <div className="flex flex-row items-center gap-2">
+                        <div className="relative items-center w-8 h-8"> 
+                          <Image
+                            src="/images/memoji.png"
+                            alt="Memoji"
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                        <span className='font-semibold text-md tracking-widest leading-none'>HS</span>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               <div className="flex flex-row items-center space-x-2">
                 <LangToggle />
@@ -253,7 +302,7 @@ export default function Home() {
       <section id="home" className='mt-15 md:mt-5'>
         <div className="flex flex-col items-center justify-start min-h-screen max-w-screen-xl mx-auto px-6 pt-6 font-mono">
           <div className="flex md:flex-row items-center justify-between w-full max-w-2xl px-0 font-mono">
-            <div className="text-left text-black/75 dark:text-white">
+            <div ref={titleRef} className="text-left text-black/75 dark:text-white">
               <p>Hey there I'm</p>
               <div className="text-4xl md:text-6xl font-semibold">
                 <h1>Huzaifa</h1>
