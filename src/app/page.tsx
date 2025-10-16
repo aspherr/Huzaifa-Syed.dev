@@ -79,14 +79,9 @@ export default function Home() {
     { node: <SiNodedotjs />, title: "Node.js", href: "https://nodejs.org/en" },
   ];
 
-  const today = new Date();
-  const threeMonthsAgo = new Date();
-  threeMonthsAgo.setMonth(today.getMonth() - 3);
-  const totalDays = window.innerWidth <= 768 ? 46 : 24;
-  threeMonthsAgo.setDate(threeMonthsAgo.getDate() - totalDays);
-
   const repoName = "Morph"
   const repoUrl = "https://github.com/aspherr/Morph"
+  const [totalDays, setTotalDays] = useState(0);
   const [commits, setCommits] = useState([])
   useEffect(() => {
     const fetchCommits = async () => {
@@ -105,8 +100,14 @@ export default function Home() {
       } 
     }
 
+    setTotalDays(window.innerWidth <= 768 ? 46 : 24);
     fetchCommits();
   }, []);
+
+  const today = new Date();
+  const threeMonthsAgo = new Date();
+  threeMonthsAgo.setMonth(today.getMonth() - 3);
+  threeMonthsAgo.setDate(threeMonthsAgo.getDate() - totalDays);
 
   const zs_stack = [
     { key: 'ts', Icon: SiTypescript },
