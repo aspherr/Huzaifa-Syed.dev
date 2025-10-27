@@ -350,7 +350,7 @@ export default function Home() {
           <div className="flex flex-col w-full max-w-2xl">
             <div className='flex flex-col w-full md:w-auto pt-5 items-center justify-center'>
               <div className="h-12 mt-4 mb-4 border border-blue-600 backdrop-blur bg-accent/30 rounded-xl px-6 py-2 flex items-center justify-center text-center hover:bg-blue-600 duration-500 transition-all">
-                  <a href="/download/cv.pdf" download className="flex items-center gap-2 text-sm text-black/75 dark:text-white">
+                  <a href="/download/resume.pdf" download className="flex items-center gap-2 text-sm text-black/75 dark:text-white">
                     <span>DOWNLOAD RESUME</span>
                     <Download strokeWidth={1.5} width={16} height={16}/>
                   </a>
