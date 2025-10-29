@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { House, BriefcaseBusiness, Layers, Mail} from "lucide-react"
 
 
-const Navbar = React.forwardRef<HTMLDivElement, {}>((_, ref)  => {
+const Navbar = React.forwardRef<HTMLDivElement>((_, ref)  => {
     const [activeSection, setActiveSection] = useState("home")
 
     const icons = React.useMemo(
@@ -93,5 +93,7 @@ const Navbar = React.forwardRef<HTMLDivElement, {}>((_, ref)  => {
         </div>
     )
 });
+
+Navbar.displayName = "Navbar";
 
 export default Navbar

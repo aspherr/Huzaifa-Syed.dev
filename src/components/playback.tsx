@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image';
 import useSWR from 'swr';
 
 import Bars from './bars';
@@ -11,7 +12,7 @@ const PlayBack = () => {
     <div className="grid grid-cols-[auto_1fr] items-center gap-x-4 leading-tight ml-4 mt-2 text-black/75 dark:text-white">
       {data?.image ? (
         <a href={data.url} target="_blank">
-          <img src={data.image}  alt="Cover Art" className="w-14 h-14 rounded mt-0.5 border border-accent/40" />
+          <Image src={data.image}  alt="Cover Art" width={56} height={56} className="rounded mt-0.5 border border-accent/40" />
         </a>
       ) : null}
 

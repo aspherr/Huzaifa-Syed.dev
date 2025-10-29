@@ -42,7 +42,6 @@ import Playback from "@/components/playback";
 import Work from '@/components/work';
 import Project from '@/components/project';
 import Link from '@/components/link';
-import GradualBlur from '@/components/GradualBlur';
 import Footer from '@/components/footer';
 
 export default function Home() {
@@ -307,7 +306,7 @@ export default function Home() {
         <div className="flex flex-col items-center justify-start min-h-screen max-w-screen-xl mx-auto px-6 pt-6 font-mono">
           <div className="flex md:flex-row items-center justify-between w-full max-w-2xl px-0 font-mono">
             <div ref={titleRef} className="text-left text-black/75 dark:text-white">
-              <p>Hey there I'm</p>
+              <p>Hey there I&rsquo;m</p>
               <div className="text-4xl md:text-6xl font-semibold">
                 <h1>Huzaifa</h1>
                 <h1 className="text-blue-600">Syed</h1>
@@ -330,7 +329,7 @@ export default function Home() {
 
           <div className="leading-relaxed text-left w-full max-w-2xl mt-6">
             <p className="pb-5 text-sm md:text-md max-w-full md:max-w-md mx-auto md:mx-0 md:text-left text-black/75 dark:text-white">
-              I'm a full-stack React and Next.js developer focused on building fast, scalable, and reliable web experiences ⚡
+              I&rsquo;m a full-stack React and Next.js developer focused on building fast, scalable, and reliable web experiences ⚡
             </p>
 
 
@@ -512,7 +511,7 @@ export default function Home() {
                                 
                 <Project
                   hasImage={true}
-                  image={<img src="images/emplora.png" alt="emplora-showcase" className='w-full h-full object-cover rounded-t-lg' />}
+                  image={<Image src="/images/emplora.png" alt="emplora-showcase" width={3024} height={1780} className='object-cover rounded-t-lg' />}
                   name={"EMPLORA"} 
                   subtitle={"Employee Management System"} 
                   desc={`Employee management web app featuring full CRUD operations, RESTful APIs, and 
@@ -523,7 +522,7 @@ export default function Home() {
     
                 <Project
                   hasImage={true}
-                  image={<img src="images/morph.png" alt="morph-showcase" className='w-full h-full object-cover rounded-t-lg' />}
+                  image={<Image src="/images/morph.png" alt="morph-showcase" width={3024} height={1780} className='object-cover rounded-t-lg' />}
                   name={"MORPH"} 
                   subtitle={"Media-Converstion Web App"} 
                   desc={`A simple and fast multi-media conversion web app built with Next.js, enabling users to 
@@ -535,7 +534,7 @@ export default function Home() {
                               
                 <Project
                   hasImage={true}
-                  image={<img src="images/neuro.png" alt="neuro-showcase" className='w-full h-full object-cover rounded-t-lg' />}
+                  image={<Image src="/images/neuro.png" alt="neuro-showcase" width={3024} height={1780} className='object-cover rounded-t-lg' />}
                   name={"NEURO"} 
                   subtitle={"AI Powered Notebook"} 
                   desc={`A cross-platform AI-powered notebook that helps you organize, store, and interact with your notes 
@@ -660,7 +659,8 @@ export default function Home() {
 
       <Footer/>
       
-      <GradualBlur
+      {/*
+        <GradualBlur
         target="parent"
         position="bottom"
         height="6rem"
@@ -669,7 +669,8 @@ export default function Home() {
         curve="bezier"
         exponential={true}
         opacity={1}
-      />
+        />
+      */}
     </main>      
   );
 }
