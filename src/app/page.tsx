@@ -27,6 +27,7 @@ import {
   SiRedis,
   SiOpenai,
   SiPostgresql,
+  SiFfmpeg
 } from 'react-icons/si';
 
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -132,6 +133,7 @@ export default function Home() {
     { key: 'react', Icon: SiReact },
     { key: 'next', Icon: SiNextdotjs },
     { key: 'node', Icon: SiNodedotjs },
+    { key: 'ffmpeg.wasm', Icon: SiFfmpeg },
     { key: 'tailwind', Icon: SiTailwindcss },
     { key: 'shadecn/ui', Icon: SiShadcnui },
   ] as const;
@@ -523,9 +525,9 @@ export default function Home() {
                   hasImage={true}
                   image={<img src="images/morph.png" alt="morph-showcase" className='w-full h-full object-cover rounded-t-lg' />}
                   name={"MORPH"} 
-                  subtitle={"File-Converstion Web App"} 
-                  desc={`A simple and fast file conversion web app built with Next.js, enabling users to 
-                          seamlessly convert files between multiple formats.`}
+                  subtitle={"Media-Converstion Web App"} 
+                  desc={`A simple and fast multi-media conversion web app built with Next.js, enabling users to 
+                          seamlessly convert media between multiple formats.`}
                   tech_stack={morph_stack}
                   demoLink={"https://use-morph.vercel.app/"}
                   repoLink={"https://github.com/aspherr/Morph"}
