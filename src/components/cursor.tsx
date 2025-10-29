@@ -19,8 +19,8 @@ function useIsMobile(breakpoint = 900) {
 const Cursor = () => {
   const isMobile = useIsMobile();
 
-  const x = useMotionValue(-8);
-  const y = useMotionValue(-8);
+  const x = useMotionValue(-1);
+  const y = useMotionValue(-1);
   const springConfig = { damping: 20, stiffness: 180, mass: 0.2 };
   const xSpring = useSpring(x, springConfig);
   const ySpring = useSpring(y, springConfig);
